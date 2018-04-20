@@ -1,0 +1,2962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src').replace( /\\/g, '/');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/io.html">\io</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-262662072"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-262662072" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1202789780"></a>
+                                <a href="../namespaces/io.html" style="margin-left: 30px; padding-left: 0">io</a>
+            </div>
+            <div id="namespace-1202789780" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2117188771"></a>
+                                <a href="../namespaces/io.vertx.html" style="margin-left: 30px; padding-left: 0">vertx</a>
+            </div>
+            <div id="namespace-2117188771" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-576267300"></a>
+                                <a href="../namespaces/io.vertx.jphp.html" style="margin-left: 30px; padding-left: 0">jphp</a>
+            </div>
+            <div id="namespace-576267300" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2077729293"></a>
+                                <a href="../namespaces/io.vertx.jphp.ext.html" style="margin-left: 30px; padding-left: 0">ext</a>
+            </div>
+            <div id="namespace-2077729293" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-527785089"></a>
+                                <a href="../namespaces/io.vertx.jphp.ext.mongo.html" style="margin-left: 30px; padding-left: 0">mongo</a>
+            </div>
+            <div id="namespace-527785089" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.mongo.BulkOperation.html">BulkOperation</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.mongo.BulkWriteOptions.html">BulkWriteOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.mongo.FindOptions.html">FindOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.mongo.IndexOptions.html">IndexOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.mongo.MongoClient.html">MongoClient</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.mongo.MongoClientBulkWriteResult.html">MongoClientBulkWriteResult</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.mongo.MongoClientDeleteResult.html">MongoClientDeleteResult</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.mongo.MongoClientUpdateResult.html">MongoClientUpdateResult</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html">MongoService</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.mongo.UpdateOptions.html">UpdateOptions</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/io.vertx.jphp.ext.mongo.html">\io\vertx\jphp\ext\mongo</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\io\vertx\jphp\ext\mongo</small>MongoService</h1>
+                    <p><em></em></p>
+                    
+                    
+                                        
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html#method_createEventBusProxy" class="">createEventBusProxy()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html#method_save" class="">save()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html#method_saveWithOptions" class="">saveWithOptions()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html#method_insert" class="">insert()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html#method_insertWithOptions" class="">insertWithOptions()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html#method_update" class="">update()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html#method_updateCollection" class="">updateCollection()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html#method_updateWithOptions" class="">updateWithOptions()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html#method_updateCollectionWithOptions" class="">updateCollectionWithOptions()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html#method_replace" class="">replace()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html#method_replaceDocuments" class="">replaceDocuments()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html#method_replaceWithOptions" class="">replaceWithOptions()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html#method_replaceDocumentsWithOptions" class="">replaceDocumentsWithOptions()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html#method_bulkWrite" class="">bulkWrite()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html#method_bulkWriteWithOptions" class="">bulkWriteWithOptions()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html#method_find" class="">find()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html#method_findWithOptions" class="">findWithOptions()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html#method_findOne" class="">findOne()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html#method_findOneAndUpdate" class="">findOneAndUpdate()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html#method_findOneAndUpdateWithOptions" class="">findOneAndUpdateWithOptions()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html#method_findOneAndReplace" class="">findOneAndReplace()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html#method_findOneAndReplaceWithOptions" class="">findOneAndReplaceWithOptions()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html#method_findOneAndDelete" class="">findOneAndDelete()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html#method_findOneAndDeleteWithOptions" class="">findOneAndDeleteWithOptions()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html#method_count" class="">count()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html#method_remove" class="">remove()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html#method_removeDocuments" class="">removeDocuments()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html#method_removeWithOptions" class="">removeWithOptions()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html#method_removeDocumentsWithOptions" class="">removeDocumentsWithOptions()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html#method_removeOne" class="">removeOne()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html#method_removeDocument" class="">removeDocument()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html#method_removeOneWithOptions" class="">removeOneWithOptions()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html#method_removeDocumentWithOptions" class="">removeDocumentWithOptions()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html#method_createCollection" class="">createCollection()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html#method_getCollections" class="">getCollections()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html#method_dropCollection" class="">dropCollection()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html#method_createIndex" class="">createIndex()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html#method_createIndexWithOptions" class="">createIndexWithOptions()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html#method_listIndexes" class="">listIndexes()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html#method_dropIndex" class="">dropIndex()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html#method_runCommand" class="">runCommand()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html#method_distinct" class="">distinct()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html#method_distinctWithQuery" class="">distinctWithQuery()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html#method_close" class="">close()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No public properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No constants found</em>
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <em>No protected methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No protected properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html#method___construct" class="">__construct()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No private properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/io.vertx.jphp.ext.mongo.MongoService.html"><div class="path-wrapper">io/vertx/jphp/ext/mongo/MongoService.php</div></a></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                    <div class="namespace-wrapper">\io\vertx\jphp\ext\mongo\MongoService</div>
+                            </dd>
+
+                        
+                        
+                        
+                                                
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr><td colspan="2"><em>None found</em></td></tr>
+                                        </table>
+                </aside>
+            </div>
+
+                        
+                        
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_createEventBusProxy" name="method_createEventBusProxy" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">createEventBusProxy()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">createEventBusProxy( <span class="argument">arg0</span>,  <span class="argument">arg1</span>) : \io\vertx\jphp\ext\mongo\MongoService</pre>
+                <p><em>Create a proxy to a service that is deployed somewhere on the event bus</em></p>
+                <p>$vertx [Vertx] the Vert.x instance</p>
+<p>$address [string] the address the service is listening on on the event bus</p>
+<p><b>
+createEventBusProxy($vertx,$address)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>Vertx</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\mongo\MongoService
+                                            &mdash; <p>the service</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html"><div class="path-wrapper">\io\vertx\jphp\ext\mongo\MongoService</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_save" name="method_save" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">save()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">save( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>) : \io\vertx\jphp\ext\mongo\MongoService</pre>
+                <p><em>$collection [string]</em></p>
+                <p>$document [mixed]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+save($collection,$document,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\mongo\MongoService
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html"><div class="path-wrapper">\io\vertx\jphp\ext\mongo\MongoService</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_saveWithOptions" name="method_saveWithOptions" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">saveWithOptions()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">saveWithOptions( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>,  <span class="argument">arg3</span>) : \io\vertx\jphp\ext\mongo\MongoService</pre>
+                <p><em>$collection [string]</em></p>
+                <p>$document [mixed]</p>
+<p>$writeOption [string]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+saveWithOptions($collection,$document,$writeOption,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg3 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\mongo\MongoService
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html"><div class="path-wrapper">\io\vertx\jphp\ext\mongo\MongoService</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_insert" name="method_insert" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">insert()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">insert( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>) : \io\vertx\jphp\ext\mongo\MongoService</pre>
+                <p><em>$collection [string]</em></p>
+                <p>$document [mixed]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+insert($collection,$document,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\mongo\MongoService
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html"><div class="path-wrapper">\io\vertx\jphp\ext\mongo\MongoService</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_insertWithOptions" name="method_insertWithOptions" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">insertWithOptions()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">insertWithOptions( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>,  <span class="argument">arg3</span>) : \io\vertx\jphp\ext\mongo\MongoService</pre>
+                <p><em>$collection [string]</em></p>
+                <p>$document [mixed]</p>
+<p>$writeOption [string]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+insertWithOptions($collection,$document,$writeOption,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg3 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\mongo\MongoService
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html"><div class="path-wrapper">\io\vertx\jphp\ext\mongo\MongoService</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_update" name="method_update" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">update()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">update( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>,  <span class="argument">arg3</span>) : \io\vertx\jphp\ext\mongo\MongoService</pre>
+                <p><em>$collection [string]</em></p>
+                <p>$query [mixed]</p>
+<p>$update [mixed]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+update($collection,$query,$update,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg3 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\mongo\MongoService
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html"><div class="path-wrapper">\io\vertx\jphp\ext\mongo\MongoService</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_updateCollection" name="method_updateCollection" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">updateCollection()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">updateCollection( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>,  <span class="argument">arg3</span>) : \io\vertx\jphp\ext\mongo\MongoService</pre>
+                <p><em>$collection [string]</em></p>
+                <p>$query [mixed]</p>
+<p>$update [mixed]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+updateCollection($collection,$query,$update,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg3 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\mongo\MongoService
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html"><div class="path-wrapper">\io\vertx\jphp\ext\mongo\MongoService</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_updateWithOptions" name="method_updateWithOptions" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">updateWithOptions()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">updateWithOptions( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>,  <span class="argument">arg3</span>,  <span class="argument">arg4</span>) : \io\vertx\jphp\ext\mongo\MongoService</pre>
+                <p><em>$collection [string]</em></p>
+                <p>$query [mixed]</p>
+<p>$update [mixed]</p>
+<p>$options [UpdateOptions | mixed]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+updateWithOptions($collection,$query,$update,$options,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg3 </td>
+                                <td><p>mixed | UpdateOptions</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg4 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\mongo\MongoService
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html"><div class="path-wrapper">\io\vertx\jphp\ext\mongo\MongoService</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_updateCollectionWithOptions" name="method_updateCollectionWithOptions" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">updateCollectionWithOptions()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">updateCollectionWithOptions( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>,  <span class="argument">arg3</span>,  <span class="argument">arg4</span>) : \io\vertx\jphp\ext\mongo\MongoService</pre>
+                <p><em>$collection [string]</em></p>
+                <p>$query [mixed]</p>
+<p>$update [mixed]</p>
+<p>$options [UpdateOptions | mixed]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+updateCollectionWithOptions($collection,$query,$update,$options,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg3 </td>
+                                <td><p>mixed | UpdateOptions</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg4 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\mongo\MongoService
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html"><div class="path-wrapper">\io\vertx\jphp\ext\mongo\MongoService</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_replace" name="method_replace" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">replace()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">replace( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>,  <span class="argument">arg3</span>) : \io\vertx\jphp\ext\mongo\MongoService</pre>
+                <p><em>$collection [string]</em></p>
+                <p>$query [mixed]</p>
+<p>$replace [mixed]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+replace($collection,$query,$replace,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg3 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\mongo\MongoService
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html"><div class="path-wrapper">\io\vertx\jphp\ext\mongo\MongoService</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_replaceDocuments" name="method_replaceDocuments" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">replaceDocuments()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">replaceDocuments( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>,  <span class="argument">arg3</span>) : \io\vertx\jphp\ext\mongo\MongoService</pre>
+                <p><em>$collection [string]</em></p>
+                <p>$query [mixed]</p>
+<p>$replace [mixed]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+replaceDocuments($collection,$query,$replace,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg3 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\mongo\MongoService
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html"><div class="path-wrapper">\io\vertx\jphp\ext\mongo\MongoService</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_replaceWithOptions" name="method_replaceWithOptions" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">replaceWithOptions()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">replaceWithOptions( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>,  <span class="argument">arg3</span>,  <span class="argument">arg4</span>) : \io\vertx\jphp\ext\mongo\MongoService</pre>
+                <p><em>$collection [string]</em></p>
+                <p>$query [mixed]</p>
+<p>$replace [mixed]</p>
+<p>$options [UpdateOptions | mixed]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+replaceWithOptions($collection,$query,$replace,$options,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg3 </td>
+                                <td><p>mixed | UpdateOptions</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg4 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\mongo\MongoService
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html"><div class="path-wrapper">\io\vertx\jphp\ext\mongo\MongoService</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_replaceDocumentsWithOptions" name="method_replaceDocumentsWithOptions" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">replaceDocumentsWithOptions()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">replaceDocumentsWithOptions( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>,  <span class="argument">arg3</span>,  <span class="argument">arg4</span>) : \io\vertx\jphp\ext\mongo\MongoService</pre>
+                <p><em>$collection [string]</em></p>
+                <p>$query [mixed]</p>
+<p>$replace [mixed]</p>
+<p>$options [UpdateOptions | mixed]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+replaceDocumentsWithOptions($collection,$query,$replace,$options,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg3 </td>
+                                <td><p>mixed | UpdateOptions</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg4 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\mongo\MongoService
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html"><div class="path-wrapper">\io\vertx\jphp\ext\mongo\MongoService</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_bulkWrite" name="method_bulkWrite" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">bulkWrite()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">bulkWrite( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>) : \io\vertx\jphp\ext\mongo\MongoService</pre>
+                <p><em>$collection [string]</em></p>
+                <p>$operations [array]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+bulkWrite($collection,$operations,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>array</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\mongo\MongoService
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html"><div class="path-wrapper">\io\vertx\jphp\ext\mongo\MongoService</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_bulkWriteWithOptions" name="method_bulkWriteWithOptions" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">bulkWriteWithOptions()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">bulkWriteWithOptions( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>,  <span class="argument">arg3</span>) : \io\vertx\jphp\ext\mongo\MongoService</pre>
+                <p><em>$collection [string]</em></p>
+                <p>$operations [array]</p>
+<p>$bulkWriteOptions [BulkWriteOptions | mixed]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+bulkWriteWithOptions($collection,$operations,$bulkWriteOptions,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>array</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>BulkWriteOptions | mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg3 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\mongo\MongoService
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html"><div class="path-wrapper">\io\vertx\jphp\ext\mongo\MongoService</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_find" name="method_find" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">find()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">find( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>) : \io\vertx\jphp\ext\mongo\MongoService</pre>
+                <p><em>$collection [string]</em></p>
+                <p>$query [mixed]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+find($collection,$query,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\mongo\MongoService
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html"><div class="path-wrapper">\io\vertx\jphp\ext\mongo\MongoService</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_findWithOptions" name="method_findWithOptions" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">findWithOptions()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">findWithOptions( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>,  <span class="argument">arg3</span>) : \io\vertx\jphp\ext\mongo\MongoService</pre>
+                <p><em>$collection [string]</em></p>
+                <p>$query [mixed]</p>
+<p>$options [FindOptions | mixed]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+findWithOptions($collection,$query,$options,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>FindOptions | mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg3 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\mongo\MongoService
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html"><div class="path-wrapper">\io\vertx\jphp\ext\mongo\MongoService</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_findOne" name="method_findOne" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">findOne()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">findOne( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>,  <span class="argument">arg3</span>) : \io\vertx\jphp\ext\mongo\MongoService</pre>
+                <p><em>$collection [string]</em></p>
+                <p>$query [mixed]</p>
+<p>$fields [mixed]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+findOne($collection,$query,$fields,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg3 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\mongo\MongoService
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html"><div class="path-wrapper">\io\vertx\jphp\ext\mongo\MongoService</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_findOneAndUpdate" name="method_findOneAndUpdate" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">findOneAndUpdate()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">findOneAndUpdate( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>,  <span class="argument">arg3</span>) : \io\vertx\jphp\ext\mongo\MongoService</pre>
+                <p><em>$collection [string]</em></p>
+                <p>$query [mixed]</p>
+<p>$update [mixed]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+findOneAndUpdate($collection,$query,$update,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg3 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\mongo\MongoService
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html"><div class="path-wrapper">\io\vertx\jphp\ext\mongo\MongoService</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_findOneAndUpdateWithOptions" name="method_findOneAndUpdateWithOptions" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">findOneAndUpdateWithOptions()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">findOneAndUpdateWithOptions( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>,  <span class="argument">arg3</span>,  <span class="argument">arg4</span>,  <span class="argument">arg5</span>) : \io\vertx\jphp\ext\mongo\MongoService</pre>
+                <p><em>$collection [string]</em></p>
+                <p>$query [mixed]</p>
+<p>$update [mixed]</p>
+<p>$findOptions [FindOptions | mixed]</p>
+<p>$updateOptions [UpdateOptions | mixed]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+findOneAndUpdateWithOptions($collection,$query,$update,$findOptions,$updateOptions,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg3 </td>
+                                <td><p>FindOptions | mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg4 </td>
+                                <td><p>mixed | UpdateOptions</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg5 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\mongo\MongoService
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html"><div class="path-wrapper">\io\vertx\jphp\ext\mongo\MongoService</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_findOneAndReplace" name="method_findOneAndReplace" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">findOneAndReplace()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">findOneAndReplace( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>,  <span class="argument">arg3</span>) : \io\vertx\jphp\ext\mongo\MongoService</pre>
+                <p><em>$collection [string]</em></p>
+                <p>$query [mixed]</p>
+<p>$replace [mixed]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+findOneAndReplace($collection,$query,$replace,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg3 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\mongo\MongoService
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html"><div class="path-wrapper">\io\vertx\jphp\ext\mongo\MongoService</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_findOneAndReplaceWithOptions" name="method_findOneAndReplaceWithOptions" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">findOneAndReplaceWithOptions()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">findOneAndReplaceWithOptions( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>,  <span class="argument">arg3</span>,  <span class="argument">arg4</span>,  <span class="argument">arg5</span>) : \io\vertx\jphp\ext\mongo\MongoService</pre>
+                <p><em>$collection [string]</em></p>
+                <p>$query [mixed]</p>
+<p>$update [mixed]</p>
+<p>$findOptions [FindOptions | mixed]</p>
+<p>$updateOptions [UpdateOptions | mixed]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+findOneAndReplaceWithOptions($collection,$query,$update,$findOptions,$updateOptions,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg3 </td>
+                                <td><p>FindOptions | mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg4 </td>
+                                <td><p>mixed | UpdateOptions</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg5 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\mongo\MongoService
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html"><div class="path-wrapper">\io\vertx\jphp\ext\mongo\MongoService</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_findOneAndDelete" name="method_findOneAndDelete" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">findOneAndDelete()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">findOneAndDelete( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>) : \io\vertx\jphp\ext\mongo\MongoService</pre>
+                <p><em>$collection [string]</em></p>
+                <p>$query [mixed]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+findOneAndDelete($collection,$query,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\mongo\MongoService
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html"><div class="path-wrapper">\io\vertx\jphp\ext\mongo\MongoService</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_findOneAndDeleteWithOptions" name="method_findOneAndDeleteWithOptions" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">findOneAndDeleteWithOptions()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">findOneAndDeleteWithOptions( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>,  <span class="argument">arg3</span>) : \io\vertx\jphp\ext\mongo\MongoService</pre>
+                <p><em>$collection [string]</em></p>
+                <p>$query [mixed]</p>
+<p>$findOptions [FindOptions | mixed]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+findOneAndDeleteWithOptions($collection,$query,$findOptions,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>FindOptions | mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg3 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\mongo\MongoService
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html"><div class="path-wrapper">\io\vertx\jphp\ext\mongo\MongoService</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_count" name="method_count" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">count()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">count( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>) : \io\vertx\jphp\ext\mongo\MongoService</pre>
+                <p><em>$collection [string]</em></p>
+                <p>$query [mixed]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+count($collection,$query,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\mongo\MongoService
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html"><div class="path-wrapper">\io\vertx\jphp\ext\mongo\MongoService</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_remove" name="method_remove" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">remove()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">remove( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>) : \io\vertx\jphp\ext\mongo\MongoService</pre>
+                <p><em>$collection [string]</em></p>
+                <p>$query [mixed]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+remove($collection,$query,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\mongo\MongoService
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html"><div class="path-wrapper">\io\vertx\jphp\ext\mongo\MongoService</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_removeDocuments" name="method_removeDocuments" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">removeDocuments()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">removeDocuments( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>) : \io\vertx\jphp\ext\mongo\MongoService</pre>
+                <p><em>$collection [string]</em></p>
+                <p>$query [mixed]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+removeDocuments($collection,$query,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\mongo\MongoService
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html"><div class="path-wrapper">\io\vertx\jphp\ext\mongo\MongoService</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_removeWithOptions" name="method_removeWithOptions" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">removeWithOptions()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">removeWithOptions( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>,  <span class="argument">arg3</span>) : \io\vertx\jphp\ext\mongo\MongoService</pre>
+                <p><em>$collection [string]</em></p>
+                <p>$query [mixed]</p>
+<p>$writeOption [string]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+removeWithOptions($collection,$query,$writeOption,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg3 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\mongo\MongoService
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html"><div class="path-wrapper">\io\vertx\jphp\ext\mongo\MongoService</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_removeDocumentsWithOptions" name="method_removeDocumentsWithOptions" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">removeDocumentsWithOptions()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">removeDocumentsWithOptions( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>,  <span class="argument">arg3</span>) : \io\vertx\jphp\ext\mongo\MongoService</pre>
+                <p><em>$collection [string]</em></p>
+                <p>$query [mixed]</p>
+<p>$writeOption [string]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+removeDocumentsWithOptions($collection,$query,$writeOption,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg3 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\mongo\MongoService
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html"><div class="path-wrapper">\io\vertx\jphp\ext\mongo\MongoService</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_removeOne" name="method_removeOne" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">removeOne()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">removeOne( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>) : \io\vertx\jphp\ext\mongo\MongoService</pre>
+                <p><em>$collection [string]</em></p>
+                <p>$query [mixed]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+removeOne($collection,$query,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\mongo\MongoService
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html"><div class="path-wrapper">\io\vertx\jphp\ext\mongo\MongoService</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_removeDocument" name="method_removeDocument" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">removeDocument()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">removeDocument( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>) : \io\vertx\jphp\ext\mongo\MongoService</pre>
+                <p><em>$collection [string]</em></p>
+                <p>$query [mixed]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+removeDocument($collection,$query,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\mongo\MongoService
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html"><div class="path-wrapper">\io\vertx\jphp\ext\mongo\MongoService</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_removeOneWithOptions" name="method_removeOneWithOptions" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">removeOneWithOptions()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">removeOneWithOptions( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>,  <span class="argument">arg3</span>) : \io\vertx\jphp\ext\mongo\MongoService</pre>
+                <p><em>$collection [string]</em></p>
+                <p>$query [mixed]</p>
+<p>$writeOption [string]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+removeOneWithOptions($collection,$query,$writeOption,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg3 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\mongo\MongoService
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html"><div class="path-wrapper">\io\vertx\jphp\ext\mongo\MongoService</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_removeDocumentWithOptions" name="method_removeDocumentWithOptions" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">removeDocumentWithOptions()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">removeDocumentWithOptions( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>,  <span class="argument">arg3</span>) : \io\vertx\jphp\ext\mongo\MongoService</pre>
+                <p><em>$collection [string]</em></p>
+                <p>$query [mixed]</p>
+<p>$writeOption [string]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+removeDocumentWithOptions($collection,$query,$writeOption,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg3 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\mongo\MongoService
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html"><div class="path-wrapper">\io\vertx\jphp\ext\mongo\MongoService</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_createCollection" name="method_createCollection" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">createCollection()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">createCollection( <span class="argument">arg0</span>,  <span class="argument">arg1</span>) : \io\vertx\jphp\ext\mongo\MongoService</pre>
+                <p><em>$collectionName [string]</em></p>
+                <p>$resultHandler [callable]</p>
+<p><b>
+createCollection($collectionName,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\mongo\MongoService
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html"><div class="path-wrapper">\io\vertx\jphp\ext\mongo\MongoService</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getCollections" name="method_getCollections" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getCollections()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getCollections( <span class="argument">arg0</span>) : \io\vertx\jphp\ext\mongo\MongoService</pre>
+                <p><em>$resultHandler [callable]</em></p>
+                <p><b>
+getCollections($resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\mongo\MongoService
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html"><div class="path-wrapper">\io\vertx\jphp\ext\mongo\MongoService</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_dropCollection" name="method_dropCollection" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">dropCollection()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">dropCollection( <span class="argument">arg0</span>,  <span class="argument">arg1</span>) : \io\vertx\jphp\ext\mongo\MongoService</pre>
+                <p><em>$collection [string]</em></p>
+                <p>$resultHandler [callable]</p>
+<p><b>
+dropCollection($collection,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\mongo\MongoService
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html"><div class="path-wrapper">\io\vertx\jphp\ext\mongo\MongoService</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_createIndex" name="method_createIndex" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">createIndex()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">createIndex( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>) : \io\vertx\jphp\ext\mongo\MongoService</pre>
+                <p><em>$collection [string]</em></p>
+                <p>$key [mixed]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+createIndex($collection,$key,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\mongo\MongoService
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html"><div class="path-wrapper">\io\vertx\jphp\ext\mongo\MongoService</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_createIndexWithOptions" name="method_createIndexWithOptions" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">createIndexWithOptions()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">createIndexWithOptions( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>,  <span class="argument">arg3</span>) : \io\vertx\jphp\ext\mongo\MongoService</pre>
+                <p><em>$collection [string]</em></p>
+                <p>$key [mixed]</p>
+<p>$options [IndexOptions | mixed]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+createIndexWithOptions($collection,$key,$options,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>IndexOptions | mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg3 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\mongo\MongoService
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html"><div class="path-wrapper">\io\vertx\jphp\ext\mongo\MongoService</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_listIndexes" name="method_listIndexes" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">listIndexes()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">listIndexes( <span class="argument">arg0</span>,  <span class="argument">arg1</span>) : \io\vertx\jphp\ext\mongo\MongoService</pre>
+                <p><em>$collection [string]</em></p>
+                <p>$resultHandler [callable]</p>
+<p><b>
+listIndexes($collection,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\mongo\MongoService
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html"><div class="path-wrapper">\io\vertx\jphp\ext\mongo\MongoService</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_dropIndex" name="method_dropIndex" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">dropIndex()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">dropIndex( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>) : \io\vertx\jphp\ext\mongo\MongoService</pre>
+                <p><em>$collection [string]</em></p>
+                <p>$indexName [string]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+dropIndex($collection,$indexName,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\mongo\MongoService
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html"><div class="path-wrapper">\io\vertx\jphp\ext\mongo\MongoService</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_runCommand" name="method_runCommand" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">runCommand()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">runCommand( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>) : \io\vertx\jphp\ext\mongo\MongoService</pre>
+                <p><em>$commandName [string]</em></p>
+                <p>$command [mixed]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+runCommand($commandName,$command,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\mongo\MongoService
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html"><div class="path-wrapper">\io\vertx\jphp\ext\mongo\MongoService</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_distinct" name="method_distinct" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">distinct()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">distinct( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>,  <span class="argument">arg3</span>) : \io\vertx\jphp\ext\mongo\MongoService</pre>
+                <p><em>$collection [string]</em></p>
+                <p>$fieldName [string]</p>
+<p>$resultClassname [string]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+distinct($collection,$fieldName,$resultClassname,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg3 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\mongo\MongoService
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html"><div class="path-wrapper">\io\vertx\jphp\ext\mongo\MongoService</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_distinctWithQuery" name="method_distinctWithQuery" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">distinctWithQuery()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">distinctWithQuery( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>,  <span class="argument">arg3</span>,  <span class="argument">arg4</span>) : \io\vertx\jphp\ext\mongo\MongoService</pre>
+                <p><em>$collection [string]</em></p>
+                <p>$fieldName [string]</p>
+<p>$resultClassname [string]</p>
+<p>$query [mixed]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+distinctWithQuery($collection,$fieldName,$resultClassname,$query,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg3 </td>
+                                <td><p>mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg4 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\mongo\MongoService
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html"><div class="path-wrapper">\io\vertx\jphp\ext\mongo\MongoService</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_close" name="method_close" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">close()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">close() : </pre>
+                <p><em>&lt;b&gt;
+close()
+&lt;/b&gt;</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html"><div class="path-wrapper">\io\vertx\jphp\ext\mongo\MongoService</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___construct" name="method___construct" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">__construct()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__construct() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.mongo.MongoService.html"><div class="path-wrapper">\io\vertx\jphp\ext\mongo\MongoService</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">MongoService.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/io/vertx/jphp/ext/mongo/MongoService.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/io.html">\io</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on April 20th, 2018 at 09:43.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>

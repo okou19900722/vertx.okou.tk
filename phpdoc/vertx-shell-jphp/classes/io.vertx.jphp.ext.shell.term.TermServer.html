@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src').replace( /\\/g, '/');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/io.html">\io</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1534501014"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-1534501014" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1074279495"></a>
+                                <a href="../namespaces/io.html" style="margin-left: 30px; padding-left: 0">io</a>
+            </div>
+            <div id="namespace-1074279495" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1284018847"></a>
+                                <a href="../namespaces/io.vertx.html" style="margin-left: 30px; padding-left: 0">vertx</a>
+            </div>
+            <div id="namespace-1284018847" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-157297514"></a>
+                                <a href="../namespaces/io.vertx.jphp.html" style="margin-left: 30px; padding-left: 0">jphp</a>
+            </div>
+            <div id="namespace-157297514" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-498227962"></a>
+                                <a href="../namespaces/io.vertx.jphp.ext.html" style="margin-left: 30px; padding-left: 0">ext</a>
+            </div>
+            <div id="namespace-498227962" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-15320142"></a>
+                                <a href="../namespaces/io.vertx.jphp.ext.shell.html" style="margin-left: 30px; padding-left: 0">shell</a>
+            </div>
+            <div id="namespace-15320142" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-527842371"></a>
+                                <a href="../namespaces/io.vertx.jphp.ext.shell.cli.html" style="margin-left: 30px; padding-left: 0">cli</a>
+            </div>
+            <div id="namespace-527842371" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.shell.cli.CliToken.html">CliToken</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.shell.cli.Completion.html">Completion</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-532079429"></a>
+                                <a href="../namespaces/io.vertx.jphp.ext.shell.command.html" style="margin-left: 30px; padding-left: 0">command</a>
+            </div>
+            <div id="namespace-532079429" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.shell.command.Command.html">Command</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.shell.command.CommandBuilder.html">CommandBuilder</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.shell.command.CommandProcess.html">CommandProcess</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.shell.command.CommandRegistry.html">CommandRegistry</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.shell.command.CommandResolver.html">CommandResolver</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1497763682"></a>
+                                <a href="../namespaces/io.vertx.jphp.ext.shell.session.html" style="margin-left: 30px; padding-left: 0">session</a>
+            </div>
+            <div id="namespace-1497763682" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.shell.session.Session.html">Session</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-329154044"></a>
+                                <a href="../namespaces/io.vertx.jphp.ext.shell.system.html" style="margin-left: 30px; padding-left: 0">system</a>
+            </div>
+            <div id="namespace-329154044" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.shell.system.Job.html">Job</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.shell.system.JobController.html">JobController</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.shell.system.Process.html">Process</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-996867361"></a>
+                                <a href="../namespaces/io.vertx.jphp.ext.shell.term.html" style="margin-left: 30px; padding-left: 0">term</a>
+            </div>
+            <div id="namespace-996867361" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.shell.term.HttpTermOptions.html">HttpTermOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.shell.term.Pty.html">Pty</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.shell.term.SignalHandler.html">SignalHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.shell.term.SockJSTermHandler.html">SockJSTermHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.shell.term.SSHTermOptions.html">SSHTermOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.shell.term.TelnetTermOptions.html">TelnetTermOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.shell.term.Term.html">Term</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.shell.term.TermServer.html">TermServer</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.shell.term.Tty.html">Tty</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.shell.Shell.html">Shell</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.shell.ShellServer.html">ShellServer</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.shell.ShellServerOptions.html">ShellServerOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.shell.ShellService.html">ShellService</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.shell.ShellServiceOptions.html">ShellServiceOptions</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/io.vertx.jphp.ext.shell.term.html">\io\vertx\jphp\ext\shell\term</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\io\vertx\jphp\ext\shell\term</small>TermServer</h1>
+                    <p><em>A server for terminal based applications.</em></p>
+                    
+                    
+                                        
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/io.vertx.jphp.ext.shell.term.TermServer.html#method_createSSHTermServer" class="">createSSHTermServer()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.shell.term.TermServer.html#method_createTelnetTermServer" class="">createTelnetTermServer()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.shell.term.TermServer.html#method_createHttpTermServer" class="">createHttpTermServer()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.shell.term.TermServer.html#method_termHandler" class="">termHandler()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.shell.term.TermServer.html#method_authProvider" class="">authProvider()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.shell.term.TermServer.html#method_listen" class="">listen()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.shell.term.TermServer.html#method_actualPort" class="">actualPort()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.shell.term.TermServer.html#method_close" class="">close()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No public properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No constants found</em>
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <em>No protected methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No protected properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <a href="../classes/io.vertx.jphp.ext.shell.term.TermServer.html#method___construct" class="">__construct()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No private properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/io.vertx.jphp.ext.shell.term.TermServer.html"><div class="path-wrapper">io/vertx/jphp/ext/shell/term/TermServer.php</div></a></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                    <div class="namespace-wrapper">\io\vertx\jphp\ext\shell\term\TermServer</div>
+                            </dd>
+
+                        
+                        
+                        
+                                                
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr><td colspan="2"><em>None found</em></td></tr>
+                                        </table>
+                </aside>
+            </div>
+
+                        
+                        
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_createSSHTermServer" name="method_createSSHTermServer" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">createSSHTermServer()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">createSSHTermServer( <span class="argument">arg0</span>,  <span class="argument">arg1 = null</span>) : \io\vertx\jphp\ext\shell\term\TermServer</pre>
+                <p><em>Create a term server for the SSH protocol.</em></p>
+                <p>$vertx [Vertx] the vertx instance</p>
+<p><b>
+createSSHTermServer($vertx)
+</b></p>
+<p>Create a term server for the SSH protocol.</p>
+<p>$vertx [Vertx] the vertx instance</p>
+<p>$options [SSHTermOptions | mixed] the ssh options</p>
+<p><b>
+createSSHTermServer($vertx,$options)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>Vertx</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>mixed | SSHTermOptions</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\shell\term\TermServer
+                                            &mdash; <p>the term server</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.shell.term.TermServer.html"><div class="path-wrapper">\io\vertx\jphp\ext\shell\term\TermServer</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_createTelnetTermServer" name="method_createTelnetTermServer" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">createTelnetTermServer()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">createTelnetTermServer( <span class="argument">arg0</span>,  <span class="argument">arg1 = null</span>) : \io\vertx\jphp\ext\shell\term\TermServer</pre>
+                <p><em>Create a term server for the Telnet protocol.</em></p>
+                <p>$vertx [Vertx] the vertx instance</p>
+<p><b>
+createTelnetTermServer($vertx)
+</b></p>
+<p>Create a term server for the Telnet protocol.</p>
+<p>$vertx [Vertx] the vertx instance</p>
+<p>$options [TelnetTermOptions | mixed] the term options</p>
+<p><b>
+createTelnetTermServer($vertx,$options)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>Vertx</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>TelnetTermOptions | mixed</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\shell\term\TermServer
+                                            &mdash; <p>the term server</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.shell.term.TermServer.html"><div class="path-wrapper">\io\vertx\jphp\ext\shell\term\TermServer</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_createHttpTermServer" name="method_createHttpTermServer" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">createHttpTermServer()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">createHttpTermServer( <span class="argument">arg0</span>,  <span class="argument">arg1 = null</span>,  <span class="argument">arg2 = null</span>) : \io\vertx\jphp\ext\shell\term\TermServer</pre>
+                <p><em>Create a term server for the HTTP protocol.</em></p>
+                <p>$vertx [Vertx] the vertx instance</p>
+<p><b>
+createHttpTermServer($vertx)
+</b></p>
+<p>Create a term server for the HTTP protocol.</p>
+<p>$vertx [Vertx] the vertx instance</p>
+<p>$options [HttpTermOptions | mixed] the term options</p>
+<p><b>
+createHttpTermServer($vertx,$options)
+</b></p>
+<p>Create a term server for the HTTP protocol, using an existing router.</p>
+<p>$vertx [Vertx] the vertx instance</p>
+<p>$router [Router] the router</p>
+<p><b>
+createHttpTermServer($vertx,$router)
+</b></p>
+<p>Create a term server for the HTTP protocol, using an existing router.</p>
+<p>$vertx [Vertx] the vertx instance</p>
+<p>$router [Router] the router</p>
+<p>$options [HttpTermOptions | mixed] the term options</p>
+<p><b>
+createHttpTermServer($vertx,$router,$options)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>Vertx</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>HttpTermOptions | Router | mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>HttpTermOptions | mixed</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\shell\term\TermServer
+                                            &mdash; <p>the term server</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.shell.term.TermServer.html"><div class="path-wrapper">\io\vertx\jphp\ext\shell\term\TermServer</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_termHandler" name="method_termHandler" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">termHandler()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">termHandler( <span class="argument">arg0</span>) : \io\vertx\jphp\ext\shell\term\TermServer</pre>
+                <p><em>Set the term handler that will receive incoming client connections. When a remote terminal connects
+ the {@code handler} will be called with the {@link Term} which can be used to interact with the remote
+ terminal.</em></p>
+                <p>$handler [callable] the term handler</p>
+<p><b>
+termHandler($handler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\shell\term\TermServer
+                                            &mdash; <p>this object</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.shell.term.TermServer.html"><div class="path-wrapper">\io\vertx\jphp\ext\shell\term\TermServer</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_authProvider" name="method_authProvider" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">authProvider()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">authProvider( <span class="argument">arg0</span>) : \io\vertx\jphp\ext\shell\term\TermServer</pre>
+                <p><em>Set an auth provider to use, any provider configured in options will override this provider. This should be used
+ when a custom auth provider should be used.</em></p>
+                <p>$provider [AuthProvider] the auth to use</p>
+<p><b>
+authProvider($provider)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>AuthProvider</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\shell\term\TermServer
+                                            &mdash; <p>this object</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.shell.term.TermServer.html"><div class="path-wrapper">\io\vertx\jphp\ext\shell\term\TermServer</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_listen" name="method_listen" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">listen()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">listen( <span class="argument">arg0 = null</span>) : \io\vertx\jphp\ext\shell\term\TermServer</pre>
+                <p><em>Bind the term server, the {@link #termHandler(Handler)} must be set before.</em></p>
+                <p><b>
+listen()
+</b></p>
+<p>Bind the term server, the #termHandler(Handler) must be set before.</p>
+<p>$listenHandler [callable] the listen handler</p>
+<p><b>
+listen($listenHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\shell\term\TermServer
+                                            &mdash; <p>this object</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.shell.term.TermServer.html"><div class="path-wrapper">\io\vertx\jphp\ext\shell\term\TermServer</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_actualPort" name="method_actualPort" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">actualPort()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">actualPort() : </pre>
+                <p><em>The actual port the server is listening on. This is useful if you bound the server specifying 0 as port number
+ signifying an ephemeral port</em></p>
+                <p><b>
+actualPort()
+</b></p>
+
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; <p>the actual port the server is listening on.</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.shell.term.TermServer.html"><div class="path-wrapper">\io\vertx\jphp\ext\shell\term\TermServer</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_close" name="method_close" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">close()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">close( <span class="argument">arg0 = null</span>) : </pre>
+                <p><em>Close the server. This will close any currently open connections. The close may not complete until after this
+ method has returned.</em></p>
+                <p><b>
+close()
+</b></p>
+<p>Like #close but supplying a handler that will be notified when close is complete.</p>
+<p>$completionHandler [callable] the handler to be notified when the term server is closed</p>
+<p><b>
+close($completionHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.shell.term.TermServer.html"><div class="path-wrapper">\io\vertx\jphp\ext\shell\term\TermServer</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___construct" name="method___construct" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">__construct()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__construct() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.shell.term.TermServer.html"><div class="path-wrapper">\io\vertx\jphp\ext\shell\term\TermServer</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">TermServer.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/io/vertx/jphp/ext/shell/term/TermServer.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/io.html">\io</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on April 20th, 2018 at 09:43.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>

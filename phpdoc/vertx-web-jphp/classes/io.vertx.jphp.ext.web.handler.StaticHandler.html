@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src').replace( /\\/g, '/');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/io.html">\io</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-70140176"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-70140176" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-569174592"></a>
+                                <a href="../namespaces/io.html" style="margin-left: 30px; padding-left: 0">io</a>
+            </div>
+            <div id="namespace-569174592" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1178647397"></a>
+                                <a href="../namespaces/io.vertx.html" style="margin-left: 30px; padding-left: 0">vertx</a>
+            </div>
+            <div id="namespace-1178647397" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2018767798"></a>
+                                <a href="../namespaces/io.vertx.jphp.html" style="margin-left: 30px; padding-left: 0">jphp</a>
+            </div>
+            <div id="namespace-2018767798" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1844030066"></a>
+                                <a href="../namespaces/io.vertx.jphp.ext.html" style="margin-left: 30px; padding-left: 0">ext</a>
+            </div>
+            <div id="namespace-1844030066" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1520333676"></a>
+                                <a href="../namespaces/io.vertx.jphp.ext.web.html" style="margin-left: 30px; padding-left: 0">web</a>
+            </div>
+            <div id="namespace-1520333676" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1243940932"></a>
+                                <a href="../namespaces/io.vertx.jphp.ext.web.handler.html" style="margin-left: 30px; padding-left: 0">handler</a>
+            </div>
+            <div id="namespace-1243940932" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-121238825"></a>
+                                <a href="../namespaces/io.vertx.jphp.ext.web.handler.sockjs.html" style="margin-left: 30px; padding-left: 0">sockjs</a>
+            </div>
+            <div id="namespace-121238825" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.sockjs.BridgeEvent.html">BridgeEvent</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.sockjs.BridgeOptions.html">BridgeOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.sockjs.PermittedOptions.html">PermittedOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.sockjs.SockJSHandler.html">SockJSHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.sockjs.SockJSHandlerOptions.html">SockJSHandlerOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.sockjs.SockJSSocket.html">SockJSSocket</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.AuthHandler.html">AuthHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.BasicAuthHandler.html">BasicAuthHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.BodyHandler.html">BodyHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.ChainAuthHandler.html">ChainAuthHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.CookieHandler.html">CookieHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.CorsHandler.html">CorsHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.CSRFHandler.html">CSRFHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.DigestAuthHandler.html">DigestAuthHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.ErrorHandler.html">ErrorHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.FaviconHandler.html">FaviconHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.FormLoginHandler.html">FormLoginHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.JWTAuthHandler.html">JWTAuthHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.LoggerHandler.html">LoggerHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.OAuth2AuthHandler.html">OAuth2AuthHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.RedirectAuthHandler.html">RedirectAuthHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.ResponseContentTypeHandler.html">ResponseContentTypeHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.ResponseTimeHandler.html">ResponseTimeHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.SessionHandler.html">SessionHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.StaticHandler.html">StaticHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.TemplateHandler.html">TemplateHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.TimeoutHandler.html">TimeoutHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.UserSessionHandler.html">UserSessionHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.VirtualHostHandler.html">VirtualHostHandler</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2079686194"></a>
+                                <a href="../namespaces/io.vertx.jphp.ext.web.sstore.html" style="margin-left: 30px; padding-left: 0">sstore</a>
+            </div>
+            <div id="namespace-2079686194" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.sstore.ClusteredSessionStore.html">ClusteredSessionStore</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.sstore.LocalSessionStore.html">LocalSessionStore</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.sstore.SessionStore.html">SessionStore</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1375486152"></a>
+                                <a href="../namespaces/io.vertx.jphp.ext.web.templ.html" style="margin-left: 30px; padding-left: 0">templ</a>
+            </div>
+            <div id="namespace-1375486152" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.templ.TemplateEngine.html">TemplateEngine</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.Cookie.html">Cookie</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.FileUpload.html">FileUpload</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.Http2PushMapping.html">Http2PushMapping</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.LanguageHeader.html">LanguageHeader</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.Locale.html">Locale</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.MIMEHeader.html">MIMEHeader</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.ParsedHeaderValue.html">ParsedHeaderValue</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.ParsedHeaderValues.html">ParsedHeaderValues</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.Route.html">Route</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.Router.html">Router</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.RoutingContext.html">RoutingContext</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.Session.html">Session</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/io.vertx.jphp.ext.web.handler.html">\io\vertx\jphp\ext\web\handler</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\io\vertx\jphp\ext\web\handler</small>StaticHandler</h1>
+                    <p><em>A handler for serving static resources from the file system or classpath.</em></p>
+                    
+                    
+                                        
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.handler.StaticHandler.html#method_handle" class="">handle()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.handler.StaticHandler.html#method_create" class="">create()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.handler.StaticHandler.html#method_setAllowRootFileSystemAccess" class="">setAllowRootFileSystemAccess()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.handler.StaticHandler.html#method_setWebRoot" class="">setWebRoot()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.handler.StaticHandler.html#method_setFilesReadOnly" class="">setFilesReadOnly()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.handler.StaticHandler.html#method_setMaxAgeSeconds" class="">setMaxAgeSeconds()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.handler.StaticHandler.html#method_setCachingEnabled" class="">setCachingEnabled()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.handler.StaticHandler.html#method_setDirectoryListing" class="">setDirectoryListing()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.handler.StaticHandler.html#method_setIncludeHidden" class="">setIncludeHidden()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.handler.StaticHandler.html#method_setCacheEntryTimeout" class="">setCacheEntryTimeout()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.handler.StaticHandler.html#method_setIndexPage" class="">setIndexPage()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.handler.StaticHandler.html#method_setMaxCacheSize" class="">setMaxCacheSize()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.handler.StaticHandler.html#method_setHttp2PushMapping" class="">setHttp2PushMapping()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.handler.StaticHandler.html#method_setAlwaysAsyncFS" class="">setAlwaysAsyncFS()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.handler.StaticHandler.html#method_setEnableFSTuning" class="">setEnableFSTuning()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.handler.StaticHandler.html#method_setMaxAvgServeTimeNs" class="">setMaxAvgServeTimeNs()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.handler.StaticHandler.html#method_setDirectoryTemplate" class="">setDirectoryTemplate()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.handler.StaticHandler.html#method_setEnableRangeSupport" class="">setEnableRangeSupport()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.handler.StaticHandler.html#method_setSendVaryHeader" class="">setSendVaryHeader()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.handler.StaticHandler.html#method_setDefaultContentEncoding" class="">setDefaultContentEncoding()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No public properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No constants found</em>
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <em>No protected methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No protected properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.handler.StaticHandler.html#method___construct" class="">__construct()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No private properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/io.vertx.jphp.ext.web.handler.StaticHandler.html"><div class="path-wrapper">io/vertx/jphp/ext/web/handler/StaticHandler.php</div></a></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                    <div class="namespace-wrapper">\io\vertx\jphp\ext\web\handler\StaticHandler</div>
+                            </dd>
+
+                        
+                        
+                        
+                                                
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr><td colspan="2"><em>None found</em></td></tr>
+                                        </table>
+                </aside>
+            </div>
+
+                        
+                        
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_handle" name="method_handle" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">handle()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">handle( <span class="argument">arg0</span>) : </pre>
+                <p><em>$arg0 [RoutingContext]</em></p>
+                <p><b>
+handle($arg0)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>RoutingContext</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.handler.StaticHandler.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\handler\StaticHandler</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_create" name="method_create" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">create()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">create( <span class="argument">arg0 = null</span>) : \io\vertx\jphp\ext\web\handler\StaticHandler</pre>
+                <p><em>Create a handler using defaults</em></p>
+                <p><b>
+create()
+</b></p>
+<p>Create a handler, specifying web-root</p>
+<p>$root [string] the web-root</p>
+<p><b>
+create($root)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\web\handler\StaticHandler
+                                            &mdash; <p>the handler</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.handler.StaticHandler.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\handler\StaticHandler</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setAllowRootFileSystemAccess" name="method_setAllowRootFileSystemAccess" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setAllowRootFileSystemAccess()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setAllowRootFileSystemAccess( <span class="argument">arg0</span>) : \io\vertx\jphp\ext\web\handler\StaticHandler</pre>
+                <p><em>Enable/Disable access to the root of the filesystem</em></p>
+                <p>$allowRootFileSystemAccess [bool] whether root access is allowed</p>
+<p><b>
+setAllowRootFileSystemAccess($allowRootFileSystemAccess)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>bool</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\web\handler\StaticHandler
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.handler.StaticHandler.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\handler\StaticHandler</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setWebRoot" name="method_setWebRoot" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setWebRoot()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setWebRoot( <span class="argument">arg0</span>) : \io\vertx\jphp\ext\web\handler\StaticHandler</pre>
+                <p><em>Set the web root</em></p>
+                <p>$webRoot [string] the web root</p>
+<p><b>
+setWebRoot($webRoot)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\web\handler\StaticHandler
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.handler.StaticHandler.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\handler\StaticHandler</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setFilesReadOnly" name="method_setFilesReadOnly" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setFilesReadOnly()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setFilesReadOnly( <span class="argument">arg0</span>) : \io\vertx\jphp\ext\web\handler\StaticHandler</pre>
+                <p><em>Set whether files are read-only and will never change</em></p>
+                <p>$readOnly [bool] whether files are read-only</p>
+<p><b>
+setFilesReadOnly($readOnly)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>bool</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\web\handler\StaticHandler
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.handler.StaticHandler.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\handler\StaticHandler</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setMaxAgeSeconds" name="method_setMaxAgeSeconds" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setMaxAgeSeconds()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setMaxAgeSeconds( <span class="argument">arg0</span>) : \io\vertx\jphp\ext\web\handler\StaticHandler</pre>
+                <p><em>Set value for max age in caching headers</em></p>
+                <p>$maxAgeSeconds [integer] maximum time for browser to cache, in seconds</p>
+<p><b>
+setMaxAgeSeconds($maxAgeSeconds)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>integer</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\web\handler\StaticHandler
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.handler.StaticHandler.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\handler\StaticHandler</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setCachingEnabled" name="method_setCachingEnabled" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setCachingEnabled()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setCachingEnabled( <span class="argument">arg0</span>) : \io\vertx\jphp\ext\web\handler\StaticHandler</pre>
+                <p><em>Set whether cache header handling is enabled</em></p>
+                <p>$enabled [bool] true if enabled</p>
+<p><b>
+setCachingEnabled($enabled)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>bool</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\web\handler\StaticHandler
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.handler.StaticHandler.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\handler\StaticHandler</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setDirectoryListing" name="method_setDirectoryListing" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setDirectoryListing()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setDirectoryListing( <span class="argument">arg0</span>) : \io\vertx\jphp\ext\web\handler\StaticHandler</pre>
+                <p><em>Set whether directory listing is enabled</em></p>
+                <p>$directoryListing [bool] true if enabled</p>
+<p><b>
+setDirectoryListing($directoryListing)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>bool</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\web\handler\StaticHandler
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.handler.StaticHandler.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\handler\StaticHandler</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setIncludeHidden" name="method_setIncludeHidden" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setIncludeHidden()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setIncludeHidden( <span class="argument">arg0</span>) : \io\vertx\jphp\ext\web\handler\StaticHandler</pre>
+                <p><em>Set whether hidden files should be served</em></p>
+                <p>$includeHidden [bool] true if hidden files should be served</p>
+<p><b>
+setIncludeHidden($includeHidden)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>bool</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\web\handler\StaticHandler
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.handler.StaticHandler.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\handler\StaticHandler</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setCacheEntryTimeout" name="method_setCacheEntryTimeout" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setCacheEntryTimeout()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setCacheEntryTimeout( <span class="argument">arg0</span>) : \io\vertx\jphp\ext\web\handler\StaticHandler</pre>
+                <p><em>Set the server cache entry timeout when caching is enabled</em></p>
+                <p>$timeout [integer] the timeout, in ms</p>
+<p><b>
+setCacheEntryTimeout($timeout)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>integer</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\web\handler\StaticHandler
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.handler.StaticHandler.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\handler\StaticHandler</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setIndexPage" name="method_setIndexPage" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setIndexPage()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setIndexPage( <span class="argument">arg0</span>) : \io\vertx\jphp\ext\web\handler\StaticHandler</pre>
+                <p><em>Set the index page</em></p>
+                <p>$indexPage [string] the index page</p>
+<p><b>
+setIndexPage($indexPage)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\web\handler\StaticHandler
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.handler.StaticHandler.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\handler\StaticHandler</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setMaxCacheSize" name="method_setMaxCacheSize" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setMaxCacheSize()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setMaxCacheSize( <span class="argument">arg0</span>) : \io\vertx\jphp\ext\web\handler\StaticHandler</pre>
+                <p><em>Set the max cache size, when caching is enabled</em></p>
+                <p>$maxCacheSize [integer] the max cache size</p>
+<p><b>
+setMaxCacheSize($maxCacheSize)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>integer</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\web\handler\StaticHandler
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.handler.StaticHandler.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\handler\StaticHandler</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setHttp2PushMapping" name="method_setHttp2PushMapping" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setHttp2PushMapping()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setHttp2PushMapping( <span class="argument">arg0</span>) : \io\vertx\jphp\ext\web\handler\StaticHandler</pre>
+                <p><em>Set the file mapping for http2push and link preload</em></p>
+                <p>$http2PushMappings [array] the mapping for http2 push</p>
+<p><b>
+setHttp2PushMapping($http2PushMappings)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>array</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\web\handler\StaticHandler
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.handler.StaticHandler.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\handler\StaticHandler</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setAlwaysAsyncFS" name="method_setAlwaysAsyncFS" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setAlwaysAsyncFS()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setAlwaysAsyncFS( <span class="argument">arg0</span>) : \io\vertx\jphp\ext\web\handler\StaticHandler</pre>
+                <p><em>Set whether async filesystem access should always be used</em></p>
+                <p>$alwaysAsyncFS [bool] true for always async FS access</p>
+<p><b>
+setAlwaysAsyncFS($alwaysAsyncFS)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>bool</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\web\handler\StaticHandler
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.handler.StaticHandler.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\handler\StaticHandler</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setEnableFSTuning" name="method_setEnableFSTuning" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setEnableFSTuning()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setEnableFSTuning( <span class="argument">arg0</span>) : \io\vertx\jphp\ext\web\handler\StaticHandler</pre>
+                <p><em>Set whether async/sync filesystem tuning should enabled</em></p>
+                <p>$enableFSTuning [bool] true to enabled FS tuning</p>
+<p><b>
+setEnableFSTuning($enableFSTuning)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>bool</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\web\handler\StaticHandler
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.handler.StaticHandler.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\handler\StaticHandler</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setMaxAvgServeTimeNs" name="method_setMaxAvgServeTimeNs" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setMaxAvgServeTimeNs()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setMaxAvgServeTimeNs( <span class="argument">arg0</span>) : \io\vertx\jphp\ext\web\handler\StaticHandler</pre>
+                <p><em>Set the max serve time in ns, above which serves are considered slow</em></p>
+                <p>$maxAvgServeTimeNanoSeconds [integer] max serve time, in ns</p>
+<p><b>
+setMaxAvgServeTimeNs($maxAvgServeTimeNanoSeconds)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>integer</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\web\handler\StaticHandler
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.handler.StaticHandler.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\handler\StaticHandler</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setDirectoryTemplate" name="method_setDirectoryTemplate" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setDirectoryTemplate()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setDirectoryTemplate( <span class="argument">arg0</span>) : \io\vertx\jphp\ext\web\handler\StaticHandler</pre>
+                <p><em>Set the directory template to be used when directory listing</em></p>
+                <p>$directoryTemplate [string] the directory template</p>
+<p><b>
+setDirectoryTemplate($directoryTemplate)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\web\handler\StaticHandler
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.handler.StaticHandler.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\handler\StaticHandler</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setEnableRangeSupport" name="method_setEnableRangeSupport" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setEnableRangeSupport()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setEnableRangeSupport( <span class="argument">arg0</span>) : \io\vertx\jphp\ext\web\handler\StaticHandler</pre>
+                <p><em>Set whether range requests (resumable downloads; media streaming) should be enabled.</em></p>
+                <p>$enableRangeSupport [bool] true to enable range support</p>
+<p><b>
+setEnableRangeSupport($enableRangeSupport)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>bool</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\web\handler\StaticHandler
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.handler.StaticHandler.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\handler\StaticHandler</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setSendVaryHeader" name="method_setSendVaryHeader" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setSendVaryHeader()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setSendVaryHeader( <span class="argument">arg0</span>) : \io\vertx\jphp\ext\web\handler\StaticHandler</pre>
+                <p><em>Set whether vary header should be sent with response.</em></p>
+                <p>$varyHeader [bool] true to sent vary header</p>
+<p><b>
+setSendVaryHeader($varyHeader)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>bool</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\web\handler\StaticHandler
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.handler.StaticHandler.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\handler\StaticHandler</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setDefaultContentEncoding" name="method_setDefaultContentEncoding" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setDefaultContentEncoding()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setDefaultContentEncoding( <span class="argument">arg0</span>) : \io\vertx\jphp\ext\web\handler\StaticHandler</pre>
+                <p><em>Set the default content encoding for text related files. This allows overriding the system settings default value.</em></p>
+                <p>$contentEncoding [string] the desired content encoding e.g.: &quot;UTF-8&quot;</p>
+<p><b>
+setDefaultContentEncoding($contentEncoding)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\web\handler\StaticHandler
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.handler.StaticHandler.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\handler\StaticHandler</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___construct" name="method___construct" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">__construct()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__construct() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.handler.StaticHandler.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\handler\StaticHandler</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">StaticHandler.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/io/vertx/jphp/ext/web/handler/StaticHandler.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/io.html">\io</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on April 20th, 2018 at 09:43.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>

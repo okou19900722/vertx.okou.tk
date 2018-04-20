@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src').replace( /\\/g, '/');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/io.html">\io</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1816071191"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-1816071191" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-613806898"></a>
+                                <a href="../namespaces/io.html" style="margin-left: 30px; padding-left: 0">io</a>
+            </div>
+            <div id="namespace-613806898" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-981848816"></a>
+                                <a href="../namespaces/io.vertx.html" style="margin-left: 30px; padding-left: 0">vertx</a>
+            </div>
+            <div id="namespace-981848816" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-948079669"></a>
+                                <a href="../namespaces/io.vertx.jphp.html" style="margin-left: 30px; padding-left: 0">jphp</a>
+            </div>
+            <div id="namespace-948079669" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1147221474"></a>
+                                <a href="../namespaces/io.vertx.jphp.core.html" style="margin-left: 30px; padding-left: 0">core</a>
+            </div>
+            <div id="namespace-1147221474" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-539706435"></a>
+                                <a href="../namespaces/io.vertx.jphp.core.buffer.html" style="margin-left: 30px; padding-left: 0">buffer</a>
+            </div>
+            <div id="namespace-539706435" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.buffer.Buffer.html">Buffer</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-69006101"></a>
+                                <a href="../namespaces/io.vertx.jphp.core.cli.html" style="margin-left: 30px; padding-left: 0">cli</a>
+            </div>
+            <div id="namespace-69006101" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.cli.Argument.html">Argument</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.cli.CLI.html">CLI</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.cli.CommandLine.html">CommandLine</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.cli.Option.html">Option</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1810722675"></a>
+                                <a href="../namespaces/io.vertx.jphp.core.datagram.html" style="margin-left: 30px; padding-left: 0">datagram</a>
+            </div>
+            <div id="namespace-1810722675" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.datagram.DatagramPacket.html">DatagramPacket</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.datagram.DatagramSocket.html">DatagramSocket</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.datagram.DatagramSocketOptions.html">DatagramSocketOptions</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1494904195"></a>
+                                <a href="../namespaces/io.vertx.jphp.core.dns.html" style="margin-left: 30px; padding-left: 0">dns</a>
+            </div>
+            <div id="namespace-1494904195" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.dns.AddressResolverOptions.html">AddressResolverOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.dns.DnsClient.html">DnsClient</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.dns.DnsClientOptions.html">DnsClientOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.dns.MxRecord.html">MxRecord</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.dns.SrvRecord.html">SrvRecord</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-35117440"></a>
+                                <a href="../namespaces/io.vertx.jphp.core.eventbus.html" style="margin-left: 30px; padding-left: 0">eventbus</a>
+            </div>
+            <div id="namespace-35117440" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.eventbus.DeliveryOptions.html">DeliveryOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.eventbus.EventBus.html">EventBus</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.eventbus.EventBusOptions.html">EventBusOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.eventbus.Message.html">Message</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.eventbus.MessageConsumer.html">MessageConsumer</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.eventbus.MessageProducer.html">MessageProducer</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.eventbus.SendContext.html">SendContext</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-363085190"></a>
+                                <a href="../namespaces/io.vertx.jphp.core.file.html" style="margin-left: 30px; padding-left: 0">file</a>
+            </div>
+            <div id="namespace-363085190" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.file.AsyncFile.html">AsyncFile</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.file.CopyOptions.html">CopyOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.file.FileProps.html">FileProps</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.file.FileSystem.html">FileSystem</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.file.FileSystemProps.html">FileSystemProps</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.file.OpenOptions.html">OpenOptions</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-912626145"></a>
+                                <a href="../namespaces/io.vertx.jphp.core.http.html" style="margin-left: 30px; padding-left: 0">http</a>
+            </div>
+            <div id="namespace-912626145" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.GoAway.html">GoAway</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.Http2Settings.html">Http2Settings</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.HttpClient.html">HttpClient</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.HttpClientOptions.html">HttpClientOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.HttpClientRequest.html">HttpClientRequest</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.HttpClientResponse.html">HttpClientResponse</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.HttpConnection.html">HttpConnection</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.HttpFrame.html">HttpFrame</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.HttpServer.html">HttpServer</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.HttpServerFileUpload.html">HttpServerFileUpload</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.HttpServerOptions.html">HttpServerOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.HttpServerRequest.html">HttpServerRequest</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.HttpServerResponse.html">HttpServerResponse</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.RequestOptions.html">RequestOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.ServerWebSocket.html">ServerWebSocket</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.WebSocket.html">WebSocket</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.WebSocketBase.html">WebSocketBase</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.WebSocketFrame.html">WebSocketFrame</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-509174991"></a>
+                                <a href="../namespaces/io.vertx.jphp.core.metrics.html" style="margin-left: 30px; padding-left: 0">metrics</a>
+            </div>
+            <div id="namespace-509174991" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.metrics.Measured.html">Measured</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.metrics.MetricsOptions.html">MetricsOptions</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-788605065"></a>
+                                <a href="../namespaces/io.vertx.jphp.core.net.html" style="margin-left: 30px; padding-left: 0">net</a>
+            </div>
+            <div id="namespace-788605065" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.net.ClientOptionsBase.html">ClientOptionsBase</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.net.JdkSSLEngineOptions.html">JdkSSLEngineOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.net.JksOptions.html">JksOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.net.NetClient.html">NetClient</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.net.NetClientOptions.html">NetClientOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.net.NetServer.html">NetServer</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.net.NetServerOptions.html">NetServerOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.net.NetSocket.html">NetSocket</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.net.NetworkOptions.html">NetworkOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.net.OpenSSLEngineOptions.html">OpenSSLEngineOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.net.PemKeyCertOptions.html">PemKeyCertOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.net.PemTrustOptions.html">PemTrustOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.net.PfxOptions.html">PfxOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.net.ProxyOptions.html">ProxyOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.net.SelfSignedCertificate.html">SelfSignedCertificate</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.net.SocketAddress.html">SocketAddress</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.net.TCPSSLOptions.html">TCPSSLOptions</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1258216107"></a>
+                                <a href="../namespaces/io.vertx.jphp.core.parsetools.html" style="margin-left: 30px; padding-left: 0">parsetools</a>
+            </div>
+            <div id="namespace-1258216107" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.parsetools.JsonEvent.html">JsonEvent</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.parsetools.JsonParser.html">JsonParser</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.parsetools.RecordParser.html">RecordParser</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-402654622"></a>
+                                <a href="../namespaces/io.vertx.jphp.core.shareddata.html" style="margin-left: 30px; padding-left: 0">shareddata</a>
+            </div>
+            <div id="namespace-402654622" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.shareddata.AsyncMap.html">AsyncMap</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.shareddata.Counter.html">Counter</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.shareddata.LocalMap.html">LocalMap</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.shareddata.Lock.html">Lock</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.shareddata.SharedData.html">SharedData</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1151660015"></a>
+                                <a href="../namespaces/io.vertx.jphp.core.streams.html" style="margin-left: 30px; padding-left: 0">streams</a>
+            </div>
+            <div id="namespace-1151660015" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.streams.Pump.html">Pump</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.streams.ReadStream.html">ReadStream</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.streams.StreamBase.html">StreamBase</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.streams.WriteStream.html">WriteStream</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.CompositeFuture.html">CompositeFuture</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.Context.html">Context</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.DeploymentOptions.html">DeploymentOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.Future.html">Future</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.MultiMap.html">MultiMap</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.TimeoutStream.html">TimeoutStream</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.Vertx.html">Vertx</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.VertxOptions.html">VertxOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.WorkerExecutor.html">WorkerExecutor</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/io.vertx.jphp.core.shareddata.html">\io\vertx\jphp\core\shareddata</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\io\vertx\jphp\core\shareddata</small>LocalMap</h1>
+                    <p><em>Local maps can be used to share data safely in a single Vert.x instance.</em></p>
+                    <p>
+                    
+                                        
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/io.vertx.jphp.core.shareddata.LocalMap.html#method_get" class="">get()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.core.shareddata.LocalMap.html#method_put" class="">put()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.core.shareddata.LocalMap.html#method_remove" class="">remove()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.core.shareddata.LocalMap.html#method_clear" class="">clear()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.core.shareddata.LocalMap.html#method_size" class="">size()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.core.shareddata.LocalMap.html#method_isEmpty" class="">isEmpty()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.core.shareddata.LocalMap.html#method_putIfAbsent" class="">putIfAbsent()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.core.shareddata.LocalMap.html#method_removeIfPresent" class="">removeIfPresent()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.core.shareddata.LocalMap.html#method_replaceIfPresent" class="">replaceIfPresent()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.core.shareddata.LocalMap.html#method_replace" class="">replace()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.core.shareddata.LocalMap.html#method_close" class="">close()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.core.shareddata.LocalMap.html#method_containsKey" class="">containsKey()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.core.shareddata.LocalMap.html#method_containsValue" class="">containsValue()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.core.shareddata.LocalMap.html#method_getOrDefault" class="">getOrDefault()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No public properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No constants found</em>
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <em>No protected methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No protected properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <a href="../classes/io.vertx.jphp.core.shareddata.LocalMap.html#method___construct" class="">__construct()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No private properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/io.vertx.jphp.core.shareddata.LocalMap.html"><div class="path-wrapper">io/vertx/jphp/core/shareddata/LocalMap.php</div></a></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                    <div class="namespace-wrapper">\io\vertx\jphp\core\shareddata\LocalMap</div>
+                            </dd>
+
+                        
+                        
+                        
+                                                
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr><td colspan="2"><em>None found</em></td></tr>
+                                        </table>
+                </aside>
+            </div>
+
+                        
+                        
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_get" name="method_get" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">get()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">get( <span class="argument">arg0</span>) : </pre>
+                <p><em>Get a value from the map</em></p>
+                <p>$key [Object] the key</p>
+<p><b>
+get($key)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>Object</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; <p>the value, or null if none</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.core.shareddata.LocalMap.html"><div class="path-wrapper">\io\vertx\jphp\core\shareddata\LocalMap</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_put" name="method_put" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">put()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">put( <span class="argument">arg0</span>,  <span class="argument">arg1</span>) : </pre>
+                <p><em>Put an entry in the map</em></p>
+                <p>$key [Object] the key</p>
+<p>$value [Object] the value</p>
+<p><b>
+put($key,$value)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>Object</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>Object</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; <p>return the old value, or null if none</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.core.shareddata.LocalMap.html"><div class="path-wrapper">\io\vertx\jphp\core\shareddata\LocalMap</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_remove" name="method_remove" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">remove()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">remove( <span class="argument">arg0</span>) : </pre>
+                <p><em>Remove an entry from the map</em></p>
+                <p>$key [Object] the key</p>
+<p><b>
+remove($key)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>Object</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; <p>the old value</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.core.shareddata.LocalMap.html"><div class="path-wrapper">\io\vertx\jphp\core\shareddata\LocalMap</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_clear" name="method_clear" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">clear()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">clear() : </pre>
+                <p><em>Clear all entries in the map</em></p>
+                <p><b>
+clear()
+</b></p>
+
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.core.shareddata.LocalMap.html"><div class="path-wrapper">\io\vertx\jphp\core\shareddata\LocalMap</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_size" name="method_size" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">size()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">size() : </pre>
+                <p><em>Get the size of the map</em></p>
+                <p><b>
+size()
+</b></p>
+
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; <p>the number of entries in the map</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.core.shareddata.LocalMap.html"><div class="path-wrapper">\io\vertx\jphp\core\shareddata\LocalMap</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_isEmpty" name="method_isEmpty" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">isEmpty()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">isEmpty() : </pre>
+                <p><em>&lt;b&gt;
+isEmpty()
+&lt;/b&gt;</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; <p>true if there are zero entries in the map</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.core.shareddata.LocalMap.html"><div class="path-wrapper">\io\vertx\jphp\core\shareddata\LocalMap</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_putIfAbsent" name="method_putIfAbsent" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">putIfAbsent()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">putIfAbsent( <span class="argument">arg0</span>,  <span class="argument">arg1</span>) : </pre>
+                <p><em>Put the entry only if there is no existing entry for that key</em></p>
+                <p>$key [Object] the key</p>
+<p>$value [Object] the value</p>
+<p><b>
+putIfAbsent($key,$value)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>Object</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>Object</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; <p>the old value or null, if none</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.core.shareddata.LocalMap.html"><div class="path-wrapper">\io\vertx\jphp\core\shareddata\LocalMap</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_removeIfPresent" name="method_removeIfPresent" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">removeIfPresent()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">removeIfPresent( <span class="argument">arg0</span>,  <span class="argument">arg1</span>) : </pre>
+                <p><em>Remove the entry only if there is an entry with the specified key and value.</em></p>
+                <p>
+ This method is the poyglot version of #remove(Object,.
+
+$key [Object] the key
+
+$value [Object] the value
+
+<b>
+removeIfPresent($key,$value)
+</b>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>Object</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>Object</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; <p>true if removed</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.core.shareddata.LocalMap.html"><div class="path-wrapper">\io\vertx\jphp\core\shareddata\LocalMap</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_replaceIfPresent" name="method_replaceIfPresent" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">replaceIfPresent()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">replaceIfPresent( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>) : </pre>
+                <p><em>Replace the entry only if there is an existing entry with the specified key and value.</em></p>
+                <p>
+ This method is the polyglot version of #replace(Object,.
+
+$key [Object] the key
+
+$oldValue [Object] the old value
+
+$newValue [Object] the new value
+
+<b>
+replaceIfPresent($key,$oldValue,$newValue)
+</b>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>Object</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>Object</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>Object</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; <p>true if removed</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.core.shareddata.LocalMap.html"><div class="path-wrapper">\io\vertx\jphp\core\shareddata\LocalMap</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_replace" name="method_replace" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">replace()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">replace( <span class="argument">arg0</span>,  <span class="argument">arg1</span>) : </pre>
+                <p><em>Replace the entry only if there is an existing entry with the key</em></p>
+                <p>$key [Object] the key</p>
+<p>$value [Object] the new value</p>
+<p><b>
+replace($key,$value)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>Object</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>Object</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; <p>the old value</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.core.shareddata.LocalMap.html"><div class="path-wrapper">\io\vertx\jphp\core\shareddata\LocalMap</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_close" name="method_close" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">close()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">close() : </pre>
+                <p><em>Close and release the map</em></p>
+                <p><b>
+close()
+</b></p>
+
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.core.shareddata.LocalMap.html"><div class="path-wrapper">\io\vertx\jphp\core\shareddata\LocalMap</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_containsKey" name="method_containsKey" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">containsKey()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">containsKey( <span class="argument">arg0</span>) : </pre>
+                <p><em>Returns {@code true} if this map contains a mapping for the specified
+ key.</em></p>
+                <p>$key [Object] key whose presence in this map is to be tested</p>
+<p><b>
+containsKey($key)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>Object</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; <p>{@code true} if this map contains a mapping for the specified key</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.core.shareddata.LocalMap.html"><div class="path-wrapper">\io\vertx\jphp\core\shareddata\LocalMap</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_containsValue" name="method_containsValue" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">containsValue()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">containsValue( <span class="argument">arg0</span>) : </pre>
+                <p><em>Returns @{code true} if this map maps one or more keys to the
+ specified value.</em></p>
+                <p>$value [Object] value whose presence in this map is to be tested</p>
+<p><b>
+containsValue($value)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>Object</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; <p>@{code true} if this map maps one or more keys to the specified value</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.core.shareddata.LocalMap.html"><div class="path-wrapper">\io\vertx\jphp\core\shareddata\LocalMap</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getOrDefault" name="method_getOrDefault" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getOrDefault()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getOrDefault( <span class="argument">arg0</span>,  <span class="argument">arg1</span>) : </pre>
+                <p><em>Returns the value to which the specified key is mapped, or
+ {@code defaultValue} if this map contains no mapping for the key.</em></p>
+                <p>$key [Object] the key whose associated value is to be returned</p>
+<p>$defaultValue [Object] the default mapping of the key</p>
+<p><b>
+getOrDefault($key,$defaultValue)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>Object</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>Object</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; <p>the value to which the specified key is mapped, or {@code defaultValue} if this map contains no mapping for the key</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.core.shareddata.LocalMap.html"><div class="path-wrapper">\io\vertx\jphp\core\shareddata\LocalMap</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___construct" name="method___construct" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">__construct()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__construct() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.core.shareddata.LocalMap.html"><div class="path-wrapper">\io\vertx\jphp\core\shareddata\LocalMap</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">LocalMap.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/io/vertx/jphp/core/shareddata/LocalMap.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/io.html">\io</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on April 20th, 2018 at 09:43.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>

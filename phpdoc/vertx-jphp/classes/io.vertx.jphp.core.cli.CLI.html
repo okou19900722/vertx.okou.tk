@@ -1,0 +1,1611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src').replace( /\\/g, '/');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/io.html">\io</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-638408982"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-638408982" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1392021275"></a>
+                                <a href="../namespaces/io.html" style="margin-left: 30px; padding-left: 0">io</a>
+            </div>
+            <div id="namespace-1392021275" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1515168061"></a>
+                                <a href="../namespaces/io.vertx.html" style="margin-left: 30px; padding-left: 0">vertx</a>
+            </div>
+            <div id="namespace-1515168061" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1881420069"></a>
+                                <a href="../namespaces/io.vertx.jphp.html" style="margin-left: 30px; padding-left: 0">jphp</a>
+            </div>
+            <div id="namespace-1881420069" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-136116825"></a>
+                                <a href="../namespaces/io.vertx.jphp.core.html" style="margin-left: 30px; padding-left: 0">core</a>
+            </div>
+            <div id="namespace-136116825" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1796072298"></a>
+                                <a href="../namespaces/io.vertx.jphp.core.buffer.html" style="margin-left: 30px; padding-left: 0">buffer</a>
+            </div>
+            <div id="namespace-1796072298" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.buffer.Buffer.html">Buffer</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-141970642"></a>
+                                <a href="../namespaces/io.vertx.jphp.core.cli.html" style="margin-left: 30px; padding-left: 0">cli</a>
+            </div>
+            <div id="namespace-141970642" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.cli.Argument.html">Argument</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.cli.CLI.html">CLI</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.cli.CommandLine.html">CommandLine</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.cli.Option.html">Option</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-185783360"></a>
+                                <a href="../namespaces/io.vertx.jphp.core.datagram.html" style="margin-left: 30px; padding-left: 0">datagram</a>
+            </div>
+            <div id="namespace-185783360" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.datagram.DatagramPacket.html">DatagramPacket</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.datagram.DatagramSocket.html">DatagramSocket</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.datagram.DatagramSocketOptions.html">DatagramSocketOptions</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1275112491"></a>
+                                <a href="../namespaces/io.vertx.jphp.core.dns.html" style="margin-left: 30px; padding-left: 0">dns</a>
+            </div>
+            <div id="namespace-1275112491" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.dns.AddressResolverOptions.html">AddressResolverOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.dns.DnsClient.html">DnsClient</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.dns.DnsClientOptions.html">DnsClientOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.dns.MxRecord.html">MxRecord</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.dns.SrvRecord.html">SrvRecord</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1531839944"></a>
+                                <a href="../namespaces/io.vertx.jphp.core.eventbus.html" style="margin-left: 30px; padding-left: 0">eventbus</a>
+            </div>
+            <div id="namespace-1531839944" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.eventbus.DeliveryOptions.html">DeliveryOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.eventbus.EventBus.html">EventBus</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.eventbus.EventBusOptions.html">EventBusOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.eventbus.Message.html">Message</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.eventbus.MessageConsumer.html">MessageConsumer</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.eventbus.MessageProducer.html">MessageProducer</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.eventbus.SendContext.html">SendContext</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1236647490"></a>
+                                <a href="../namespaces/io.vertx.jphp.core.file.html" style="margin-left: 30px; padding-left: 0">file</a>
+            </div>
+            <div id="namespace-1236647490" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.file.AsyncFile.html">AsyncFile</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.file.CopyOptions.html">CopyOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.file.FileProps.html">FileProps</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.file.FileSystem.html">FileSystem</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.file.FileSystemProps.html">FileSystemProps</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.file.OpenOptions.html">OpenOptions</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1689309238"></a>
+                                <a href="../namespaces/io.vertx.jphp.core.http.html" style="margin-left: 30px; padding-left: 0">http</a>
+            </div>
+            <div id="namespace-1689309238" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.GoAway.html">GoAway</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.Http2Settings.html">Http2Settings</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.HttpClient.html">HttpClient</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.HttpClientOptions.html">HttpClientOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.HttpClientRequest.html">HttpClientRequest</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.HttpClientResponse.html">HttpClientResponse</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.HttpConnection.html">HttpConnection</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.HttpFrame.html">HttpFrame</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.HttpServer.html">HttpServer</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.HttpServerFileUpload.html">HttpServerFileUpload</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.HttpServerOptions.html">HttpServerOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.HttpServerRequest.html">HttpServerRequest</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.HttpServerResponse.html">HttpServerResponse</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.RequestOptions.html">RequestOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.ServerWebSocket.html">ServerWebSocket</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.WebSocket.html">WebSocket</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.WebSocketBase.html">WebSocketBase</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.WebSocketFrame.html">WebSocketFrame</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2081870358"></a>
+                                <a href="../namespaces/io.vertx.jphp.core.metrics.html" style="margin-left: 30px; padding-left: 0">metrics</a>
+            </div>
+            <div id="namespace-2081870358" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.metrics.Measured.html">Measured</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.metrics.MetricsOptions.html">MetricsOptions</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1223611204"></a>
+                                <a href="../namespaces/io.vertx.jphp.core.net.html" style="margin-left: 30px; padding-left: 0">net</a>
+            </div>
+            <div id="namespace-1223611204" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.net.ClientOptionsBase.html">ClientOptionsBase</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.net.JdkSSLEngineOptions.html">JdkSSLEngineOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.net.JksOptions.html">JksOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.net.NetClient.html">NetClient</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.net.NetClientOptions.html">NetClientOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.net.NetServer.html">NetServer</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.net.NetServerOptions.html">NetServerOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.net.NetSocket.html">NetSocket</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.net.NetworkOptions.html">NetworkOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.net.OpenSSLEngineOptions.html">OpenSSLEngineOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.net.PemKeyCertOptions.html">PemKeyCertOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.net.PemTrustOptions.html">PemTrustOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.net.PfxOptions.html">PfxOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.net.ProxyOptions.html">ProxyOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.net.SelfSignedCertificate.html">SelfSignedCertificate</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.net.SocketAddress.html">SocketAddress</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.net.TCPSSLOptions.html">TCPSSLOptions</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-904241537"></a>
+                                <a href="../namespaces/io.vertx.jphp.core.parsetools.html" style="margin-left: 30px; padding-left: 0">parsetools</a>
+            </div>
+            <div id="namespace-904241537" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.parsetools.JsonEvent.html">JsonEvent</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.parsetools.JsonParser.html">JsonParser</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.parsetools.RecordParser.html">RecordParser</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-97655918"></a>
+                                <a href="../namespaces/io.vertx.jphp.core.shareddata.html" style="margin-left: 30px; padding-left: 0">shareddata</a>
+            </div>
+            <div id="namespace-97655918" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.shareddata.AsyncMap.html">AsyncMap</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.shareddata.Counter.html">Counter</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.shareddata.LocalMap.html">LocalMap</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.shareddata.Lock.html">Lock</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.shareddata.SharedData.html">SharedData</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-816631484"></a>
+                                <a href="../namespaces/io.vertx.jphp.core.streams.html" style="margin-left: 30px; padding-left: 0">streams</a>
+            </div>
+            <div id="namespace-816631484" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.streams.Pump.html">Pump</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.streams.ReadStream.html">ReadStream</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.streams.StreamBase.html">StreamBase</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.streams.WriteStream.html">WriteStream</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.CompositeFuture.html">CompositeFuture</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.Context.html">Context</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.DeploymentOptions.html">DeploymentOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.Future.html">Future</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.MultiMap.html">MultiMap</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.TimeoutStream.html">TimeoutStream</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.Vertx.html">Vertx</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.VertxOptions.html">VertxOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.WorkerExecutor.html">WorkerExecutor</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/io.vertx.jphp.core.cli.html">\io\vertx\jphp\core\cli</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\io\vertx\jphp\core\cli</small>CLI</h1>
+                    <p><em>Interface defining a command-line interface (in other words a command such as &#039;run&#039;, &#039;ls&#039;.</em></p>
+                    <p>..).
+This interface is polyglot to ease reuse such as in Vert.x Shell.</p>
+<p/>
+<p>A command line interface has a name, and defines a set of options and arguments. Options are key-value pair such</p>
+                    
+                                        
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/io.vertx.jphp.core.cli.CLI.html#method_create" class="">create()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.core.cli.CLI.html#method_parse" class="">parse()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.core.cli.CLI.html#method_getName" class="">getName()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.core.cli.CLI.html#method_setName" class="">setName()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.core.cli.CLI.html#method_getDescription" class="">getDescription()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.core.cli.CLI.html#method_setDescription" class="">setDescription()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.core.cli.CLI.html#method_getSummary" class="">getSummary()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.core.cli.CLI.html#method_setSummary" class="">setSummary()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.core.cli.CLI.html#method_isHidden" class="">isHidden()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.core.cli.CLI.html#method_setHidden" class="">setHidden()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.core.cli.CLI.html#method_getOptions" class="">getOptions()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.core.cli.CLI.html#method_addOption" class="">addOption()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.core.cli.CLI.html#method_addOptions" class="">addOptions()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.core.cli.CLI.html#method_setOptions" class="">setOptions()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.core.cli.CLI.html#method_getArguments" class="">getArguments()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.core.cli.CLI.html#method_addArgument" class="">addArgument()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.core.cli.CLI.html#method_addArguments" class="">addArguments()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.core.cli.CLI.html#method_setArguments" class="">setArguments()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.core.cli.CLI.html#method_getOption" class="">getOption()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.core.cli.CLI.html#method_getArgument" class="">getArgument()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.core.cli.CLI.html#method_removeOption" class="">removeOption()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.core.cli.CLI.html#method_removeArgument" class="">removeArgument()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No public properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No constants found</em>
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <em>No protected methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No protected properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <a href="../classes/io.vertx.jphp.core.cli.CLI.html#method___construct" class="">__construct()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No private properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/io.vertx.jphp.core.cli.CLI.html"><div class="path-wrapper">io/vertx/jphp/core/cli/CLI.php</div></a></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                    <div class="namespace-wrapper">\io\vertx\jphp\core\cli\CLI</div>
+                            </dd>
+
+                        
+                        
+                        
+                                                
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr><td colspan="2"><em>None found</em></td></tr>
+                                        </table>
+                </aside>
+            </div>
+
+                        
+                        
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_create" name="method_create" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">create()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">create( <span class="argument">arg0</span>) : \io\vertx\jphp\core\cli\CLI</pre>
+                <p><em>Creates an instance of {@link CLI} using the default implementation.</em></p>
+                <p>$name [string] the name of the CLI (must not be {@code null})</p>
+<p><b>
+create($name)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\core\cli\CLI
+                                            &mdash; <p>the created instance of {@link CLI}</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.core.cli.CLI.html"><div class="path-wrapper">\io\vertx\jphp\core\cli\CLI</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_parse" name="method_parse" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">parse()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">parse( <span class="argument">arg0</span>,  <span class="argument">arg1 = null</span>) : \io\vertx\jphp\core\cli\CommandLine</pre>
+                <p><em>Parses the user command line interface and create a new {@link CommandLine} containing extracting values.</em></p>
+                <p>$arguments [array] the arguments</p>
+<p><b>
+parse($arguments)
+</b></p>
+<p>Parses the user command line interface and create a new CommandLine containing extracting values.</p>
+<p>$arguments [array] the arguments</p>
+<p>$validate [bool] enable / disable parsing validation</p>
+<p><b>
+parse($arguments,$validate)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>array</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>bool</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\core\cli\CommandLine
+                                            &mdash; <p>the creates command line</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.core.cli.CLI.html"><div class="path-wrapper">\io\vertx\jphp\core\cli\CLI</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getName" name="method_getName" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getName()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getName() : </pre>
+                <p><em>&lt;b&gt;
+getName()
+&lt;/b&gt;</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; <p>the CLI name.</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.core.cli.CLI.html"><div class="path-wrapper">\io\vertx\jphp\core\cli\CLI</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setName" name="method_setName" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setName()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setName( <span class="argument">arg0</span>) : \io\vertx\jphp\core\cli\CLI</pre>
+                <p><em>Sets the name of the CLI.</em></p>
+                <p>$name [string] the name</p>
+<p><b>
+setName($name)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\core\cli\CLI
+                                            &mdash; <p>the current {@link CLI} instance</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.core.cli.CLI.html"><div class="path-wrapper">\io\vertx\jphp\core\cli\CLI</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getDescription" name="method_getDescription" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getDescription()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getDescription() : </pre>
+                <p><em>&lt;b&gt;
+getDescription()
+&lt;/b&gt;</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; <p>the CLI description.</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.core.cli.CLI.html"><div class="path-wrapper">\io\vertx\jphp\core\cli\CLI</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setDescription" name="method_setDescription" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setDescription()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setDescription( <span class="argument">arg0</span>) : \io\vertx\jphp\core\cli\CLI</pre>
+                <p><em>$desc [string]</em></p>
+                <p><b>
+setDescription($desc)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\core\cli\CLI
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.core.cli.CLI.html"><div class="path-wrapper">\io\vertx\jphp\core\cli\CLI</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getSummary" name="method_getSummary" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getSummary()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getSummary() : </pre>
+                <p><em>&lt;b&gt;
+getSummary()
+&lt;/b&gt;</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; <p>the CLI summary.</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.core.cli.CLI.html"><div class="path-wrapper">\io\vertx\jphp\core\cli\CLI</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setSummary" name="method_setSummary" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setSummary()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setSummary( <span class="argument">arg0</span>) : \io\vertx\jphp\core\cli\CLI</pre>
+                <p><em>Sets the summary of the CLI.</em></p>
+                <p>$summary [string] the summary</p>
+<p><b>
+setSummary($summary)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\core\cli\CLI
+                                            &mdash; <p>the current {@link CLI} instance</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.core.cli.CLI.html"><div class="path-wrapper">\io\vertx\jphp\core\cli\CLI</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_isHidden" name="method_isHidden" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">isHidden()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">isHidden() : </pre>
+                <p><em>Checks whether or not the current {@link CLI} instance is hidden.</em></p>
+                <p><b>
+isHidden()
+</b></p>
+
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; <p>{@code true} if the current {@link CLI} is hidden, {@link false} otherwise</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.core.cli.CLI.html"><div class="path-wrapper">\io\vertx\jphp\core\cli\CLI</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setHidden" name="method_setHidden" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setHidden()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setHidden( <span class="argument">arg0</span>) : \io\vertx\jphp\core\cli\CLI</pre>
+                <p><em>Sets whether or not the current instance of {@link CLI} must be hidden. Hidden CLI are not listed when
+ displaying usages / help messages. In other words, hidden commands are for power user.</em></p>
+                <p>$hidden [bool] enables or disables the hidden aspect of the CI</p>
+<p><b>
+setHidden($hidden)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>bool</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\core\cli\CLI
+                                            &mdash; <p>the current {@link CLI} instance</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.core.cli.CLI.html"><div class="path-wrapper">\io\vertx\jphp\core\cli\CLI</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getOptions" name="method_getOptions" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getOptions()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getOptions() : mixed|string|int</pre>
+                <p><em>Gets the list of options.</em></p>
+                <p><b>
+getOptions()
+</b></p>
+
+                
+                
+                                    <h4>Returns</h4>
+                    mixed|string|int
+                                            &mdash; <p>the list of options, empty if none.</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.core.cli.CLI.html"><div class="path-wrapper">\io\vertx\jphp\core\cli\CLI</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_addOption" name="method_addOption" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">addOption()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">addOption( <span class="argument">arg0</span>) : \io\vertx\jphp\core\cli\CLI</pre>
+                <p><em>Adds an option.</em></p>
+                <p>$option [Option | mixed] the option, must not be {@code null}.</p>
+<p><b>
+addOption($option)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>Option | mixed</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\core\cli\CLI
+                                            &mdash; <p>the current {@link CLI} instance</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.core.cli.CLI.html"><div class="path-wrapper">\io\vertx\jphp\core\cli\CLI</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_addOptions" name="method_addOptions" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">addOptions()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">addOptions( <span class="argument">arg0</span>) : \io\vertx\jphp\core\cli\CLI</pre>
+                <p><em>Adds a set of options. Unlike {@link #setOptions(List)}}, this method does not remove the existing options.</em></p>
+                <p>The given list is appended to the existing list.</p>
+<p>$options [array] the options, must not be {@code null}</p>
+<p><b>
+addOptions($options)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>array</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\core\cli\CLI
+                                            &mdash; <p>the current {@link CLI} instance</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.core.cli.CLI.html"><div class="path-wrapper">\io\vertx\jphp\core\cli\CLI</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setOptions" name="method_setOptions" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setOptions()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setOptions( <span class="argument">arg0</span>) : \io\vertx\jphp\core\cli\CLI</pre>
+                <p><em>Sets the list of arguments.</em></p>
+                <p>$options [array] the list of options, must not be {@code null}</p>
+<p><b>
+setOptions($options)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>array</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\core\cli\CLI
+                                            &mdash; <p>the current {@link CLI} instance</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.core.cli.CLI.html"><div class="path-wrapper">\io\vertx\jphp\core\cli\CLI</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getArguments" name="method_getArguments" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getArguments()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getArguments() : mixed|string|int</pre>
+                <p><em>Gets the list of defined arguments.</em></p>
+                <p><b>
+getArguments()
+</b></p>
+
+                
+                
+                                    <h4>Returns</h4>
+                    mixed|string|int
+                                            &mdash; <p>the list of argument, empty if none.</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.core.cli.CLI.html"><div class="path-wrapper">\io\vertx\jphp\core\cli\CLI</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_addArgument" name="method_addArgument" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">addArgument()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">addArgument( <span class="argument">arg0</span>) : \io\vertx\jphp\core\cli\CLI</pre>
+                <p><em>Adds an argument.</em></p>
+                <p>$arg [Argument | mixed] the argument, must not be {@code null}</p>
+<p><b>
+addArgument($arg)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>Argument | mixed</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\core\cli\CLI
+                                            &mdash; <p>the current {@link CLI} instance</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.core.cli.CLI.html"><div class="path-wrapper">\io\vertx\jphp\core\cli\CLI</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_addArguments" name="method_addArguments" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">addArguments()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">addArguments( <span class="argument">arg0</span>) : \io\vertx\jphp\core\cli\CLI</pre>
+                <p><em>Adds a set of arguments. Unlike {@link #setArguments(List)}, this method does not remove the existing arguments.</em></p>
+                <p>The given list is appended to the existing list.</p>
+<p>$args [array] the arguments, must not be {@code null}</p>
+<p><b>
+addArguments($args)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>array</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\core\cli\CLI
+                                            &mdash; <p>the current {@link CLI} instance</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.core.cli.CLI.html"><div class="path-wrapper">\io\vertx\jphp\core\cli\CLI</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setArguments" name="method_setArguments" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setArguments()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setArguments( <span class="argument">arg0</span>) : \io\vertx\jphp\core\cli\CLI</pre>
+                <p><em>Sets the list of arguments.</em></p>
+                <p>$args [array] the list of arguments, must not be {@code null}</p>
+<p><b>
+setArguments($args)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>array</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\core\cli\CLI
+                                            &mdash; <p>the current {@link CLI} instance</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.core.cli.CLI.html"><div class="path-wrapper">\io\vertx\jphp\core\cli\CLI</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getOption" name="method_getOption" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getOption()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getOption( <span class="argument">arg0</span>) : \io\vertx\jphp\core\cli\Option</pre>
+                <p><em>Gets an {@link Option} based on its name (short name, long name or argument name).</em></p>
+                <p>$name [string] the name, must not be {@code null}</p>
+<p><b>
+getOption($name)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\core\cli\Option
+                                            &mdash; <p>| mixed the {@link Option}, {@code null} if not found</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.core.cli.CLI.html"><div class="path-wrapper">\io\vertx\jphp\core\cli\CLI</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getArgument" name="method_getArgument" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getArgument()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getArgument( <span class="argument">arg0</span>) : \io\vertx\jphp\core\cli\Argument</pre>
+                <p><em>Gets an {@link Argument} based on its name (argument name).</em></p>
+                <p>$name [string] the name of the argument, must not be {@code null}</p>
+<p><b>
+getArgument($name)
+</b></p>
+<p>Gets an Argument based on its index.</p>
+<p>$index [integer] the index, must be positive or zero.</p>
+<p><b>
+getArgument($index)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string | integer</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\core\cli\Argument
+                                            &mdash; <p>| mixed the {@link Argument}, {@code null} if not found.</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.core.cli.CLI.html"><div class="path-wrapper">\io\vertx\jphp\core\cli\CLI</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_removeOption" name="method_removeOption" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">removeOption()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">removeOption( <span class="argument">arg0</span>) : \io\vertx\jphp\core\cli\CLI</pre>
+                <p><em>Removes an option identified by its name. This method does nothing if the option cannot be found.</em></p>
+                <p>$name [string] the option name</p>
+<p><b>
+removeOption($name)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\core\cli\CLI
+                                            &mdash; <p>the current {@link CLI} instance</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.core.cli.CLI.html"><div class="path-wrapper">\io\vertx\jphp\core\cli\CLI</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_removeArgument" name="method_removeArgument" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">removeArgument()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">removeArgument( <span class="argument">arg0</span>) : \io\vertx\jphp\core\cli\CLI</pre>
+                <p><em>Removes an argument identified by its index. This method does nothing if the argument cannot be found.</em></p>
+                <p>$index [integer] the argument index</p>
+<p><b>
+removeArgument($index)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>integer</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\core\cli\CLI
+                                            &mdash; <p>the current {@link CLI} instance</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.core.cli.CLI.html"><div class="path-wrapper">\io\vertx\jphp\core\cli\CLI</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___construct" name="method___construct" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">__construct()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__construct() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.core.cli.CLI.html"><div class="path-wrapper">\io\vertx\jphp\core\cli\CLI</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">CLI.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/io/vertx/jphp/core/cli/CLI.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/io.html">\io</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on April 20th, 2018 at 09:43.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>

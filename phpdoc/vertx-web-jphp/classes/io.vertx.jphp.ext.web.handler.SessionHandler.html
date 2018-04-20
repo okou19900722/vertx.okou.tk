@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src').replace( /\\/g, '/');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/io.html">\io</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1931265963"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-1931265963" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1516655726"></a>
+                                <a href="../namespaces/io.html" style="margin-left: 30px; padding-left: 0">io</a>
+            </div>
+            <div id="namespace-1516655726" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-349850257"></a>
+                                <a href="../namespaces/io.vertx.html" style="margin-left: 30px; padding-left: 0">vertx</a>
+            </div>
+            <div id="namespace-349850257" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1618074563"></a>
+                                <a href="../namespaces/io.vertx.jphp.html" style="margin-left: 30px; padding-left: 0">jphp</a>
+            </div>
+            <div id="namespace-1618074563" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1852302705"></a>
+                                <a href="../namespaces/io.vertx.jphp.ext.html" style="margin-left: 30px; padding-left: 0">ext</a>
+            </div>
+            <div id="namespace-1852302705" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2023743067"></a>
+                                <a href="../namespaces/io.vertx.jphp.ext.web.html" style="margin-left: 30px; padding-left: 0">web</a>
+            </div>
+            <div id="namespace-2023743067" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2080401991"></a>
+                                <a href="../namespaces/io.vertx.jphp.ext.web.handler.html" style="margin-left: 30px; padding-left: 0">handler</a>
+            </div>
+            <div id="namespace-2080401991" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2000957816"></a>
+                                <a href="../namespaces/io.vertx.jphp.ext.web.handler.sockjs.html" style="margin-left: 30px; padding-left: 0">sockjs</a>
+            </div>
+            <div id="namespace-2000957816" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.sockjs.BridgeEvent.html">BridgeEvent</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.sockjs.BridgeOptions.html">BridgeOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.sockjs.PermittedOptions.html">PermittedOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.sockjs.SockJSHandler.html">SockJSHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.sockjs.SockJSHandlerOptions.html">SockJSHandlerOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.sockjs.SockJSSocket.html">SockJSSocket</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.AuthHandler.html">AuthHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.BasicAuthHandler.html">BasicAuthHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.BodyHandler.html">BodyHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.ChainAuthHandler.html">ChainAuthHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.CookieHandler.html">CookieHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.CorsHandler.html">CorsHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.CSRFHandler.html">CSRFHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.DigestAuthHandler.html">DigestAuthHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.ErrorHandler.html">ErrorHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.FaviconHandler.html">FaviconHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.FormLoginHandler.html">FormLoginHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.JWTAuthHandler.html">JWTAuthHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.LoggerHandler.html">LoggerHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.OAuth2AuthHandler.html">OAuth2AuthHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.RedirectAuthHandler.html">RedirectAuthHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.ResponseContentTypeHandler.html">ResponseContentTypeHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.ResponseTimeHandler.html">ResponseTimeHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.SessionHandler.html">SessionHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.StaticHandler.html">StaticHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.TemplateHandler.html">TemplateHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.TimeoutHandler.html">TimeoutHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.UserSessionHandler.html">UserSessionHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.VirtualHostHandler.html">VirtualHostHandler</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1715714757"></a>
+                                <a href="../namespaces/io.vertx.jphp.ext.web.sstore.html" style="margin-left: 30px; padding-left: 0">sstore</a>
+            </div>
+            <div id="namespace-1715714757" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.sstore.ClusteredSessionStore.html">ClusteredSessionStore</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.sstore.LocalSessionStore.html">LocalSessionStore</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.sstore.SessionStore.html">SessionStore</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-266374013"></a>
+                                <a href="../namespaces/io.vertx.jphp.ext.web.templ.html" style="margin-left: 30px; padding-left: 0">templ</a>
+            </div>
+            <div id="namespace-266374013" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.templ.TemplateEngine.html">TemplateEngine</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.Cookie.html">Cookie</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.FileUpload.html">FileUpload</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.Http2PushMapping.html">Http2PushMapping</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.LanguageHeader.html">LanguageHeader</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.Locale.html">Locale</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.MIMEHeader.html">MIMEHeader</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.ParsedHeaderValue.html">ParsedHeaderValue</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.ParsedHeaderValues.html">ParsedHeaderValues</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.Route.html">Route</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.Router.html">Router</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.RoutingContext.html">RoutingContext</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.Session.html">Session</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/io.vertx.jphp.ext.web.handler.html">\io\vertx\jphp\ext\web\handler</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\io\vertx\jphp\ext\web\handler</small>SessionHandler</h1>
+                    <p><em></em></p>
+                    
+                    
+                                        
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.handler.SessionHandler.html#method_handle" class="">handle()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.handler.SessionHandler.html#method_create" class="">create()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.handler.SessionHandler.html#method_setSessionTimeout" class="">setSessionTimeout()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.handler.SessionHandler.html#method_setNagHttps" class="">setNagHttps()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.handler.SessionHandler.html#method_setCookieSecureFlag" class="">setCookieSecureFlag()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.handler.SessionHandler.html#method_setCookieHttpOnlyFlag" class="">setCookieHttpOnlyFlag()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.handler.SessionHandler.html#method_setSessionCookieName" class="">setSessionCookieName()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.handler.SessionHandler.html#method_setMinLength" class="">setMinLength()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No public properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No constants found</em>
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <em>No protected methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No protected properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.handler.SessionHandler.html#method___construct" class="">__construct()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No private properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/io.vertx.jphp.ext.web.handler.SessionHandler.html"><div class="path-wrapper">io/vertx/jphp/ext/web/handler/SessionHandler.php</div></a></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                    <div class="namespace-wrapper">\io\vertx\jphp\ext\web\handler\SessionHandler</div>
+                            </dd>
+
+                        
+                        
+                        
+                                                
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr><td colspan="2"><em>None found</em></td></tr>
+                                        </table>
+                </aside>
+            </div>
+
+                        
+                        
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_handle" name="method_handle" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">handle()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">handle( <span class="argument">arg0</span>) : </pre>
+                <p><em>$arg0 [RoutingContext]</em></p>
+                <p><b>
+handle($arg0)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>RoutingContext</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.handler.SessionHandler.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\handler\SessionHandler</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_create" name="method_create" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">create()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">create( <span class="argument">arg0</span>) : \io\vertx\jphp\ext\web\handler\SessionHandler</pre>
+                <p><em>Create a session handler</em></p>
+                <p>$sessionStore [SessionStore] the session store</p>
+<p><b>
+create($sessionStore)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>SessionStore</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\web\handler\SessionHandler
+                                            &mdash; <p>the handler</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.handler.SessionHandler.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\handler\SessionHandler</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setSessionTimeout" name="method_setSessionTimeout" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setSessionTimeout()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setSessionTimeout( <span class="argument">arg0</span>) : \io\vertx\jphp\ext\web\handler\SessionHandler</pre>
+                <p><em>Set the session timeout</em></p>
+                <p>$timeout [integer] the timeout, in ms.</p>
+<p><b>
+setSessionTimeout($timeout)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>integer</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\web\handler\SessionHandler
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.handler.SessionHandler.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\handler\SessionHandler</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setNagHttps" name="method_setNagHttps" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setNagHttps()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setNagHttps( <span class="argument">arg0</span>) : \io\vertx\jphp\ext\web\handler\SessionHandler</pre>
+                <p><em>Set whether a nagging log warning should be written if the session handler is accessed over HTTP, not
+ HTTPS</em></p>
+                <p>$nag [bool] true to nag</p>
+<p><b>
+setNagHttps($nag)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>bool</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\web\handler\SessionHandler
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.handler.SessionHandler.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\handler\SessionHandler</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setCookieSecureFlag" name="method_setCookieSecureFlag" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setCookieSecureFlag()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setCookieSecureFlag( <span class="argument">arg0</span>) : \io\vertx\jphp\ext\web\handler\SessionHandler</pre>
+                <p><em>Sets whether the &#039;secure&#039; flag should be set for the session cookie. When set this flag instructs browsers to only
+ send the cookie over HTTPS. Note that this will probably stop your sessions working if used without HTTPS (e.g. in development).</em></p>
+                <p>$secure [bool] true to set the secure flag on the cookie</p>
+<p><b>
+setCookieSecureFlag($secure)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>bool</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\web\handler\SessionHandler
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.handler.SessionHandler.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\handler\SessionHandler</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setCookieHttpOnlyFlag" name="method_setCookieHttpOnlyFlag" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setCookieHttpOnlyFlag()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setCookieHttpOnlyFlag( <span class="argument">arg0</span>) : \io\vertx\jphp\ext\web\handler\SessionHandler</pre>
+                <p><em>Sets whether the &#039;HttpOnly&#039; flag should be set for the session cookie. When set this flag instructs browsers to
+ prevent Javascript access to the the cookie. Used as a line of defence against the most common XSS attacks.</em></p>
+                <p>$httpOnly [bool] true to set the HttpOnly flag on the cookie</p>
+<p><b>
+setCookieHttpOnlyFlag($httpOnly)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>bool</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\web\handler\SessionHandler
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.handler.SessionHandler.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\handler\SessionHandler</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setSessionCookieName" name="method_setSessionCookieName" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setSessionCookieName()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setSessionCookieName( <span class="argument">arg0</span>) : \io\vertx\jphp\ext\web\handler\SessionHandler</pre>
+                <p><em>Set the session cookie name</em></p>
+                <p>$sessionCookieName [string] the session cookie name</p>
+<p><b>
+setSessionCookieName($sessionCookieName)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\web\handler\SessionHandler
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.handler.SessionHandler.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\handler\SessionHandler</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setMinLength" name="method_setMinLength" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setMinLength()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setMinLength( <span class="argument">arg0</span>) : \io\vertx\jphp\ext\web\handler\SessionHandler</pre>
+                <p><em>Set expected session id minimum length.</em></p>
+                <p>$minLength [integer] the session id minimal length</p>
+<p><b>
+setMinLength($minLength)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>integer</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\web\handler\SessionHandler
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.handler.SessionHandler.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\handler\SessionHandler</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___construct" name="method___construct" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">__construct()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__construct() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.handler.SessionHandler.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\handler\SessionHandler</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">SessionHandler.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/io/vertx/jphp/ext/web/handler/SessionHandler.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/io.html">\io</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on April 20th, 2018 at 09:43.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>

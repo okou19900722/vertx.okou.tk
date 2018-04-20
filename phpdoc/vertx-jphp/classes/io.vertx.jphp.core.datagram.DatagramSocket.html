@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src').replace( /\\/g, '/');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/io.html">\io</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-359598926"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-359598926" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-312316135"></a>
+                                <a href="../namespaces/io.html" style="margin-left: 30px; padding-left: 0">io</a>
+            </div>
+            <div id="namespace-312316135" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-65170239"></a>
+                                <a href="../namespaces/io.vertx.html" style="margin-left: 30px; padding-left: 0">vertx</a>
+            </div>
+            <div id="namespace-65170239" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-601138499"></a>
+                                <a href="../namespaces/io.vertx.jphp.html" style="margin-left: 30px; padding-left: 0">jphp</a>
+            </div>
+            <div id="namespace-601138499" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-652081466"></a>
+                                <a href="../namespaces/io.vertx.jphp.core.html" style="margin-left: 30px; padding-left: 0">core</a>
+            </div>
+            <div id="namespace-652081466" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-850303041"></a>
+                                <a href="../namespaces/io.vertx.jphp.core.buffer.html" style="margin-left: 30px; padding-left: 0">buffer</a>
+            </div>
+            <div id="namespace-850303041" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.buffer.Buffer.html">Buffer</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1857687696"></a>
+                                <a href="../namespaces/io.vertx.jphp.core.cli.html" style="margin-left: 30px; padding-left: 0">cli</a>
+            </div>
+            <div id="namespace-1857687696" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.cli.Argument.html">Argument</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.cli.CLI.html">CLI</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.cli.CommandLine.html">CommandLine</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.cli.Option.html">Option</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-342361300"></a>
+                                <a href="../namespaces/io.vertx.jphp.core.datagram.html" style="margin-left: 30px; padding-left: 0">datagram</a>
+            </div>
+            <div id="namespace-342361300" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.datagram.DatagramPacket.html">DatagramPacket</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.datagram.DatagramSocket.html">DatagramSocket</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.datagram.DatagramSocketOptions.html">DatagramSocketOptions</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-476727226"></a>
+                                <a href="../namespaces/io.vertx.jphp.core.dns.html" style="margin-left: 30px; padding-left: 0">dns</a>
+            </div>
+            <div id="namespace-476727226" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.dns.AddressResolverOptions.html">AddressResolverOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.dns.DnsClient.html">DnsClient</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.dns.DnsClientOptions.html">DnsClientOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.dns.MxRecord.html">MxRecord</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.dns.SrvRecord.html">SrvRecord</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-120704797"></a>
+                                <a href="../namespaces/io.vertx.jphp.core.eventbus.html" style="margin-left: 30px; padding-left: 0">eventbus</a>
+            </div>
+            <div id="namespace-120704797" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.eventbus.DeliveryOptions.html">DeliveryOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.eventbus.EventBus.html">EventBus</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.eventbus.EventBusOptions.html">EventBusOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.eventbus.Message.html">Message</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.eventbus.MessageConsumer.html">MessageConsumer</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.eventbus.MessageProducer.html">MessageProducer</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.eventbus.SendContext.html">SendContext</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1144674916"></a>
+                                <a href="../namespaces/io.vertx.jphp.core.file.html" style="margin-left: 30px; padding-left: 0">file</a>
+            </div>
+            <div id="namespace-1144674916" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.file.AsyncFile.html">AsyncFile</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.file.CopyOptions.html">CopyOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.file.FileProps.html">FileProps</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.file.FileSystem.html">FileSystem</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.file.FileSystemProps.html">FileSystemProps</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.file.OpenOptions.html">OpenOptions</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1591386559"></a>
+                                <a href="../namespaces/io.vertx.jphp.core.http.html" style="margin-left: 30px; padding-left: 0">http</a>
+            </div>
+            <div id="namespace-1591386559" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.GoAway.html">GoAway</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.Http2Settings.html">Http2Settings</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.HttpClient.html">HttpClient</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.HttpClientOptions.html">HttpClientOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.HttpClientRequest.html">HttpClientRequest</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.HttpClientResponse.html">HttpClientResponse</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.HttpConnection.html">HttpConnection</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.HttpFrame.html">HttpFrame</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.HttpServer.html">HttpServer</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.HttpServerFileUpload.html">HttpServerFileUpload</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.HttpServerOptions.html">HttpServerOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.HttpServerRequest.html">HttpServerRequest</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.HttpServerResponse.html">HttpServerResponse</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.RequestOptions.html">RequestOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.ServerWebSocket.html">ServerWebSocket</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.WebSocket.html">WebSocket</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.WebSocketBase.html">WebSocketBase</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.http.WebSocketFrame.html">WebSocketFrame</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-848104613"></a>
+                                <a href="../namespaces/io.vertx.jphp.core.metrics.html" style="margin-left: 30px; padding-left: 0">metrics</a>
+            </div>
+            <div id="namespace-848104613" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.metrics.Measured.html">Measured</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.metrics.MetricsOptions.html">MetricsOptions</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2024404058"></a>
+                                <a href="../namespaces/io.vertx.jphp.core.net.html" style="margin-left: 30px; padding-left: 0">net</a>
+            </div>
+            <div id="namespace-2024404058" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.net.ClientOptionsBase.html">ClientOptionsBase</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.net.JdkSSLEngineOptions.html">JdkSSLEngineOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.net.JksOptions.html">JksOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.net.NetClient.html">NetClient</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.net.NetClientOptions.html">NetClientOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.net.NetServer.html">NetServer</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.net.NetServerOptions.html">NetServerOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.net.NetSocket.html">NetSocket</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.net.NetworkOptions.html">NetworkOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.net.OpenSSLEngineOptions.html">OpenSSLEngineOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.net.PemKeyCertOptions.html">PemKeyCertOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.net.PemTrustOptions.html">PemTrustOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.net.PfxOptions.html">PfxOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.net.ProxyOptions.html">ProxyOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.net.SelfSignedCertificate.html">SelfSignedCertificate</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.net.SocketAddress.html">SocketAddress</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.net.TCPSSLOptions.html">TCPSSLOptions</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1204733020"></a>
+                                <a href="../namespaces/io.vertx.jphp.core.parsetools.html" style="margin-left: 30px; padding-left: 0">parsetools</a>
+            </div>
+            <div id="namespace-1204733020" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.parsetools.JsonEvent.html">JsonEvent</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.parsetools.JsonParser.html">JsonParser</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.parsetools.RecordParser.html">RecordParser</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-62593689"></a>
+                                <a href="../namespaces/io.vertx.jphp.core.shareddata.html" style="margin-left: 30px; padding-left: 0">shareddata</a>
+            </div>
+            <div id="namespace-62593689" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.shareddata.AsyncMap.html">AsyncMap</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.shareddata.Counter.html">Counter</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.shareddata.LocalMap.html">LocalMap</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.shareddata.Lock.html">Lock</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.shareddata.SharedData.html">SharedData</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1669557695"></a>
+                                <a href="../namespaces/io.vertx.jphp.core.streams.html" style="margin-left: 30px; padding-left: 0">streams</a>
+            </div>
+            <div id="namespace-1669557695" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.streams.Pump.html">Pump</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.streams.ReadStream.html">ReadStream</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.streams.StreamBase.html">StreamBase</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.streams.WriteStream.html">WriteStream</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.CompositeFuture.html">CompositeFuture</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.Context.html">Context</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.DeploymentOptions.html">DeploymentOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.Future.html">Future</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.MultiMap.html">MultiMap</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.TimeoutStream.html">TimeoutStream</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.Vertx.html">Vertx</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.VertxOptions.html">VertxOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.core.WorkerExecutor.html">WorkerExecutor</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/io.vertx.jphp.core.datagram.html">\io\vertx\jphp\core\datagram</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\io\vertx\jphp\core\datagram</small>DatagramSocket</h1>
+                    <p><em></em></p>
+                    
+                    
+                                        
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/io.vertx.jphp.core.datagram.DatagramSocket.html#method_isMetricsEnabled" class="">isMetricsEnabled()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.core.datagram.DatagramSocket.html#method_send" class="">send()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.core.datagram.DatagramSocket.html#method_sender" class="">sender()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.core.datagram.DatagramSocket.html#method_close" class="">close()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.core.datagram.DatagramSocket.html#method_localAddress" class="">localAddress()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.core.datagram.DatagramSocket.html#method_listenMulticastGroup" class="">listenMulticastGroup()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.core.datagram.DatagramSocket.html#method_unlistenMulticastGroup" class="">unlistenMulticastGroup()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.core.datagram.DatagramSocket.html#method_blockMulticastGroup" class="">blockMulticastGroup()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.core.datagram.DatagramSocket.html#method_listen" class="">listen()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.core.datagram.DatagramSocket.html#method_pause" class="">pause()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.core.datagram.DatagramSocket.html#method_resume" class="">resume()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.core.datagram.DatagramSocket.html#method_endHandler" class="">endHandler()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.core.datagram.DatagramSocket.html#method_handler" class="">handler()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.core.datagram.DatagramSocket.html#method_exceptionHandler" class="">exceptionHandler()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No public properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No constants found</em>
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <em>No protected methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No protected properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <a href="../classes/io.vertx.jphp.core.datagram.DatagramSocket.html#method___construct" class="">__construct()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No private properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/io.vertx.jphp.core.datagram.DatagramSocket.html"><div class="path-wrapper">io/vertx/jphp/core/datagram/DatagramSocket.php</div></a></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                    <div class="namespace-wrapper">\io\vertx\jphp\core\datagram\DatagramSocket</div>
+                            </dd>
+
+                        
+                        
+                        
+                                                
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr><td colspan="2"><em>None found</em></td></tr>
+                                        </table>
+                </aside>
+            </div>
+
+                        
+                        
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_isMetricsEnabled" name="method_isMetricsEnabled" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">isMetricsEnabled()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">isMetricsEnabled() : </pre>
+                <p><em>Whether the metrics are enabled for this measured object</em></p>
+                <p><b>
+isMetricsEnabled()
+</b></p>
+
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; <p>true if the metrics are enabled</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.core.datagram.DatagramSocket.html"><div class="path-wrapper">\io\vertx\jphp\core\datagram\DatagramSocket</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_send" name="method_send" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">send()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">send( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>,  <span class="argument">arg3</span>,  <span class="argument">arg4 = null</span>) : \io\vertx\jphp\core\datagram\DatagramSocket</pre>
+                <p><em>Write the given {@link io.vertx.core.buffer.Buffer} to the {@link io.vertx.core.net.SocketAddress}.</em></p>
+                <p>The io.vertx.core.Handler will be notified once the write completes.</p>
+<p>$packet [Buffer] the io.vertx.core.buffer.Buffer to write</p>
+<p>$port [integer] the host port of the remote peer</p>
+<p>$host [string] the host address of the remote peer</p>
+<p>$handler [callable] the io.vertx.core.Handler to notify once the write completes.</p>
+<p><b>
+send($packet,$port,$host,$handler)
+</b></p>
+<p>Write the given String to the io.vertx.core.net.SocketAddress using UTF8 encoding.
+The Handler will be notified once the write completes.</p>
+<p>$str [string] the String to write</p>
+<p>$port [integer] the host port of the remote peer</p>
+<p>$host [string] the host address of the remote peer</p>
+<p>$handler [callable] the io.vertx.core.Handler to notify once the write completes.</p>
+<p><b>
+send($str,$port,$host,$handler)
+</b></p>
+<p>Write the given String to the io.vertx.core.net.SocketAddress using the given encoding.
+The Handler will be notified once the write completes.</p>
+<p>$str [string] the String to write</p>
+<p>$enc [string] the charset used for encoding</p>
+<p>$port [integer] the host port of the remote peer</p>
+<p>$host [string] the host address of the remote peer</p>
+<p>$handler [callable] the io.vertx.core.Handler to notify once the write completes.</p>
+<p><b>
+send($str,$enc,$port,$host,$handler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>Buffer | string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>string | integer</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>string | integer</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg3 </td>
+                                <td><p>callable | string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg4 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\core\datagram\DatagramSocket
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.core.datagram.DatagramSocket.html"><div class="path-wrapper">\io\vertx\jphp\core\datagram\DatagramSocket</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_sender" name="method_sender" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">sender()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">sender( <span class="argument">arg0</span>,  <span class="argument">arg1</span>) : \io\vertx\jphp\core\streams\WriteStream</pre>
+                <p><em>Returns a {@code WriteStream&lt;Buffer&gt;} able to send {@link Buffer} to the
+ {@link io.vertx.core.net.SocketAddress}.</em></p>
+                <p>$port [integer] the port of the remote peer</p>
+<p>$host [string] the host address of the remote peer</p>
+<p><b>
+sender($port,$host)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>integer</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\core\streams\WriteStream
+                                            &mdash; <p>the write stream for sending packets</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.core.datagram.DatagramSocket.html"><div class="path-wrapper">\io\vertx\jphp\core\datagram\DatagramSocket</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_close" name="method_close" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">close()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">close( <span class="argument">arg0 = null</span>) : </pre>
+                <p><em>Closes the {@link io.vertx.core.datagram.DatagramSocket}. The close itself is asynchronous.</em></p>
+                <p><b>
+close()
+</b></p>
+<p>Closes the io.vertx.core.datagram.DatagramSocket implementation asynchronous
+and notifies the handler once done.</p>
+<p>$handler [callable] the handler to notify once complete</p>
+<p><b>
+close($handler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.core.datagram.DatagramSocket.html"><div class="path-wrapper">\io\vertx\jphp\core\datagram\DatagramSocket</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_localAddress" name="method_localAddress" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">localAddress()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">localAddress() : \io\vertx\jphp\core\net\SocketAddress</pre>
+                <p><em>Return the {@link io.vertx.core.net.SocketAddress} to which
+ this {@link io.vertx.core.datagram.DatagramSocket} is bound.</em></p>
+                <p><b>
+localAddress()
+</b></p>
+
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\core\net\SocketAddress
+                                            &mdash; <p>the socket address</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.core.datagram.DatagramSocket.html"><div class="path-wrapper">\io\vertx\jphp\core\datagram\DatagramSocket</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_listenMulticastGroup" name="method_listenMulticastGroup" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">listenMulticastGroup()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">listenMulticastGroup( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2 = null</span>,  <span class="argument">arg3 = null</span>) : \io\vertx\jphp\core\datagram\DatagramSocket</pre>
+                <p><em>Joins a multicast group and listens for packets send to it.</em></p>
+                <p>The Handler is notified once the operation completes.</p>
+<p>$multicastAddress [string] the address of the multicast group to join</p>
+<p>$handler [callable] then handler to notify once the operation completes</p>
+<p><b>
+listenMulticastGroup($multicastAddress,$handler)
+</b></p>
+<p>Joins a multicast group and listens for packets send to it on the given network interface.
+The Handler is notified once the operation completes.</p>
+<p>$multicastAddress [string] the address of the multicast group to join</p>
+<p>$networkInterface [string] the network interface on which to listen for packets.</p>
+<p>$source [string] the address of the source for which we will listen for multicast packets</p>
+<p>$handler [callable] then handler to notify once the operation completes</p>
+<p><b>
+listenMulticastGroup($multicastAddress,$networkInterface,$source,$handler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>callable | string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg3 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\core\datagram\DatagramSocket
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.core.datagram.DatagramSocket.html"><div class="path-wrapper">\io\vertx\jphp\core\datagram\DatagramSocket</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_unlistenMulticastGroup" name="method_unlistenMulticastGroup" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">unlistenMulticastGroup()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">unlistenMulticastGroup( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2 = null</span>,  <span class="argument">arg3 = null</span>) : \io\vertx\jphp\core\datagram\DatagramSocket</pre>
+                <p><em>Leaves a multicast group and stops listening for packets send to it.</em></p>
+                <p>The Handler is notified once the operation completes.</p>
+<p>$multicastAddress [string] the address of the multicast group to leave</p>
+<p>$handler [callable] then handler to notify once the operation completes</p>
+<p><b>
+unlistenMulticastGroup($multicastAddress,$handler)
+</b></p>
+<p>Leaves a multicast group and stops listening for packets send to it on the given network interface.
+The Handler is notified once the operation completes.</p>
+<p>$multicastAddress [string] the address of the multicast group to join</p>
+<p>$networkInterface [string] the network interface on which to listen for packets.</p>
+<p>$source [string] the address of the source for which we will listen for multicast packets</p>
+<p>$handler [callable] the handler to notify once the operation completes</p>
+<p><b>
+unlistenMulticastGroup($multicastAddress,$networkInterface,$source,$handler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>callable | string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg3 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\core\datagram\DatagramSocket
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.core.datagram.DatagramSocket.html"><div class="path-wrapper">\io\vertx\jphp\core\datagram\DatagramSocket</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_blockMulticastGroup" name="method_blockMulticastGroup" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">blockMulticastGroup()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">blockMulticastGroup( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>,  <span class="argument">arg3 = null</span>) : \io\vertx\jphp\core\datagram\DatagramSocket</pre>
+                <p><em>Block the given address for the given multicast address and notifies the {@link Handler} once
+ the operation completes.</em></p>
+                <p>$multicastAddress [string] the address for which you want to block the source address</p>
+<p>$sourceToBlock [string] the source address which should be blocked. You will not receive an multicast packets for it anymore.</p>
+<p>$handler [callable] the handler to notify once the operation completes</p>
+<p><b>
+blockMulticastGroup($multicastAddress,$sourceToBlock,$handler)
+</b></p>
+<p>Block the given address for the given multicast address on the given network interface and notifies
+the Handler once the operation completes.</p>
+<p>$multicastAddress [string] the address for which you want to block the source address</p>
+<p>$networkInterface [string] the network interface on which the blocking should occur.</p>
+<p>$sourceToBlock [string] the source address which should be blocked. You will not receive an multicast packets for it anymore.</p>
+<p>$handler [callable] the handler to notify once the operation completes</p>
+<p><b>
+blockMulticastGroup($multicastAddress,$networkInterface,$sourceToBlock,$handler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>callable | string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg3 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\core\datagram\DatagramSocket
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.core.datagram.DatagramSocket.html"><div class="path-wrapper">\io\vertx\jphp\core\datagram\DatagramSocket</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_listen" name="method_listen" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">listen()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">listen( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>) : \io\vertx\jphp\core\datagram\DatagramSocket</pre>
+                <p><em>Start listening on the given port and host. The handler will be called when the socket is listening.</em></p>
+                <p>$port [integer] the port to listen on</p>
+<p>$host [string] the host to listen on</p>
+<p>$handler [callable] the handler will be called when listening</p>
+<p><b>
+listen($port,$host,$handler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>integer</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\core\datagram\DatagramSocket
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.core.datagram.DatagramSocket.html"><div class="path-wrapper">\io\vertx\jphp\core\datagram\DatagramSocket</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_pause" name="method_pause" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">pause()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">pause() : \io\vertx\jphp\core\datagram\DatagramSocket</pre>
+                <p><em>&lt;b&gt;
+pause()
+&lt;/b&gt;</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\core\datagram\DatagramSocket
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.core.datagram.DatagramSocket.html"><div class="path-wrapper">\io\vertx\jphp\core\datagram\DatagramSocket</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_resume" name="method_resume" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">resume()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">resume() : \io\vertx\jphp\core\datagram\DatagramSocket</pre>
+                <p><em>&lt;b&gt;
+resume()
+&lt;/b&gt;</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\core\datagram\DatagramSocket
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.core.datagram.DatagramSocket.html"><div class="path-wrapper">\io\vertx\jphp\core\datagram\DatagramSocket</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_endHandler" name="method_endHandler" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">endHandler()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">endHandler( <span class="argument">arg0</span>) : \io\vertx\jphp\core\datagram\DatagramSocket</pre>
+                <p><em>$endHandler [callable]</em></p>
+                <p><b>
+endHandler($endHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\core\datagram\DatagramSocket
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.core.datagram.DatagramSocket.html"><div class="path-wrapper">\io\vertx\jphp\core\datagram\DatagramSocket</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_handler" name="method_handler" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">handler()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">handler( <span class="argument">arg0</span>) : \io\vertx\jphp\core\datagram\DatagramSocket</pre>
+                <p><em>$handler [callable]</em></p>
+                <p><b>
+handler($handler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\core\datagram\DatagramSocket
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.core.datagram.DatagramSocket.html"><div class="path-wrapper">\io\vertx\jphp\core\datagram\DatagramSocket</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_exceptionHandler" name="method_exceptionHandler" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">exceptionHandler()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">exceptionHandler( <span class="argument">arg0</span>) : \io\vertx\jphp\core\datagram\DatagramSocket</pre>
+                <p><em>$handler [callable]</em></p>
+                <p><b>
+exceptionHandler($handler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\core\datagram\DatagramSocket
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.core.datagram.DatagramSocket.html"><div class="path-wrapper">\io\vertx\jphp\core\datagram\DatagramSocket</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___construct" name="method___construct" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">__construct()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__construct() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.core.datagram.DatagramSocket.html"><div class="path-wrapper">\io\vertx\jphp\core\datagram\DatagramSocket</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">DatagramSocket.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/io/vertx/jphp/core/datagram/DatagramSocket.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/io.html">\io</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on April 20th, 2018 at 09:43.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>

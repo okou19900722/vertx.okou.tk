@@ -1,0 +1,2073 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src').replace( /\\/g, '/');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/io.html">\io</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1996328781"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-1996328781" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-805444139"></a>
+                                <a href="../namespaces/io.html" style="margin-left: 30px; padding-left: 0">io</a>
+            </div>
+            <div id="namespace-805444139" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1090349909"></a>
+                                <a href="../namespaces/io.vertx.html" style="margin-left: 30px; padding-left: 0">vertx</a>
+            </div>
+            <div id="namespace-1090349909" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-856949357"></a>
+                                <a href="../namespaces/io.vertx.jphp.html" style="margin-left: 30px; padding-left: 0">jphp</a>
+            </div>
+            <div id="namespace-856949357" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2105175387"></a>
+                                <a href="../namespaces/io.vertx.jphp.mqtt.html" style="margin-left: 30px; padding-left: 0">mqtt</a>
+            </div>
+            <div id="namespace-2105175387" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1771216393"></a>
+                                <a href="../namespaces/io.vertx.jphp.mqtt.messages.html" style="margin-left: 30px; padding-left: 0">messages</a>
+            </div>
+            <div id="namespace-1771216393" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.mqtt.messages.MqttConnAckMessage.html">MqttConnAckMessage</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.mqtt.messages.MqttMessage.html">MqttMessage</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.mqtt.messages.MqttPublishMessage.html">MqttPublishMessage</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.mqtt.messages.MqttSubAckMessage.html">MqttSubAckMessage</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.mqtt.messages.MqttSubscribeMessage.html">MqttSubscribeMessage</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.mqtt.messages.MqttUnsubscribeMessage.html">MqttUnsubscribeMessage</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.mqtt.MqttAuth.html">MqttAuth</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.mqtt.MqttClient.html">MqttClient</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.mqtt.MqttClientOptions.html">MqttClientOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html">MqttEndpoint</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.mqtt.MqttServer.html">MqttServer</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.mqtt.MqttServerOptions.html">MqttServerOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.mqtt.MqttTopicSubscription.html">MqttTopicSubscription</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.mqtt.MqttWill.html">MqttWill</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/io.vertx.jphp.mqtt.html">\io\vertx\jphp\mqtt</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\io\vertx\jphp\mqtt</small>MqttEndpoint</h1>
+                    <p><em>Represents an MQTT endpoint for point-to-point communication with the remote MQTT client</em></p>
+                    
+                    
+                                        
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html#method_close" class="">close()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html#method_remoteAddress" class="">remoteAddress()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html#method_localAddress" class="">localAddress()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html#method_clientIdentifier" class="">clientIdentifier()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html#method_auth" class="">auth()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html#method_will" class="">will()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html#method_protocolVersion" class="">protocolVersion()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html#method_protocolName" class="">protocolName()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html#method_isCleanSession" class="">isCleanSession()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html#method_keepAliveTimeSeconds" class="">keepAliveTimeSeconds()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html#method_lastMessageId" class="">lastMessageId()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html#method_subscriptionAutoAck" class="">subscriptionAutoAck()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html#method_isSubscriptionAutoAck" class="">isSubscriptionAutoAck()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html#method_publishAutoAck" class="">publishAutoAck()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html#method_isPublishAutoAck" class="">isPublishAutoAck()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html#method_autoKeepAlive" class="">autoKeepAlive()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html#method_isAutoKeepAlive" class="">isAutoKeepAlive()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html#method_isConnected" class="">isConnected()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html#method_setClientIdentifier" class="">setClientIdentifier()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html#method_disconnectHandler" class="">disconnectHandler()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html#method_subscribeHandler" class="">subscribeHandler()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html#method_unsubscribeHandler" class="">unsubscribeHandler()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html#method_publishHandler" class="">publishHandler()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html#method_publishAcknowledgeHandler" class="">publishAcknowledgeHandler()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html#method_publishReceivedHandler" class="">publishReceivedHandler()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html#method_publishReleaseHandler" class="">publishReleaseHandler()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html#method_publishCompletionHandler" class="">publishCompletionHandler()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html#method_pingHandler" class="">pingHandler()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html#method_closeHandler" class="">closeHandler()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html#method_exceptionHandler" class="">exceptionHandler()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html#method_accept" class="">accept()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html#method_reject" class="">reject()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html#method_subscribeAcknowledge" class="">subscribeAcknowledge()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html#method_unsubscribeAcknowledge" class="">unsubscribeAcknowledge()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html#method_publishAcknowledge" class="">publishAcknowledge()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html#method_publishReceived" class="">publishReceived()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html#method_publishRelease" class="">publishRelease()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html#method_publishComplete" class="">publishComplete()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html#method_publish" class="">publish()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html#method_pong" class="">pong()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No public properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No constants found</em>
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <em>No protected methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No protected properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html#method___construct" class="">__construct()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No private properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/io.vertx.jphp.mqtt.MqttEndpoint.html"><div class="path-wrapper">io/vertx/jphp/mqtt/MqttEndpoint.php</div></a></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                    <div class="namespace-wrapper">\io\vertx\jphp\mqtt\MqttEndpoint</div>
+                            </dd>
+
+                        
+                        
+                        
+                                                
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr><td colspan="2"><em>None found</em></td></tr>
+                                        </table>
+                </aside>
+            </div>
+
+                        
+                        
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_close" name="method_close" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">close()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">close() : </pre>
+                <p><em>Close the endpoint, so the connection with remote MQTT client</em></p>
+                <p><b>
+close()
+</b></p>
+
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html"><div class="path-wrapper">\io\vertx\jphp\mqtt\MqttEndpoint</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_remoteAddress" name="method_remoteAddress" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">remoteAddress()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">remoteAddress() : \io\vertx\jphp\core\net\SocketAddress</pre>
+                <p><em>&lt;b&gt;
+remoteAddress()
+&lt;/b&gt;</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\core\net\SocketAddress
+                                            &mdash; <p>the remote address for this socket</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html"><div class="path-wrapper">\io\vertx\jphp\mqtt\MqttEndpoint</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_localAddress" name="method_localAddress" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">localAddress()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">localAddress() : \io\vertx\jphp\core\net\SocketAddress</pre>
+                <p><em>&lt;b&gt;
+localAddress()
+&lt;/b&gt;</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\core\net\SocketAddress
+                                            &mdash; <p>the local address for this socket</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html"><div class="path-wrapper">\io\vertx\jphp\mqtt\MqttEndpoint</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_clientIdentifier" name="method_clientIdentifier" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">clientIdentifier()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">clientIdentifier() : </pre>
+                <p><em>&lt;b&gt;
+clientIdentifier()
+&lt;/b&gt;</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; <p>the client identifier as provided by the remote MQTT client</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html"><div class="path-wrapper">\io\vertx\jphp\mqtt\MqttEndpoint</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_auth" name="method_auth" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">auth()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">auth() : \io\vertx\jphp\mqtt\MqttAuth</pre>
+                <p><em>&lt;b&gt;
+auth()
+&lt;/b&gt;</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\mqtt\MqttAuth
+                                            &mdash; <p>| mixed the Authentication information as provided by the remote MQTT client</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html"><div class="path-wrapper">\io\vertx\jphp\mqtt\MqttEndpoint</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_will" name="method_will" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">will()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">will() : \io\vertx\jphp\mqtt\MqttWill</pre>
+                <p><em>&lt;b&gt;
+will()
+&lt;/b&gt;</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\mqtt\MqttWill
+                                            &mdash; <p>| mixed the Will information as provided by the remote MQTT client</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html"><div class="path-wrapper">\io\vertx\jphp\mqtt\MqttEndpoint</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_protocolVersion" name="method_protocolVersion" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">protocolVersion()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">protocolVersion() : </pre>
+                <p><em>&lt;b&gt;
+protocolVersion()
+&lt;/b&gt;</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; <p>the protocol version required by the remote MQTT client</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html"><div class="path-wrapper">\io\vertx\jphp\mqtt\MqttEndpoint</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_protocolName" name="method_protocolName" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">protocolName()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">protocolName() : </pre>
+                <p><em>&lt;b&gt;
+protocolName()
+&lt;/b&gt;</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; <p>the protocol name provided by the remote MQTT client</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html"><div class="path-wrapper">\io\vertx\jphp\mqtt\MqttEndpoint</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_isCleanSession" name="method_isCleanSession" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">isCleanSession()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">isCleanSession() : </pre>
+                <p><em>&lt;b&gt;
+isCleanSession()
+&lt;/b&gt;</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; <p>true when clean session is requested by the remote MQTT client</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html"><div class="path-wrapper">\io\vertx\jphp\mqtt\MqttEndpoint</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_keepAliveTimeSeconds" name="method_keepAliveTimeSeconds" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">keepAliveTimeSeconds()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">keepAliveTimeSeconds() : </pre>
+                <p><em>&lt;b&gt;
+keepAliveTimeSeconds()
+&lt;/b&gt;</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; <p>the keep alive timeout (in seconds) specified by the remote MQTT client</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html"><div class="path-wrapper">\io\vertx\jphp\mqtt\MqttEndpoint</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_lastMessageId" name="method_lastMessageId" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">lastMessageId()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">lastMessageId() : </pre>
+                <p><em>&lt;b&gt;
+lastMessageId()
+&lt;/b&gt;</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; <p>the message identifier used for last published message</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html"><div class="path-wrapper">\io\vertx\jphp\mqtt\MqttEndpoint</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_subscriptionAutoAck" name="method_subscriptionAutoAck" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">subscriptionAutoAck()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">subscriptionAutoAck( <span class="argument">arg0</span>) : </pre>
+                <p><em>Enable/disable subscription/unsubscription requests auto acknowledge</em></p>
+                <p>$isSubscriptionAutoAck [bool] auto acknowledge status</p>
+<p><b>
+subscriptionAutoAck($isSubscriptionAutoAck)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>bool</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html"><div class="path-wrapper">\io\vertx\jphp\mqtt\MqttEndpoint</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_isSubscriptionAutoAck" name="method_isSubscriptionAutoAck" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">isSubscriptionAutoAck()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">isSubscriptionAutoAck() : </pre>
+                <p><em>&lt;b&gt;
+isSubscriptionAutoAck()
+&lt;/b&gt;</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; <p>true when auto acknowledge status for subscription/unsubscription requests</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html"><div class="path-wrapper">\io\vertx\jphp\mqtt\MqttEndpoint</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_publishAutoAck" name="method_publishAutoAck" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">publishAutoAck()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">publishAutoAck( <span class="argument">arg0</span>) : \io\vertx\jphp\mqtt\MqttEndpoint</pre>
+                <p><em>Enable/disable publishing (in/out) auto acknowledge</em></p>
+                <p>$isPublishAutoAck [bool] auto acknowledge status</p>
+<p><b>
+publishAutoAck($isPublishAutoAck)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>bool</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\mqtt\MqttEndpoint
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html"><div class="path-wrapper">\io\vertx\jphp\mqtt\MqttEndpoint</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_isPublishAutoAck" name="method_isPublishAutoAck" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">isPublishAutoAck()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">isPublishAutoAck() : </pre>
+                <p><em>&lt;b&gt;
+isPublishAutoAck()
+&lt;/b&gt;</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; <p>auto acknowledge status for publishing (in/out)</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html"><div class="path-wrapper">\io\vertx\jphp\mqtt\MqttEndpoint</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_autoKeepAlive" name="method_autoKeepAlive" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">autoKeepAlive()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">autoKeepAlive( <span class="argument">arg0</span>) : \io\vertx\jphp\mqtt\MqttEndpoint</pre>
+                <p><em>Enable/disable auto keep alive (sending ping response)</em></p>
+                <p>$isAutoKeepAlive [bool] auto keep alive</p>
+<p><b>
+autoKeepAlive($isAutoKeepAlive)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>bool</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\mqtt\MqttEndpoint
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html"><div class="path-wrapper">\io\vertx\jphp\mqtt\MqttEndpoint</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_isAutoKeepAlive" name="method_isAutoKeepAlive" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">isAutoKeepAlive()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">isAutoKeepAlive() : </pre>
+                <p><em>&lt;b&gt;
+isAutoKeepAlive()
+&lt;/b&gt;</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; <p>the auto keep alive status (sending ping response)</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html"><div class="path-wrapper">\io\vertx\jphp\mqtt\MqttEndpoint</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_isConnected" name="method_isConnected" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">isConnected()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">isConnected() : </pre>
+                <p><em>&lt;b&gt;
+isConnected()
+&lt;/b&gt;</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; <p>if the connection between remote client and local endpoint is established/open</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html"><div class="path-wrapper">\io\vertx\jphp\mqtt\MqttEndpoint</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setClientIdentifier" name="method_setClientIdentifier" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setClientIdentifier()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setClientIdentifier( <span class="argument">arg0</span>) : \io\vertx\jphp\mqtt\MqttEndpoint</pre>
+                <p><em>Set client identifier if not provided by the remote MQTT client (zero-bytes)</em></p>
+                <p>$clientIdentifier [string] the client identifier</p>
+<p><b>
+setClientIdentifier($clientIdentifier)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\mqtt\MqttEndpoint
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html"><div class="path-wrapper">\io\vertx\jphp\mqtt\MqttEndpoint</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_disconnectHandler" name="method_disconnectHandler" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">disconnectHandler()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">disconnectHandler( <span class="argument">arg0</span>) : \io\vertx\jphp\mqtt\MqttEndpoint</pre>
+                <p><em>Set a disconnect handler on the MQTT endpoint. This handler is called when a DISCONNECT
+ message is received by the remote MQTT client</em></p>
+                <p>$handler [callable] the handler</p>
+<p><b>
+disconnectHandler($handler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\mqtt\MqttEndpoint
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html"><div class="path-wrapper">\io\vertx\jphp\mqtt\MqttEndpoint</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_subscribeHandler" name="method_subscribeHandler" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">subscribeHandler()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">subscribeHandler( <span class="argument">arg0</span>) : \io\vertx\jphp\mqtt\MqttEndpoint</pre>
+                <p><em>Set a subscribe handler on the MQTT endpoint. This handler is called when a SUBSCRIBE
+ message is received by the remote MQTT client</em></p>
+                <p>$handler [callable] the handler</p>
+<p><b>
+subscribeHandler($handler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\mqtt\MqttEndpoint
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html"><div class="path-wrapper">\io\vertx\jphp\mqtt\MqttEndpoint</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_unsubscribeHandler" name="method_unsubscribeHandler" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">unsubscribeHandler()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">unsubscribeHandler( <span class="argument">arg0</span>) : \io\vertx\jphp\mqtt\MqttEndpoint</pre>
+                <p><em>Set a unsubscribe handler on the MQTT endpoint. This handler is called when a UNSUBSCRIBE
+ message is received by the remote MQTT client</em></p>
+                <p>$handler [callable] the handler</p>
+<p><b>
+unsubscribeHandler($handler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\mqtt\MqttEndpoint
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html"><div class="path-wrapper">\io\vertx\jphp\mqtt\MqttEndpoint</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_publishHandler" name="method_publishHandler" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">publishHandler()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">publishHandler( <span class="argument">arg0</span>) : \io\vertx\jphp\mqtt\MqttEndpoint</pre>
+                <p><em>Set the publish handler on the MQTT endpoint. This handler is called when a PUBLISH
+ message is received by the remote MQTT client</em></p>
+                <p>$handler [callable] the handler</p>
+<p><b>
+publishHandler($handler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\mqtt\MqttEndpoint
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html"><div class="path-wrapper">\io\vertx\jphp\mqtt\MqttEndpoint</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_publishAcknowledgeHandler" name="method_publishAcknowledgeHandler" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">publishAcknowledgeHandler()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">publishAcknowledgeHandler( <span class="argument">arg0</span>) : \io\vertx\jphp\mqtt\MqttEndpoint</pre>
+                <p><em>Set the puback handler on the MQTT endpoint. This handler is called when a PUBACK
+ message is received by the remote MQTT client</em></p>
+                <p>$handler [callable] the handler</p>
+<p><b>
+publishAcknowledgeHandler($handler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\mqtt\MqttEndpoint
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html"><div class="path-wrapper">\io\vertx\jphp\mqtt\MqttEndpoint</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_publishReceivedHandler" name="method_publishReceivedHandler" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">publishReceivedHandler()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">publishReceivedHandler( <span class="argument">arg0</span>) : \io\vertx\jphp\mqtt\MqttEndpoint</pre>
+                <p><em>Set the pubrec handler on the MQTT endpoint. This handler is called when a PUBREC
+ message is received by the remote MQTT client</em></p>
+                <p>$handler [callable] the handler</p>
+<p><b>
+publishReceivedHandler($handler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\mqtt\MqttEndpoint
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html"><div class="path-wrapper">\io\vertx\jphp\mqtt\MqttEndpoint</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_publishReleaseHandler" name="method_publishReleaseHandler" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">publishReleaseHandler()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">publishReleaseHandler( <span class="argument">arg0</span>) : \io\vertx\jphp\mqtt\MqttEndpoint</pre>
+                <p><em>Set the pubrel handler on the MQTT endpoint. This handler is called when a PUBREL
+ message is received by the remote MQTT client</em></p>
+                <p>$handler [callable] the handler</p>
+<p><b>
+publishReleaseHandler($handler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\mqtt\MqttEndpoint
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html"><div class="path-wrapper">\io\vertx\jphp\mqtt\MqttEndpoint</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_publishCompletionHandler" name="method_publishCompletionHandler" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">publishCompletionHandler()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">publishCompletionHandler( <span class="argument">arg0</span>) : \io\vertx\jphp\mqtt\MqttEndpoint</pre>
+                <p><em>Set the pubcomp handler on the MQTT endpoint. This handler is called when a PUBCOMP
+ message is received by the remote MQTT client</em></p>
+                <p>$handler [callable] the handler</p>
+<p><b>
+publishCompletionHandler($handler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\mqtt\MqttEndpoint
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html"><div class="path-wrapper">\io\vertx\jphp\mqtt\MqttEndpoint</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_pingHandler" name="method_pingHandler" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">pingHandler()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">pingHandler( <span class="argument">arg0</span>) : \io\vertx\jphp\mqtt\MqttEndpoint</pre>
+                <p><em>Set the pingreq handler on the MQTT endpoint. This handler is called when a PINGREQ
+ message is received by the remote MQTT client. In any case the endpoint sends the
+ PINGRESP internally after executing this handler.</em></p>
+                <p>$handler [callable] the handler</p>
+<p><b>
+pingHandler($handler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\mqtt\MqttEndpoint
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html"><div class="path-wrapper">\io\vertx\jphp\mqtt\MqttEndpoint</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_closeHandler" name="method_closeHandler" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">closeHandler()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">closeHandler( <span class="argument">arg0</span>) : \io\vertx\jphp\mqtt\MqttEndpoint</pre>
+                <p><em>Set a close handler. This will be called when the MQTT endpoint is closed</em></p>
+                <p>$handler [callable] the handler</p>
+<p><b>
+closeHandler($handler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\mqtt\MqttEndpoint
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html"><div class="path-wrapper">\io\vertx\jphp\mqtt\MqttEndpoint</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_exceptionHandler" name="method_exceptionHandler" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">exceptionHandler()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">exceptionHandler( <span class="argument">arg0</span>) : \io\vertx\jphp\mqtt\MqttEndpoint</pre>
+                <p><em>Set an exception handler. This will be called when an error at protocol level happens</em></p>
+                <p>$handler [callable] the handler</p>
+<p><b>
+exceptionHandler($handler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\mqtt\MqttEndpoint
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html"><div class="path-wrapper">\io\vertx\jphp\mqtt\MqttEndpoint</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_accept" name="method_accept" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">accept()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">accept( <span class="argument">arg0</span>) : \io\vertx\jphp\mqtt\MqttEndpoint</pre>
+                <p><em>Sends the CONNACK message to the remote MQTT client with &quot;connection accepted&quot;
+ return code. See {@link #reject(MqttConnectReturnCode)} for refusing connection</em></p>
+                <p>$sessionPresent [bool] if a previous session is present</p>
+<p><b>
+accept($sessionPresent)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>bool</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\mqtt\MqttEndpoint
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html"><div class="path-wrapper">\io\vertx\jphp\mqtt\MqttEndpoint</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_reject" name="method_reject" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">reject()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">reject( <span class="argument">arg0</span>) : \io\vertx\jphp\mqtt\MqttEndpoint</pre>
+                <p><em>Sends the CONNACK message to the remote MQTT client rejecting the connection
+ request with specified return code. See {@link #accept(boolean)} for accepting connection</em></p>
+                <p>$returnCode [string] the connect return code</p>
+<p><b>
+reject($returnCode)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\mqtt\MqttEndpoint
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html"><div class="path-wrapper">\io\vertx\jphp\mqtt\MqttEndpoint</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_subscribeAcknowledge" name="method_subscribeAcknowledge" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">subscribeAcknowledge()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">subscribeAcknowledge( <span class="argument">arg0</span>,  <span class="argument">arg1</span>) : \io\vertx\jphp\mqtt\MqttEndpoint</pre>
+                <p><em>Sends the SUBACK message to the remote MQTT client</em></p>
+                <p>$subscribeMessageId [integer] identifier of the SUBSCRIBE message to acknowledge</p>
+<p>$grantedQoSLevels [array] granted QoS levels for the requested topics</p>
+<p><b>
+subscribeAcknowledge($subscribeMessageId,$grantedQoSLevels)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>integer</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>array</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\mqtt\MqttEndpoint
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html"><div class="path-wrapper">\io\vertx\jphp\mqtt\MqttEndpoint</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_unsubscribeAcknowledge" name="method_unsubscribeAcknowledge" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">unsubscribeAcknowledge()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">unsubscribeAcknowledge( <span class="argument">arg0</span>) : \io\vertx\jphp\mqtt\MqttEndpoint</pre>
+                <p><em>Sends the UNSUBACK message to the remote MQTT client</em></p>
+                <p>$unsubscribeMessageId [integer] identifier of the UNSUBSCRIBE message to acknowledge</p>
+<p><b>
+unsubscribeAcknowledge($unsubscribeMessageId)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>integer</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\mqtt\MqttEndpoint
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html"><div class="path-wrapper">\io\vertx\jphp\mqtt\MqttEndpoint</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_publishAcknowledge" name="method_publishAcknowledge" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">publishAcknowledge()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">publishAcknowledge( <span class="argument">arg0</span>) : \io\vertx\jphp\mqtt\MqttEndpoint</pre>
+                <p><em>Sends the PUBACK message to the remote MQTT client</em></p>
+                <p>$publishMessageId [integer] identifier of the PUBLISH message to acknowledge</p>
+<p><b>
+publishAcknowledge($publishMessageId)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>integer</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\mqtt\MqttEndpoint
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html"><div class="path-wrapper">\io\vertx\jphp\mqtt\MqttEndpoint</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_publishReceived" name="method_publishReceived" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">publishReceived()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">publishReceived( <span class="argument">arg0</span>) : \io\vertx\jphp\mqtt\MqttEndpoint</pre>
+                <p><em>Sends the PUBREC message to the remote MQTT client</em></p>
+                <p>$publishMessageId [integer] identifier of the PUBLISH message to acknowledge</p>
+<p><b>
+publishReceived($publishMessageId)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>integer</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\mqtt\MqttEndpoint
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html"><div class="path-wrapper">\io\vertx\jphp\mqtt\MqttEndpoint</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_publishRelease" name="method_publishRelease" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">publishRelease()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">publishRelease( <span class="argument">arg0</span>) : \io\vertx\jphp\mqtt\MqttEndpoint</pre>
+                <p><em>Sends the PUBREL message to the remote MQTT client</em></p>
+                <p>$publishMessageId [integer] identifier of the PUBLISH message to acknowledge</p>
+<p><b>
+publishRelease($publishMessageId)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>integer</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\mqtt\MqttEndpoint
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html"><div class="path-wrapper">\io\vertx\jphp\mqtt\MqttEndpoint</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_publishComplete" name="method_publishComplete" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">publishComplete()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">publishComplete( <span class="argument">arg0</span>) : \io\vertx\jphp\mqtt\MqttEndpoint</pre>
+                <p><em>Sends the PUBCOMP message to the remote MQTT client</em></p>
+                <p>$publishMessageId [integer] identifier of the PUBLISH message to acknowledge</p>
+<p><b>
+publishComplete($publishMessageId)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>integer</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\mqtt\MqttEndpoint
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html"><div class="path-wrapper">\io\vertx\jphp\mqtt\MqttEndpoint</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_publish" name="method_publish" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">publish()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">publish( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>,  <span class="argument">arg3</span>,  <span class="argument">arg4</span>,  <span class="argument">arg5 = null</span>) : \io\vertx\jphp\mqtt\MqttEndpoint</pre>
+                <p><em>Sends the PUBLISH message to the remote MQTT client</em></p>
+                <p>$topic [string] topic on which the message is published</p>
+<p>$payload [Buffer] message payload</p>
+<p>$qosLevel [string] quality of service level</p>
+<p>$isDup [bool] if the message is a duplicate</p>
+<p>$isRetain [bool] if the message needs to be retained</p>
+<p><b>
+publish($topic,$payload,$qosLevel,$isDup,$isRetain)
+</b></p>
+<p>Sends the PUBLISH message to the remote MQTT server</p>
+<p>$topic [string] topic on which the message is published</p>
+<p>$payload [Buffer] message payload</p>
+<p>$qosLevel [string] QoS level</p>
+<p>$isDup [bool] if the message is a duplicate</p>
+<p>$isRetain [bool] if the message needs to be retained</p>
+<p>$publishSentHandler [callable] handler called after PUBLISH packet sent with a packetId</p>
+<p><b>
+publish($topic,$payload,$qosLevel,$isDup,$isRetain,$publishSentHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>Buffer</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg3 </td>
+                                <td><p>bool</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg4 </td>
+                                <td><p>bool</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg5 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\mqtt\MqttEndpoint
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html"><div class="path-wrapper">\io\vertx\jphp\mqtt\MqttEndpoint</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_pong" name="method_pong" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">pong()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">pong() : \io\vertx\jphp\mqtt\MqttEndpoint</pre>
+                <p><em>Sends the PINGRESP message to the remote MQTT client</em></p>
+                <p><b>
+pong()
+</b></p>
+
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\mqtt\MqttEndpoint
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html"><div class="path-wrapper">\io\vertx\jphp\mqtt\MqttEndpoint</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___construct" name="method___construct" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">__construct()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__construct() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.mqtt.MqttEndpoint.html"><div class="path-wrapper">\io\vertx\jphp\mqtt\MqttEndpoint</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">MqttEndpoint.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/io/vertx/jphp/mqtt/MqttEndpoint.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/io.html">\io</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on April 20th, 2018 at 09:43.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,1841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src').replace( /\\/g, '/');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/io.html">\io</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-565305504"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-565305504" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1833883677"></a>
+                                <a href="../namespaces/io.html" style="margin-left: 30px; padding-left: 0">io</a>
+            </div>
+            <div id="namespace-1833883677" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1225484638"></a>
+                                <a href="../namespaces/io.vertx.html" style="margin-left: 30px; padding-left: 0">vertx</a>
+            </div>
+            <div id="namespace-1225484638" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1066387998"></a>
+                                <a href="../namespaces/io.vertx.jphp.html" style="margin-left: 30px; padding-left: 0">jphp</a>
+            </div>
+            <div id="namespace-1066387998" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1340561393"></a>
+                                <a href="../namespaces/io.vertx.jphp.ext.html" style="margin-left: 30px; padding-left: 0">ext</a>
+            </div>
+            <div id="namespace-1340561393" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-673444629"></a>
+                                <a href="../namespaces/io.vertx.jphp.ext.web.html" style="margin-left: 30px; padding-left: 0">web</a>
+            </div>
+            <div id="namespace-673444629" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-859098742"></a>
+                                <a href="../namespaces/io.vertx.jphp.ext.web.handler.html" style="margin-left: 30px; padding-left: 0">handler</a>
+            </div>
+            <div id="namespace-859098742" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2002859562"></a>
+                                <a href="../namespaces/io.vertx.jphp.ext.web.handler.sockjs.html" style="margin-left: 30px; padding-left: 0">sockjs</a>
+            </div>
+            <div id="namespace-2002859562" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.sockjs.BridgeEvent.html">BridgeEvent</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.sockjs.BridgeOptions.html">BridgeOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.sockjs.PermittedOptions.html">PermittedOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.sockjs.SockJSHandler.html">SockJSHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.sockjs.SockJSHandlerOptions.html">SockJSHandlerOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.sockjs.SockJSSocket.html">SockJSSocket</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.AuthHandler.html">AuthHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.BasicAuthHandler.html">BasicAuthHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.BodyHandler.html">BodyHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.ChainAuthHandler.html">ChainAuthHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.CookieHandler.html">CookieHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.CorsHandler.html">CorsHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.CSRFHandler.html">CSRFHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.DigestAuthHandler.html">DigestAuthHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.ErrorHandler.html">ErrorHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.FaviconHandler.html">FaviconHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.FormLoginHandler.html">FormLoginHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.JWTAuthHandler.html">JWTAuthHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.LoggerHandler.html">LoggerHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.OAuth2AuthHandler.html">OAuth2AuthHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.RedirectAuthHandler.html">RedirectAuthHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.ResponseContentTypeHandler.html">ResponseContentTypeHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.ResponseTimeHandler.html">ResponseTimeHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.SessionHandler.html">SessionHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.StaticHandler.html">StaticHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.TemplateHandler.html">TemplateHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.TimeoutHandler.html">TimeoutHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.UserSessionHandler.html">UserSessionHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.handler.VirtualHostHandler.html">VirtualHostHandler</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-619934391"></a>
+                                <a href="../namespaces/io.vertx.jphp.ext.web.sstore.html" style="margin-left: 30px; padding-left: 0">sstore</a>
+            </div>
+            <div id="namespace-619934391" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.sstore.ClusteredSessionStore.html">ClusteredSessionStore</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.sstore.LocalSessionStore.html">LocalSessionStore</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.sstore.SessionStore.html">SessionStore</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-418996304"></a>
+                                <a href="../namespaces/io.vertx.jphp.ext.web.templ.html" style="margin-left: 30px; padding-left: 0">templ</a>
+            </div>
+            <div id="namespace-418996304" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.templ.TemplateEngine.html">TemplateEngine</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.Cookie.html">Cookie</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.FileUpload.html">FileUpload</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.Http2PushMapping.html">Http2PushMapping</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.LanguageHeader.html">LanguageHeader</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.Locale.html">Locale</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.MIMEHeader.html">MIMEHeader</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.ParsedHeaderValue.html">ParsedHeaderValue</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.ParsedHeaderValues.html">ParsedHeaderValues</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.Route.html">Route</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.Router.html">Router</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.RoutingContext.html">RoutingContext</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.web.Session.html">Session</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/io.vertx.jphp.ext.web.html">\io\vertx\jphp\ext\web</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\io\vertx\jphp\ext\web</small>Router</h1>
+                    <p><em></em></p>
+                    
+                    
+                                        
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.Router.html#method_handle" class="">handle()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.Router.html#method_router" class="">router()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.Router.html#method_accept" class="">accept()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.Router.html#method_route" class="">route()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.Router.html#method_routeWithRegex" class="">routeWithRegex()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.Router.html#method_get" class="">get()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.Router.html#method_getWithRegex" class="">getWithRegex()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.Router.html#method_head" class="">head()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.Router.html#method_headWithRegex" class="">headWithRegex()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.Router.html#method_options" class="">options()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.Router.html#method_optionsWithRegex" class="">optionsWithRegex()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.Router.html#method_put" class="">put()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.Router.html#method_putWithRegex" class="">putWithRegex()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.Router.html#method_post" class="">post()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.Router.html#method_postWithRegex" class="">postWithRegex()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.Router.html#method_delete" class="">delete()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.Router.html#method_deleteWithRegex" class="">deleteWithRegex()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.Router.html#method_trace" class="">trace()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.Router.html#method_traceWithRegex" class="">traceWithRegex()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.Router.html#method_connect" class="">connect()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.Router.html#method_connectWithRegex" class="">connectWithRegex()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.Router.html#method_patch" class="">patch()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.Router.html#method_patchWithRegex" class="">patchWithRegex()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.Router.html#method_getRoutes" class="">getRoutes()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.Router.html#method_clear" class="">clear()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.Router.html#method_mountSubRouter" class="">mountSubRouter()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.Router.html#method_exceptionHandler" class="">exceptionHandler()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.Router.html#method_handleContext" class="">handleContext()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.Router.html#method_handleFailure" class="">handleFailure()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No public properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No constants found</em>
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <em>No protected methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No protected properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <a href="../classes/io.vertx.jphp.ext.web.Router.html#method___construct" class="">__construct()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No private properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/io.vertx.jphp.ext.web.Router.html"><div class="path-wrapper">io/vertx/jphp/ext/web/Router.php</div></a></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                    <div class="namespace-wrapper">\io\vertx\jphp\ext\web\Router</div>
+                            </dd>
+
+                        
+                        
+                        
+                                                
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr><td colspan="2"><em>None found</em></td></tr>
+                                        </table>
+                </aside>
+            </div>
+
+                        
+                        
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_handle" name="method_handle" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">handle()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">handle( <span class="argument">arg0</span>) : </pre>
+                <p><em>$arg0 [HttpServerRequest]</em></p>
+                <p><b>
+handle($arg0)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>HttpServerRequest</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.Router.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\Router</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_router" name="method_router" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">router()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">router( <span class="argument">arg0</span>) : \io\vertx\jphp\ext\web\Router</pre>
+                <p><em>Create a router</em></p>
+                <p>$vertx [Vertx] the Vert.x instance</p>
+<p><b>
+router($vertx)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>Vertx</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\web\Router
+                                            &mdash; <p>the router</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.Router.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\Router</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_accept" name="method_accept" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">accept()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">accept( <span class="argument">arg0</span>) : </pre>
+                <p><em>This method is used to provide a request to the router. Usually you take request from the
+ {@link io.vertx.core.http.HttpServer#requestHandler(Handler)} and pass it to this method. The
+ router then routes it to matching routes.</em></p>
+                <p>This method is now deprecated you can use this object directly as a request handler, which
+means there is no need for a method reference anymore.</p>
+<p>$request [HttpServerRequest] the request</p>
+<p><b>
+accept($request)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>HttpServerRequest</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.Router.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\Router</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_route" name="method_route" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">route()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">route( <span class="argument">arg0 = null</span>,  <span class="argument">arg1 = null</span>) : \io\vertx\jphp\ext\web\Route</pre>
+                <p><em>Add a route with no matching criteria, i.e. it matches all requests or failures.</em></p>
+                <p><b>
+route()
+</b></p>
+<p>Add a route that matches the specified path</p>
+<p>$path [string] URI paths that begin with this path will match</p>
+<p><b>
+route($path)
+</b></p>
+<p>Add a route that matches the specified HTTP method and path</p>
+<p>$method [string] the HTTP method to match</p>
+<p>$path [string] URI paths that begin with this path will match</p>
+<p><b>
+route($method,$path)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\web\Route
+                                            &mdash; <p>the route</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.Router.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\Router</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_routeWithRegex" name="method_routeWithRegex" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">routeWithRegex()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">routeWithRegex( <span class="argument">arg0</span>,  <span class="argument">arg1 = null</span>) : \io\vertx\jphp\ext\web\Route</pre>
+                <p><em>Add a route that matches the specified path regex</em></p>
+                <p>$regex [string] URI paths that begin with a match for this regex will match</p>
+<p><b>
+routeWithRegex($regex)
+</b></p>
+<p>Add a route that matches the specified HTTP method and path regex</p>
+<p>$method [string] the HTTP method to match</p>
+<p>$regex [string] URI paths that begin with a match for this regex will match</p>
+<p><b>
+routeWithRegex($method,$regex)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\web\Route
+                                            &mdash; <p>the route</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.Router.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\Router</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_get" name="method_get" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">get()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">get( <span class="argument">arg0 = null</span>) : \io\vertx\jphp\ext\web\Route</pre>
+                <p><em>Add a route that matches any HTTP GET request</em></p>
+                <p><b>
+get()
+</b></p>
+<p>Add a route that matches a HTTP GET request and the specified path</p>
+<p>$path [string] URI paths that begin with this path will match</p>
+<p><b>
+get($path)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\web\Route
+                                            &mdash; <p>the route</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.Router.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\Router</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getWithRegex" name="method_getWithRegex" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getWithRegex()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getWithRegex( <span class="argument">arg0</span>) : \io\vertx\jphp\ext\web\Route</pre>
+                <p><em>Add a route that matches a HTTP GET request and the specified path regex</em></p>
+                <p>$regex [string] URI paths that begin with a match for this regex will match</p>
+<p><b>
+getWithRegex($regex)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\web\Route
+                                            &mdash; <p>the route</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.Router.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\Router</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_head" name="method_head" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">head()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">head( <span class="argument">arg0 = null</span>) : \io\vertx\jphp\ext\web\Route</pre>
+                <p><em>Add a route that matches any HTTP HEAD request</em></p>
+                <p><b>
+head()
+</b></p>
+<p>Add a route that matches a HTTP HEAD request and the specified path</p>
+<p>$path [string] URI paths that begin with this path will match</p>
+<p><b>
+head($path)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\web\Route
+                                            &mdash; <p>the route</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.Router.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\Router</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_headWithRegex" name="method_headWithRegex" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">headWithRegex()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">headWithRegex( <span class="argument">arg0</span>) : \io\vertx\jphp\ext\web\Route</pre>
+                <p><em>Add a route that matches a HTTP HEAD request and the specified path regex</em></p>
+                <p>$regex [string] URI paths that begin with a match for this regex will match</p>
+<p><b>
+headWithRegex($regex)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\web\Route
+                                            &mdash; <p>the route</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.Router.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\Router</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_options" name="method_options" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">options()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">options( <span class="argument">arg0 = null</span>) : \io\vertx\jphp\ext\web\Route</pre>
+                <p><em>Add a route that matches any HTTP OPTIONS request</em></p>
+                <p><b>
+options()
+</b></p>
+<p>Add a route that matches a HTTP OPTIONS request and the specified path</p>
+<p>$path [string] URI paths that begin with this path will match</p>
+<p><b>
+options($path)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\web\Route
+                                            &mdash; <p>the route</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.Router.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\Router</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_optionsWithRegex" name="method_optionsWithRegex" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">optionsWithRegex()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">optionsWithRegex( <span class="argument">arg0</span>) : \io\vertx\jphp\ext\web\Route</pre>
+                <p><em>Add a route that matches a HTTP OPTIONS request and the specified path regex</em></p>
+                <p>$regex [string] URI paths that begin with a match for this regex will match</p>
+<p><b>
+optionsWithRegex($regex)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\web\Route
+                                            &mdash; <p>the route</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.Router.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\Router</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_put" name="method_put" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">put()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">put( <span class="argument">arg0 = null</span>) : \io\vertx\jphp\ext\web\Route</pre>
+                <p><em>Add a route that matches any HTTP PUT request</em></p>
+                <p><b>
+put()
+</b></p>
+<p>Add a route that matches a HTTP PUT request and the specified path</p>
+<p>$path [string] URI paths that begin with this path will match</p>
+<p><b>
+put($path)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\web\Route
+                                            &mdash; <p>the route</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.Router.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\Router</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_putWithRegex" name="method_putWithRegex" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">putWithRegex()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">putWithRegex( <span class="argument">arg0</span>) : \io\vertx\jphp\ext\web\Route</pre>
+                <p><em>Add a route that matches a HTTP PUT request and the specified path regex</em></p>
+                <p>$regex [string] URI paths that begin with a match for this regex will match</p>
+<p><b>
+putWithRegex($regex)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\web\Route
+                                            &mdash; <p>the route</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.Router.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\Router</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_post" name="method_post" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">post()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">post( <span class="argument">arg0 = null</span>) : \io\vertx\jphp\ext\web\Route</pre>
+                <p><em>Add a route that matches any HTTP POST request</em></p>
+                <p><b>
+post()
+</b></p>
+<p>Add a route that matches a HTTP POST request and the specified path</p>
+<p>$path [string] URI paths that begin with this path will match</p>
+<p><b>
+post($path)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\web\Route
+                                            &mdash; <p>the route</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.Router.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\Router</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_postWithRegex" name="method_postWithRegex" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">postWithRegex()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">postWithRegex( <span class="argument">arg0</span>) : \io\vertx\jphp\ext\web\Route</pre>
+                <p><em>Add a route that matches a HTTP POST request and the specified path regex</em></p>
+                <p>$regex [string] URI paths that begin with a match for this regex will match</p>
+<p><b>
+postWithRegex($regex)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\web\Route
+                                            &mdash; <p>the route</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.Router.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\Router</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_delete" name="method_delete" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">delete()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">delete( <span class="argument">arg0 = null</span>) : \io\vertx\jphp\ext\web\Route</pre>
+                <p><em>Add a route that matches any HTTP DELETE request</em></p>
+                <p><b>
+delete()
+</b></p>
+<p>Add a route that matches a HTTP DELETE request and the specified path</p>
+<p>$path [string] URI paths that begin with this path will match</p>
+<p><b>
+delete($path)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\web\Route
+                                            &mdash; <p>the route</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.Router.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\Router</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_deleteWithRegex" name="method_deleteWithRegex" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">deleteWithRegex()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">deleteWithRegex( <span class="argument">arg0</span>) : \io\vertx\jphp\ext\web\Route</pre>
+                <p><em>Add a route that matches a HTTP DELETE request and the specified path regex</em></p>
+                <p>$regex [string] URI paths that begin with a match for this regex will match</p>
+<p><b>
+deleteWithRegex($regex)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\web\Route
+                                            &mdash; <p>the route</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.Router.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\Router</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_trace" name="method_trace" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">trace()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">trace( <span class="argument">arg0 = null</span>) : \io\vertx\jphp\ext\web\Route</pre>
+                <p><em>Add a route that matches any HTTP TRACE request</em></p>
+                <p><b>
+trace()
+</b></p>
+<p>Add a route that matches a HTTP TRACE request and the specified path</p>
+<p>$path [string] URI paths that begin with this path will match</p>
+<p><b>
+trace($path)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\web\Route
+                                            &mdash; <p>the route</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.Router.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\Router</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_traceWithRegex" name="method_traceWithRegex" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">traceWithRegex()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">traceWithRegex( <span class="argument">arg0</span>) : \io\vertx\jphp\ext\web\Route</pre>
+                <p><em>Add a route that matches a HTTP TRACE request and the specified path regex</em></p>
+                <p>$regex [string] URI paths that begin with a match for this regex will match</p>
+<p><b>
+traceWithRegex($regex)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\web\Route
+                                            &mdash; <p>the route</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.Router.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\Router</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_connect" name="method_connect" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">connect()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">connect( <span class="argument">arg0 = null</span>) : \io\vertx\jphp\ext\web\Route</pre>
+                <p><em>Add a route that matches any HTTP CONNECT request</em></p>
+                <p><b>
+connect()
+</b></p>
+<p>Add a route that matches a HTTP CONNECT request and the specified path</p>
+<p>$path [string] URI paths that begin with this path will match</p>
+<p><b>
+connect($path)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\web\Route
+                                            &mdash; <p>the route</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.Router.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\Router</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_connectWithRegex" name="method_connectWithRegex" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">connectWithRegex()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">connectWithRegex( <span class="argument">arg0</span>) : \io\vertx\jphp\ext\web\Route</pre>
+                <p><em>Add a route that matches a HTTP CONNECT request and the specified path regex</em></p>
+                <p>$regex [string] URI paths that begin with a match for this regex will match</p>
+<p><b>
+connectWithRegex($regex)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\web\Route
+                                            &mdash; <p>the route</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.Router.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\Router</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_patch" name="method_patch" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">patch()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">patch( <span class="argument">arg0 = null</span>) : \io\vertx\jphp\ext\web\Route</pre>
+                <p><em>Add a route that matches any HTTP PATCH request</em></p>
+                <p><b>
+patch()
+</b></p>
+<p>Add a route that matches a HTTP PATCH request and the specified path</p>
+<p>$path [string] URI paths that begin with this path will match</p>
+<p><b>
+patch($path)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\web\Route
+                                            &mdash; <p>the route</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.Router.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\Router</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_patchWithRegex" name="method_patchWithRegex" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">patchWithRegex()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">patchWithRegex( <span class="argument">arg0</span>) : \io\vertx\jphp\ext\web\Route</pre>
+                <p><em>Add a route that matches a HTTP PATCH request and the specified path regex</em></p>
+                <p>$regex [string] URI paths that begin with a match for this regex will match</p>
+<p><b>
+patchWithRegex($regex)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\web\Route
+                                            &mdash; <p>the route</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.Router.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\Router</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getRoutes" name="method_getRoutes" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getRoutes()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getRoutes() : mixed|string|int</pre>
+                <p><em>&lt;b&gt;
+getRoutes()
+&lt;/b&gt;</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    mixed|string|int
+                                            &mdash; <p>a list of all the routes on this router</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.Router.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\Router</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_clear" name="method_clear" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">clear()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">clear() : \io\vertx\jphp\ext\web\Router</pre>
+                <p><em>Remove all the routes from this router</em></p>
+                <p><b>
+clear()
+</b></p>
+
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\web\Router
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.Router.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\Router</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_mountSubRouter" name="method_mountSubRouter" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">mountSubRouter()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">mountSubRouter( <span class="argument">arg0</span>,  <span class="argument">arg1</span>) : \io\vertx\jphp\ext\web\Router</pre>
+                <p><em>Mount a sub router on this router</em></p>
+                <p>$mountPoint [string] the mount point (path prefix) to mount it on</p>
+<p>$subRouter [Router] the router to mount as a sub router</p>
+<p><b>
+mountSubRouter($mountPoint,$subRouter)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>Router</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\web\Router
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.Router.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\Router</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_exceptionHandler" name="method_exceptionHandler" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">exceptionHandler()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">exceptionHandler( <span class="argument">arg0</span>) : \io\vertx\jphp\ext\web\Router</pre>
+                <p><em>Specify a handler for any unhandled exceptions on this router. The handler will be called for exceptions thrown
+ from handlers. This does not affect the normal failure routing logic.</em></p>
+                <p>$exceptionHandler [callable] the exception handler</p>
+<p><b>
+exceptionHandler($exceptionHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\web\Router
+                                            &mdash; <p>a reference to this, so the API can be used fluently</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.Router.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\Router</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_handleContext" name="method_handleContext" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">handleContext()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">handleContext( <span class="argument">arg0</span>) : </pre>
+                <p><em>Used to route a context to the router. Used for sub-routers. You wouldn&#039;t normally call this method directly.</em></p>
+                <p>$context [RoutingContext] the routing context</p>
+<p><b>
+handleContext($context)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>RoutingContext</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.Router.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\Router</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_handleFailure" name="method_handleFailure" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">handleFailure()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">handleFailure( <span class="argument">arg0</span>) : </pre>
+                <p><em>Used to route a failure to the router. Used for sub-routers. You wouldn&#039;t normally call this method directly.</em></p>
+                <p>$context [RoutingContext] the routing context</p>
+<p><b>
+handleFailure($context)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>RoutingContext</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.Router.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\Router</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___construct" name="method___construct" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">__construct()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__construct() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.web.Router.html"><div class="path-wrapper">\io\vertx\jphp\ext\web\Router</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">Router.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/io/vertx/jphp/ext/web/Router.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/io.html">\io</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on April 20th, 2018 at 09:43.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,1624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src').replace( /\\/g, '/');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/io.html">\io</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1085570731"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-1085570731" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1218722718"></a>
+                                <a href="../namespaces/io.html" style="margin-left: 30px; padding-left: 0">io</a>
+            </div>
+            <div id="namespace-1218722718" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-176258954"></a>
+                                <a href="../namespaces/io.vertx.html" style="margin-left: 30px; padding-left: 0">vertx</a>
+            </div>
+            <div id="namespace-176258954" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1124450958"></a>
+                                <a href="../namespaces/io.vertx.jphp.html" style="margin-left: 30px; padding-left: 0">jphp</a>
+            </div>
+            <div id="namespace-1124450958" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-301841836"></a>
+                                <a href="../namespaces/io.vertx.jphp.ext.html" style="margin-left: 30px; padding-left: 0">ext</a>
+            </div>
+            <div id="namespace-301841836" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-343462333"></a>
+                                <a href="../namespaces/io.vertx.jphp.ext.stomp.html" style="margin-left: 30px; padding-left: 0">stomp</a>
+            </div>
+            <div id="namespace-343462333" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.stomp.Acknowledgement.html">Acknowledgement</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.stomp.BridgeOptions.html">BridgeOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.stomp.Destination.html">Destination</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.stomp.DestinationFactory.html">DestinationFactory</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.stomp.Frame.html">Frame</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.stomp.Frames.html">Frames</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.stomp.ServerFrame.html">ServerFrame</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.stomp.StompClient.html">StompClient</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.stomp.StompClientConnection.html">StompClientConnection</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.stomp.StompClientOptions.html">StompClientOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.stomp.StompServer.html">StompServer</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.stomp.StompServerConnection.html">StompServerConnection</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.stomp.StompServerHandler.html">StompServerHandler</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.ext.stomp.StompServerOptions.html">StompServerOptions</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/io.vertx.jphp.ext.stomp.html">\io\vertx\jphp\ext\stomp</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\io\vertx\jphp\ext\stomp</small>StompClientConnection</h1>
+                    <p><em></em></p>
+                    
+                    
+                                        
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/io.vertx.jphp.ext.stomp.StompClientConnection.html#method_session" class="">session()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.stomp.StompClientConnection.html#method_version" class="">version()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.stomp.StompClientConnection.html#method_close" class="">close()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.stomp.StompClientConnection.html#method_server" class="">server()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.stomp.StompClientConnection.html#method_send" class="">send()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.stomp.StompClientConnection.html#method_subscribe" class="">subscribe()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.stomp.StompClientConnection.html#method_unsubscribe" class="">unsubscribe()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.stomp.StompClientConnection.html#method_errorHandler" class="">errorHandler()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.stomp.StompClientConnection.html#method_closeHandler" class="">closeHandler()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.stomp.StompClientConnection.html#method_connectionDroppedHandler" class="">connectionDroppedHandler()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.stomp.StompClientConnection.html#method_pingHandler" class="">pingHandler()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.stomp.StompClientConnection.html#method_beginTX" class="">beginTX()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.stomp.StompClientConnection.html#method_commit" class="">commit()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.stomp.StompClientConnection.html#method_abort" class="">abort()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.stomp.StompClientConnection.html#method_disconnect" class="">disconnect()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.stomp.StompClientConnection.html#method_ack" class="">ack()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.stomp.StompClientConnection.html#method_nack" class="">nack()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.stomp.StompClientConnection.html#method_receivedFrameHandler" class="">receivedFrameHandler()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.stomp.StompClientConnection.html#method_writingFrameHandler" class="">writingFrameHandler()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.stomp.StompClientConnection.html#method_exceptionHandler" class="">exceptionHandler()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.ext.stomp.StompClientConnection.html#method_isConnected" class="">isConnected()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No public properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No constants found</em>
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <em>No protected methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No protected properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <a href="../classes/io.vertx.jphp.ext.stomp.StompClientConnection.html#method___construct" class="">__construct()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No private properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/io.vertx.jphp.ext.stomp.StompClientConnection.html"><div class="path-wrapper">io/vertx/jphp/ext/stomp/StompClientConnection.php</div></a></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                    <div class="namespace-wrapper">\io\vertx\jphp\ext\stomp\StompClientConnection</div>
+                            </dd>
+
+                        
+                        
+                        
+                                                
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr><td colspan="2"><em>None found</em></td></tr>
+                                        </table>
+                </aside>
+            </div>
+
+                        
+                        
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_session" name="method_session" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">session()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">session() : </pre>
+                <p><em>&lt;b&gt;
+session()
+&lt;/b&gt;</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; <p>the session id.</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.stomp.StompClientConnection.html"><div class="path-wrapper">\io\vertx\jphp\ext\stomp\StompClientConnection</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_version" name="method_version" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">version()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">version() : </pre>
+                <p><em>&lt;b&gt;
+version()
+&lt;/b&gt;</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; <p>the STOMP protocol version negotiated with the server.</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.stomp.StompClientConnection.html"><div class="path-wrapper">\io\vertx\jphp\ext\stomp\StompClientConnection</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_close" name="method_close" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">close()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">close() : </pre>
+                <p><em>Closes the connection without sending the {@code DISCONNECT} frame.</em></p>
+                <p><b>
+close()
+</b></p>
+
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.stomp.StompClientConnection.html"><div class="path-wrapper">\io\vertx\jphp\ext\stomp\StompClientConnection</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_server" name="method_server" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">server()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">server() : </pre>
+                <p><em>&lt;b&gt;
+server()
+&lt;/b&gt;</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; <p>the server name.</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.stomp.StompClientConnection.html"><div class="path-wrapper">\io\vertx\jphp\ext\stomp\StompClientConnection</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_send" name="method_send" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">send()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">send( <span class="argument">arg0</span>,  <span class="argument">arg1 = null</span>,  <span class="argument">arg2 = null</span>,  <span class="argument">arg3 = null</span>) : \io\vertx\jphp\ext\stomp\StompClientConnection</pre>
+                <p><em>Sends the given frame to the server.</em></p>
+                <p>$frame [Frame | mixed] the frame</p>
+<p><b>
+send($frame)
+</b></p>
+<p>Sends a {@code SEND} frame to the server.</p>
+<p>$headers [array] the headers, must not be {@code null}</p>
+<p>$body [Buffer] the body, may be {@code null}</p>
+<p><b>
+send($headers,$body)
+</b></p>
+<p>Sends a {@code SEND} frame to the server to the given destination. The message does not have any other header.</p>
+<p>$destination [string] the destination, must not be {@code null}</p>
+<p>$body [Buffer] the body, may be {@code null}</p>
+<p><b>
+send($destination,$body)
+</b></p>
+<p>Sends the given frame to the server.</p>
+<p>$frame [Frame | mixed] the frame</p>
+<p>$receiptHandler [callable] the handler invoked when the {@code RECEIPT} frame associated with the sent frame has been received. The handler receives the sent frame.</p>
+<p><b>
+send($frame,$receiptHandler)
+</b></p>
+<p>Sends a {@code SEND} frame to the server.</p>
+<p>$headers [array] the headers, must not be {@code null}</p>
+<p>$body [Buffer] the body, may be {@code null}</p>
+<p>$receiptHandler [callable] the handler invoked when the {@code RECEIPT} frame associated with the sent frame has been received. The handler receives the sent frame.</p>
+<p><b>
+send($headers,$body,$receiptHandler)
+</b></p>
+<p>Sends a {@code SEND} frame to the server to the given destination. The message does not have any other header.</p>
+<p>$destination [string] the destination, must not be {@code null}</p>
+<p>$body [Buffer] the body, may be {@code null}</p>
+<p>$receiptHandler [callable] the handler invoked when the {@code RECEIPT} frame associated with the sent frame has been received. The handler receives the sent frame.</p>
+<p><b>
+send($destination,$body,$receiptHandler)
+</b></p>
+<p>Sends a {@code SEND} frame to the server to the given destination.</p>
+<p>$destination [string] the destination, must not be {@code null}</p>
+<p>$headers [array] the header. The {@code destination} header is replaced by the value given to the {@code destination} parameter</p>
+<p>$body [Buffer] the body, may be {@code null}</p>
+<p><b>
+send($destination,$headers,$body)
+</b></p>
+<p>Sends a {@code SEND} frame to the server to the given destination.</p>
+<p>$destination [string] the destination, must not be {@code null}</p>
+<p>$headers [array] the header. The {@code destination} header is replaced by the value given to the {@code destination} parameter</p>
+<p>$body [Buffer] the body, may be {@code null}</p>
+<p>$receiptHandler [callable] the handler invoked when the {@code RECEIPT} frame associated with the sent frame has been received. The handler receives the sent frame.</p>
+<p><b>
+send($destination,$headers,$body,$receiptHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>Frame | string | array | mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>Buffer | callable | array</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>Buffer | callable</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg3 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\stomp\StompClientConnection
+                                            &mdash; <p>the current {@link StompClientConnection}</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.stomp.StompClientConnection.html"><div class="path-wrapper">\io\vertx\jphp\ext\stomp\StompClientConnection</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_subscribe" name="method_subscribe" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">subscribe()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">subscribe( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2 = null</span>,  <span class="argument">arg3 = null</span>) : </pre>
+                <p><em>Subscribes to the given destination. This destination is used as subscription id.</em></p>
+                <p>$destination [string] the destination, must not be {@code null}</p>
+<p>$handler [callable] the handler invoked when a message is received on the given destination. Must not be {@code null}.</p>
+<p><b>
+subscribe($destination,$handler)
+</b></p>
+<p>Subscribes to the given destination. This destination is used as subscription id.</p>
+<p>$destination [string] the destination, must not be {@code null}</p>
+<p>$handler [callable] the handler invoked when a message is received on the given destination. Must not be {@code null}.</p>
+<p>$receiptHandler [callable] the handler invoked when the {@code RECEIPT} frame associated with the subscription has been received. The handler receives the sent frame ({@code SUBSCRIBE}).</p>
+<p><b>
+subscribe($destination,$handler,$receiptHandler)
+</b></p>
+<p>Subscribes to the given destination.</p>
+<p>$destination [string] the destination, must not be {@code null}.</p>
+<p>$headers [array] the headers to configure the subscription. It may contain the {@code ack} header to configure the acknowledgment policy. If the given set of headers contains the {@code id} header, this value is used as subscription id.</p>
+<p>$handler [callable] the handler invoked when a message is received on the given destination. Must not be {@code null}.</p>
+<p><b>
+subscribe($destination,$headers,$handler)
+</b></p>
+<p>Subscribes to the given destination.</p>
+<p>$destination [string] the destination, must not be {@code null}</p>
+<p>$headers [array] the headers to configure the subscription. It may contain the {@code ack} header to configure the acknowledgment policy. If the given set of headers contains the {@code id} header, this value is used as subscription id.</p>
+<p>$handler [callable] the handler invoked when a message is received on the given destination. Must not be {@code null}.</p>
+<p>$receiptHandler [callable] the handler invoked when the {@code RECEIPT} frame associated with the subscription has been received. The handler receives the sent frame ({@code SUBSCRIBE}).</p>
+<p><b>
+subscribe($destination,$headers,$handler,$receiptHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>callable | array</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg3 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; <p>the subscription id.</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.stomp.StompClientConnection.html"><div class="path-wrapper">\io\vertx\jphp\ext\stomp\StompClientConnection</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_unsubscribe" name="method_unsubscribe" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">unsubscribe()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">unsubscribe( <span class="argument">arg0</span>,  <span class="argument">arg1 = null</span>,  <span class="argument">arg2 = null</span>) : \io\vertx\jphp\ext\stomp\StompClientConnection</pre>
+                <p><em>Un-subscribes from the given destination. This method only works if the subscription did not specifies a
+ subscription id (using the {@code id} header).</em></p>
+                <p>$destination [string] the destination</p>
+<p><b>
+unsubscribe($destination)
+</b></p>
+<p>Un-subscribes from the given destination. This method only works if the subscription did not specifies a
+subscription id (using the {@code id} header).</p>
+<p>$destination [string] the destination</p>
+<p>$receiptHandler [callable] the handler invoked when the {@code RECEIPT} frame associated with the un-subscription has been received. The handler receives the sent frame ({@code UNSUBSCRIBE}).</p>
+<p><b>
+unsubscribe($destination,$receiptHandler)
+</b></p>
+<p>Un-subscribes from the given destination. This method computes the subscription id as follows. If the given
+headers contains the {@code id} header, the header value is used. Otherwise the destination is used.</p>
+<p>$destination [string] the destination</p>
+<p>$headers [array] the headers</p>
+<p><b>
+unsubscribe($destination,$headers)
+</b></p>
+<p>Un-subscribes from the given destination. This method computes the subscription id as follows. If the given
+headers contains the {@code id} header, the header value is used. Otherwise the destination is used.</p>
+<p>$destination [string] the destination</p>
+<p>$headers [array] the headers</p>
+<p>$receiptHandler [callable] the handler invoked when the {@code RECEIPT} frame associated with the un-subscription has been received. The handler receives the sent frame ({@code UNSUBSCRIBE}).</p>
+<p><b>
+unsubscribe($destination,$headers,$receiptHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>callable | array</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\stomp\StompClientConnection
+                                            &mdash; <p>the current {@link StompClientConnection}</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.stomp.StompClientConnection.html"><div class="path-wrapper">\io\vertx\jphp\ext\stomp\StompClientConnection</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_errorHandler" name="method_errorHandler" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">errorHandler()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">errorHandler( <span class="argument">arg0</span>) : \io\vertx\jphp\ext\stomp\StompClientConnection</pre>
+                <p><em>Sets a handler notified when an {@code ERROR} frame is received by the client. The handler receives the {@code
+ ERROR} frame and a reference on the {@link StompClientConnection}.</em></p>
+                <p>$handler [callable] the handler</p>
+<p><b>
+errorHandler($handler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\stomp\StompClientConnection
+                                            &mdash; <p>the current {@link StompClientConnection}</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.stomp.StompClientConnection.html"><div class="path-wrapper">\io\vertx\jphp\ext\stomp\StompClientConnection</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_closeHandler" name="method_closeHandler" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">closeHandler()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">closeHandler( <span class="argument">arg0</span>) : \io\vertx\jphp\ext\stomp\StompClientConnection</pre>
+                <p><em>Sets a handler notified when the STOMP connection is closed.</em></p>
+                <p>$handler [callable] the handler</p>
+<p><b>
+closeHandler($handler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\stomp\StompClientConnection
+                                            &mdash; <p>the current {@link StompClientConnection}</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.stomp.StompClientConnection.html"><div class="path-wrapper">\io\vertx\jphp\ext\stomp\StompClientConnection</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_connectionDroppedHandler" name="method_connectionDroppedHandler" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">connectionDroppedHandler()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">connectionDroppedHandler( <span class="argument">arg0</span>) : \io\vertx\jphp\ext\stomp\StompClientConnection</pre>
+                <p><em>Sets a handler notified when the server does not respond to a {@code ping} request in time. In other
+ words, this handler is invoked when the heartbeat has detected a connection failure with the server.</em></p>
+                <p>The handler can decide to reconnect to the server.</p>
+<p>$handler [callable] the handler</p>
+<p><b>
+connectionDroppedHandler($handler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\stomp\StompClientConnection
+                                            &mdash; <p>the current {@link StompClientConnection} receiving the dropped connection.</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.stomp.StompClientConnection.html"><div class="path-wrapper">\io\vertx\jphp\ext\stomp\StompClientConnection</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_pingHandler" name="method_pingHandler" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">pingHandler()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">pingHandler( <span class="argument">arg0</span>) : \io\vertx\jphp\ext\stomp\StompClientConnection</pre>
+                <p><em>Sets a handler that let customize the behavior when a ping needs to be sent to the server. Be aware that
+ changing the default behavior may break the compliance with the STOMP specification.</em></p>
+                <p>$handler [callable] the handler</p>
+<p><b>
+pingHandler($handler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\stomp\StompClientConnection
+                                            &mdash; <p>the current {@link StompClientConnection}</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.stomp.StompClientConnection.html"><div class="path-wrapper">\io\vertx\jphp\ext\stomp\StompClientConnection</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_beginTX" name="method_beginTX" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">beginTX()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">beginTX( <span class="argument">arg0</span>,  <span class="argument">arg1 = null</span>,  <span class="argument">arg2 = null</span>) : \io\vertx\jphp\ext\stomp\StompClientConnection</pre>
+                <p><em>Begins a transaction.</em></p>
+                <p>$id [string] the transaction id, must not be {@code null}</p>
+<p><b>
+beginTX($id)
+</b></p>
+<p>Begins a transaction.</p>
+<p>$id [string] the transaction id, must not be {@code null}</p>
+<p>$receiptHandler [callable] the handler invoked when the {@code RECEIPT} frame associated with the transaction begin has been processed by the server. The handler receives the sent frame ({@code BEGIN}).</p>
+<p><b>
+beginTX($id,$receiptHandler)
+</b></p>
+<p>Begins a transaction.</p>
+<p>$id [string] the transaction id, must not be {@code null}</p>
+<p>$headers [array] additional headers to send to the server. The {@code transaction} header is replaced by the value passed in the @{code id} parameter</p>
+<p><b>
+beginTX($id,$headers)
+</b></p>
+<p>Begins a transaction.</p>
+<p>$id [string] the transaction id, must not be {@code null}</p>
+<p>$headers [array] additional headers to send to the server. The {@code transaction} header is replaced by the value passed in the @{code id} parameter</p>
+<p>$receiptHandler [callable] the handler invoked when the {@code RECEIPT} frame associated with the transaction begin has been processed by the server. The handler receives the sent frame ({@code BEGIN}).</p>
+<p><b>
+beginTX($id,$headers,$receiptHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>callable | array</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\stomp\StompClientConnection
+                                            &mdash; <p>the current {@link StompClientConnection}</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.stomp.StompClientConnection.html"><div class="path-wrapper">\io\vertx\jphp\ext\stomp\StompClientConnection</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_commit" name="method_commit" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">commit()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">commit( <span class="argument">arg0</span>,  <span class="argument">arg1 = null</span>,  <span class="argument">arg2 = null</span>) : \io\vertx\jphp\ext\stomp\StompClientConnection</pre>
+                <p><em>Commits a transaction.</em></p>
+                <p>$id [string] the transaction id, must not be {@code null}</p>
+<p><b>
+commit($id)
+</b></p>
+<p>Commits a transaction.</p>
+<p>$id [string] the transaction id, must not be {@code null}</p>
+<p>$receiptHandler [callable] the handler invoked when the {@code RECEIPT} frame associated with the transaction commit has been processed by the server. The handler receives the sent frame ({@code COMMIT}).</p>
+<p><b>
+commit($id,$receiptHandler)
+</b></p>
+<p>Commits a transaction.</p>
+<p>$id [string] the transaction id, must not be {@code null}</p>
+<p>$headers [array] additional headers to send to the server. The {@code transaction} header is replaced by the value passed in the @{code id} parameter</p>
+<p><b>
+commit($id,$headers)
+</b></p>
+<p>Commits a transaction.</p>
+<p>$id [string] the transaction id, must not be {@code null}</p>
+<p>$headers [array] additional headers to send to the server. The {@code transaction} header is replaced by the value passed in the @{code id} parameter</p>
+<p>$receiptHandler [callable] the handler invoked when the {@code RECEIPT} frame associated with the transaction commit has been processed by the server. The handler receives the sent frame ({@code COMMIT}).</p>
+<p><b>
+commit($id,$headers,$receiptHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>callable | array</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\stomp\StompClientConnection
+                                            &mdash; <p>the current {@link StompClientConnection}</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.stomp.StompClientConnection.html"><div class="path-wrapper">\io\vertx\jphp\ext\stomp\StompClientConnection</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_abort" name="method_abort" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">abort()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">abort( <span class="argument">arg0</span>,  <span class="argument">arg1 = null</span>,  <span class="argument">arg2 = null</span>) : \io\vertx\jphp\ext\stomp\StompClientConnection</pre>
+                <p><em>Aborts a transaction.</em></p>
+                <p>$id [string] the transaction id, must not be {@code null}</p>
+<p><b>
+abort($id)
+</b></p>
+<p>Aborts a transaction.</p>
+<p>$id [string] the transaction id, must not be {@code null}</p>
+<p>$receiptHandler [callable] the handler invoked when the {@code RECEIPT} frame associated with the transaction cancellation has been processed by the server. The handler receives the sent frame ({@code ABORT}).</p>
+<p><b>
+abort($id,$receiptHandler)
+</b></p>
+<p>Aborts a transaction.</p>
+<p>$id [string] the transaction id, must not be {@code null}</p>
+<p>$headers [array] additional headers to send to the server. The {@code transaction} header is replaced by the value passed in the @{code id} parameter</p>
+<p><b>
+abort($id,$headers)
+</b></p>
+<p>Aborts a transaction.</p>
+<p>$id [string] the transaction id, must not be {@code null}</p>
+<p>$headers [array] additional headers to send to the server. The {@code transaction} header is replaced by the value passed in the @{code id} parameter</p>
+<p>$receiptHandler [callable] the handler invoked when the {@code RECEIPT} frame associated with the transaction cancellation has been processed by the server. The handler receives the sent frame ({@code ABORT}).</p>
+<p><b>
+abort($id,$headers,$receiptHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>callable | array</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\stomp\StompClientConnection
+                                            &mdash; <p>the current {@link StompClientConnection}</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.stomp.StompClientConnection.html"><div class="path-wrapper">\io\vertx\jphp\ext\stomp\StompClientConnection</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_disconnect" name="method_disconnect" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">disconnect()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">disconnect( <span class="argument">arg0 = null</span>,  <span class="argument">arg1 = null</span>) : \io\vertx\jphp\ext\stomp\StompClientConnection</pre>
+                <p><em>Disconnects the client. Unlike the {@link #close()} method, this method send the {@code DISCONNECT} frame to the
+ server.</em></p>
+                <p><b>
+disconnect()
+</b></p>
+<p>Disconnects the client. Unlike the #close() method, this method send the {@code DISCONNECT} frame to the
+server.</p>
+<p>$receiptHandler [callable] the handler invoked when the {@code RECEIPT} frame associated with the disconnection has been processed by the server. The handler receives the sent frame ({@code DISCONNECT}).</p>
+<p><b>
+disconnect($receiptHandler)
+</b></p>
+<p>Disconnects the client. Unlike the #close() method, this method send the {@code DISCONNECT} frame to the
+server. This method lets you customize the {@code DISCONNECT} frame.</p>
+<p>$frame [Frame | mixed] the {@code DISCONNECT} frame.</p>
+<p><b>
+disconnect($frame)
+</b></p>
+<p>Disconnects the client. Unlike the #close() method, this method send the {@code DISCONNECT} frame to the
+server. This method lets you customize the {@code DISCONNECT} frame.</p>
+<p>$frame [Frame | mixed] the {@code DISCONNECT} frame.</p>
+<p>$receiptHandler [callable] the handler invoked when the {@code RECEIPT} frame associated with the disconnection has been processed by the server. The handler receives the sent frame ({@code DISCONNECT}).</p>
+<p><b>
+disconnect($frame,$receiptHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>Frame | callable | mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\stomp\StompClientConnection
+                                            &mdash; <p>the current {@link StompClientConnection}</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.stomp.StompClientConnection.html"><div class="path-wrapper">\io\vertx\jphp\ext\stomp\StompClientConnection</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_ack" name="method_ack" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">ack()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">ack( <span class="argument">arg0</span>,  <span class="argument">arg1 = null</span>,  <span class="argument">arg2 = null</span>) : \io\vertx\jphp\ext\stomp\StompClientConnection</pre>
+                <p><em>Sends an acknowledgement for a specific message. It means that the message has been handled and processed by the
+ client. The {@code id} parameter is the message id received in the frame.</em></p>
+                <p>$id [string] the message id of the message to acknowledge</p>
+<p><b>
+ack($id)
+</b></p>
+<p>Sends an acknowledgement for a specific message. It means that the message has been handled and processed by the
+client. The {@code id} parameter is the message id received in the frame.</p>
+<p>$id [string] the message id of the message to acknowledge</p>
+<p>$receiptHandler [callable] the handler invoked when the {@code RECEIPT} frame associated with the acknowledgment has been processed by the server. The handler receives the sent frame ({@code ACK}).</p>
+<p><b>
+ack($id,$receiptHandler)
+</b></p>
+<p>Sends an acknowledgement for the given frame. It means that the frame has been handled and processed by the
+client. The sent acknowledgement is part of the transaction identified by the given id.</p>
+<p>$id [string] the message id of the message to acknowledge</p>
+<p>$txId [string] the transaction id</p>
+<p><b>
+ack($id,$txId)
+</b></p>
+<p>Sends an acknowledgement for the given frame. It means that the frame has been handled and processed by the
+client. The sent acknowledgement is part of the transaction identified by the given id.</p>
+<p>$id [string] the message id of the message to acknowledge</p>
+<p>$txId [string] the transaction id</p>
+<p>$receiptHandler [callable] the handler invoked when the {@code RECEIPT} frame associated with the acknowledgment has been processed by the server. The handler receives the sent frame ({@code ACK}).</p>
+<p><b>
+ack($id,$txId,$receiptHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>callable | string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\stomp\StompClientConnection
+                                            &mdash; <p>the current {@link StompClientConnection}</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.stomp.StompClientConnection.html"><div class="path-wrapper">\io\vertx\jphp\ext\stomp\StompClientConnection</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_nack" name="method_nack" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">nack()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">nack( <span class="argument">arg0</span>,  <span class="argument">arg1 = null</span>,  <span class="argument">arg2 = null</span>) : \io\vertx\jphp\ext\stomp\StompClientConnection</pre>
+                <p><em>Sends a non-acknowledgement for the given message. It means that the message has not been handled by the client.</em></p>
+                <p>The {@code id} parameter is the message id received in the frame.</p>
+<p>$id [string] the message id of the message to acknowledge</p>
+<p><b>
+nack($id)
+</b></p>
+<p>Sends a non-acknowledgement for the given message. It means that the message has not been handled by the client.
+The {@code id} parameter is the message id received in the frame.</p>
+<p>$id [string] the message id of the message to acknowledge</p>
+<p>$receiptHandler [callable] the handler invoked when the {@code RECEIPT} frame associated with the non-acknowledgment has been processed by the server. The handler receives the sent frame ({@code NACK}).</p>
+<p><b>
+nack($id,$receiptHandler)
+</b></p>
+<p>Sends a non-acknowledgement for the given frame. It means that the frame has not been handled by the client.
+The sent non-acknowledgement is part of the transaction identified by the given id.</p>
+<p>$id [string] the message id of the message to acknowledge</p>
+<p>$txId [string] the transaction id</p>
+<p><b>
+nack($id,$txId)
+</b></p>
+<p>Sends a non-acknowledgement for the given frame. It means that the frame has not been handled by the client.
+The sent non-acknowledgement is part of the transaction identified by the given id.</p>
+<p>$id [string] the message id of the message to acknowledge</p>
+<p>$txId [string] the transaction id</p>
+<p>$receiptHandler [callable] the handler invoked when the {@code RECEIPT} frame associated with the non-acknowledgment has been processed by the server. The handler receives the sent frame ({@code NACK}).</p>
+<p><b>
+nack($id,$txId,$receiptHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>callable | string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\stomp\StompClientConnection
+                                            &mdash; <p>the current {@link StompClientConnection}</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.stomp.StompClientConnection.html"><div class="path-wrapper">\io\vertx\jphp\ext\stomp\StompClientConnection</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_receivedFrameHandler" name="method_receivedFrameHandler" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">receivedFrameHandler()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">receivedFrameHandler( <span class="argument">arg0</span>) : \io\vertx\jphp\ext\stomp\StompClientConnection</pre>
+                <p><em>Configures a received handler that get notified when a STOMP frame is received by the client.</em></p>
+                <p>This handler can be used for logging, debugging or ad-hoc behavior. The frame can still be modified by the handler.</p>
+<p>
+ Unlike StompClient#receivedFrameHandler(Handler), the given handler won't receive the {@code CONNECTED} frame. If a received frame handler is set on the StompClient, it will be used by all
+ clients connection, so calling this method is useless, except if you want to use a different handler.
+
+$handler [callable] the handler
+
+<b>
+receivedFrameHandler($handler)
+</b>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\stomp\StompClientConnection
+                                            &mdash; <p>the current {@link StompClientConnection}</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.stomp.StompClientConnection.html"><div class="path-wrapper">\io\vertx\jphp\ext\stomp\StompClientConnection</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_writingFrameHandler" name="method_writingFrameHandler" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">writingFrameHandler()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">writingFrameHandler( <span class="argument">arg0</span>) : \io\vertx\jphp\ext\stomp\StompClientConnection</pre>
+                <p><em>Configures a handler notified when a frame is going to be written on the wire. This handler can be used from
+ logging, debugging. The handler can modify the received frame.</em></p>
+                <p>
+ If a writing frame handler is set on the StompClient, it will be used by all
+ clients connection, so calling this method is useless, except if you want to use a different handler.
+
+$handler [callable] the handler
+
+<b>
+writingFrameHandler($handler)
+</b>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\stomp\StompClientConnection
+                                            &mdash; <p>the current {@link StompClientConnection}</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.stomp.StompClientConnection.html"><div class="path-wrapper">\io\vertx\jphp\ext\stomp\StompClientConnection</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_exceptionHandler" name="method_exceptionHandler" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">exceptionHandler()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">exceptionHandler( <span class="argument">arg0</span>) : \io\vertx\jphp\ext\stomp\StompClientConnection</pre>
+                <p><em>Configures the exception handler notified upon TCP-level errors.</em></p>
+                <p>$exceptionHandler [callable] the handler</p>
+<p><b>
+exceptionHandler($exceptionHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\ext\stomp\StompClientConnection
+                                            &mdash; <p>the current {@link StompClientConnection}</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.stomp.StompClientConnection.html"><div class="path-wrapper">\io\vertx\jphp\ext\stomp\StompClientConnection</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_isConnected" name="method_isConnected" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">isConnected()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">isConnected() : </pre>
+                <p><em>Returns whether or not the `CONNECTED` frame has been receive meaning that the Stomp connection is established.</em></p>
+                <p><b>
+isConnected()
+</b></p>
+
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; <p>{@code true} if the connection is established, {@code false} otherwise</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.stomp.StompClientConnection.html"><div class="path-wrapper">\io\vertx\jphp\ext\stomp\StompClientConnection</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___construct" name="method___construct" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">__construct()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__construct() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.ext.stomp.StompClientConnection.html"><div class="path-wrapper">\io\vertx\jphp\ext\stomp\StompClientConnection</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">StompClientConnection.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/io/vertx/jphp/ext/stomp/StompClientConnection.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/io.html">\io</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on April 20th, 2018 at 09:43.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>

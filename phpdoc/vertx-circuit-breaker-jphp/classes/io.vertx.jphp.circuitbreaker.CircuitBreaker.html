@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src').replace( /\\/g, '/');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/io.html">\io</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-426416363"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-426416363" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1105372178"></a>
+                                <a href="../namespaces/io.html" style="margin-left: 30px; padding-left: 0">io</a>
+            </div>
+            <div id="namespace-1105372178" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-921011336"></a>
+                                <a href="../namespaces/io.vertx.html" style="margin-left: 30px; padding-left: 0">vertx</a>
+            </div>
+            <div id="namespace-921011336" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2061871259"></a>
+                                <a href="../namespaces/io.vertx.jphp.html" style="margin-left: 30px; padding-left: 0">jphp</a>
+            </div>
+            <div id="namespace-2061871259" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2093769053"></a>
+                                <a href="../namespaces/io.vertx.jphp.circuitbreaker.html" style="margin-left: 30px; padding-left: 0">circuitbreaker</a>
+            </div>
+            <div id="namespace-2093769053" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.circuitbreaker.CircuitBreaker.html">CircuitBreaker</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.circuitbreaker.CircuitBreakerOptions.html">CircuitBreakerOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.circuitbreaker.HystrixMetricHandler.html">HystrixMetricHandler</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/io.vertx.jphp.circuitbreaker.html">\io\vertx\jphp\circuitbreaker</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\io\vertx\jphp\circuitbreaker</small>CircuitBreaker</h1>
+                    <p><em>An implementation of the circuit breaker pattern for Vert.x</em></p>
+                    
+                    
+                                        
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/io.vertx.jphp.circuitbreaker.CircuitBreaker.html#method_create" class="">create()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.circuitbreaker.CircuitBreaker.html#method_close" class="">close()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.circuitbreaker.CircuitBreaker.html#method_openHandler" class="">openHandler()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.circuitbreaker.CircuitBreaker.html#method_halfOpenHandler" class="">halfOpenHandler()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.circuitbreaker.CircuitBreaker.html#method_closeHandler" class="">closeHandler()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.circuitbreaker.CircuitBreaker.html#method_executeWithFallback" class="">executeWithFallback()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.circuitbreaker.CircuitBreaker.html#method_executeCommandWithFallback" class="">executeCommandWithFallback()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.circuitbreaker.CircuitBreaker.html#method_execute" class="">execute()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.circuitbreaker.CircuitBreaker.html#method_executeCommand" class="">executeCommand()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.circuitbreaker.CircuitBreaker.html#method_executeAndReport" class="">executeAndReport()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.circuitbreaker.CircuitBreaker.html#method_executeAndReportWithFallback" class="">executeAndReportWithFallback()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.circuitbreaker.CircuitBreaker.html#method_fallback" class="">fallback()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.circuitbreaker.CircuitBreaker.html#method_reset" class="">reset()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.circuitbreaker.CircuitBreaker.html#method_open" class="">open()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.circuitbreaker.CircuitBreaker.html#method_state" class="">state()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.circuitbreaker.CircuitBreaker.html#method_failureCount" class="">failureCount()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.circuitbreaker.CircuitBreaker.html#method_name" class="">name()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No public properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No constants found</em>
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <em>No protected methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No protected properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <a href="../classes/io.vertx.jphp.circuitbreaker.CircuitBreaker.html#method___construct" class="">__construct()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No private properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/io.vertx.jphp.circuitbreaker.CircuitBreaker.html"><div class="path-wrapper">io/vertx/jphp/circuitbreaker/CircuitBreaker.php</div></a></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                    <div class="namespace-wrapper">\io\vertx\jphp\circuitbreaker\CircuitBreaker</div>
+                            </dd>
+
+                        
+                        
+                        
+                                                
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr><td colspan="2"><em>None found</em></td></tr>
+                                        </table>
+                </aside>
+            </div>
+
+                        
+                        
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_create" name="method_create" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">create()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">create( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2 = null</span>) : \io\vertx\jphp\circuitbreaker\CircuitBreaker</pre>
+                <p><em>Creates a new instance of {@link CircuitBreaker}, with default options.</em></p>
+                <p>$name [string] the name</p>
+<p>$vertx [Vertx] the Vert.x instance</p>
+<p><b>
+create($name,$vertx)
+</b></p>
+<p>Creates a new instance of CircuitBreaker.</p>
+<p>$name [string] the name</p>
+<p>$vertx [Vertx] the Vert.x instance</p>
+<p>$options [CircuitBreakerOptions | mixed] the configuration option</p>
+<p><b>
+create($name,$vertx,$options)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>Vertx</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>CircuitBreakerOptions | mixed</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\circuitbreaker\CircuitBreaker
+                                            &mdash; <p>the created instance</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.circuitbreaker.CircuitBreaker.html"><div class="path-wrapper">\io\vertx\jphp\circuitbreaker\CircuitBreaker</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_close" name="method_close" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">close()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">close() : \io\vertx\jphp\circuitbreaker\CircuitBreaker</pre>
+                <p><em>Closes the circuit breaker. It stops sending events on its state on the event bus.</em></p>
+                <p>This method is not related to the {@code close} state of the circuit breaker. To set the circuit breaker in the
+{@code close} state, use #reset().</p>
+<p><b>
+close()
+</b></p>
+
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\circuitbreaker\CircuitBreaker
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.circuitbreaker.CircuitBreaker.html"><div class="path-wrapper">\io\vertx\jphp\circuitbreaker\CircuitBreaker</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_openHandler" name="method_openHandler" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">openHandler()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">openHandler( <span class="argument">arg0</span>) : \io\vertx\jphp\circuitbreaker\CircuitBreaker</pre>
+                <p><em>Sets a {@link Handler} invoked when the circuit breaker state switches to open.</em></p>
+                <p>$handler [callable] the handler, must not be {@code null}</p>
+<p><b>
+openHandler($handler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\circuitbreaker\CircuitBreaker
+                                            &mdash; <p>the current {@link CircuitBreaker}</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.circuitbreaker.CircuitBreaker.html"><div class="path-wrapper">\io\vertx\jphp\circuitbreaker\CircuitBreaker</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_halfOpenHandler" name="method_halfOpenHandler" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">halfOpenHandler()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">halfOpenHandler( <span class="argument">arg0</span>) : \io\vertx\jphp\circuitbreaker\CircuitBreaker</pre>
+                <p><em>Sets a {@link Handler} invoked when the circuit breaker state switches to half-open.</em></p>
+                <p>$handler [callable] the handler, must not be {@code null}</p>
+<p><b>
+halfOpenHandler($handler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\circuitbreaker\CircuitBreaker
+                                            &mdash; <p>the current {@link CircuitBreaker}</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.circuitbreaker.CircuitBreaker.html"><div class="path-wrapper">\io\vertx\jphp\circuitbreaker\CircuitBreaker</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_closeHandler" name="method_closeHandler" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">closeHandler()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">closeHandler( <span class="argument">arg0</span>) : \io\vertx\jphp\circuitbreaker\CircuitBreaker</pre>
+                <p><em>Sets a {@link Handler} invoked when the circuit breaker state switches to close.</em></p>
+                <p>$handler [callable] the handler, must not be {@code null}</p>
+<p><b>
+closeHandler($handler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\circuitbreaker\CircuitBreaker
+                                            &mdash; <p>the current {@link CircuitBreaker}</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.circuitbreaker.CircuitBreaker.html"><div class="path-wrapper">\io\vertx\jphp\circuitbreaker\CircuitBreaker</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_executeWithFallback" name="method_executeWithFallback" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">executeWithFallback()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">executeWithFallback( <span class="argument">arg0</span>,  <span class="argument">arg1</span>) : \io\vertx\jphp\core\Future</pre>
+                <p><em>Executes the given operation with the circuit breaker control. The operation is generally calling an
+ &lt;em&gt;external&lt;/em&gt; system. The operation receives a {@link Future} object as parameter and &lt;strong&gt;must&lt;/strong&gt;
+ call {@link Future#complete(Object)} when the operation has terminated successfully. The operation must also
+ call {@link Future#fail(Throwable)} in case of failure.</em></p>
+                <p>
+ The operation is not invoked if the circuit breaker is open, and the given fallback is called immediately. The
+ circuit breaker also monitor the completion of the operation before a configure timeout. The operation is
+ considered as failed if it does not terminate in time.
+ <p>
+ This method returns a Future object to retrieve the status and result of the operation, with the status
+ being a success or a failure. If the fallback is called, the returned future is successfully completed with the
+ value returned from the fallback. If the fallback throws an exception, the returned future is marked as failed.
+
+$command [callable] the operation
+
+$fallback [callable] the fallback function. It gets an exception as parameter and returns the <em>fallback</em> result
+
+<b>
+executeWithFallback($command,$fallback)
+</b>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\core\Future
+                                            &mdash; <p>a future object completed when the operation or its fallback completes</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.circuitbreaker.CircuitBreaker.html"><div class="path-wrapper">\io\vertx\jphp\circuitbreaker\CircuitBreaker</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_executeCommandWithFallback" name="method_executeCommandWithFallback" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">executeCommandWithFallback()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">executeCommandWithFallback( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>) : </pre>
+                <p><em>Same as {@link #executeWithFallback(Handler, Function)} but using a callback.</em></p>
+                <p>$command [callable] the operation</p>
+<p>$fallback [callable] the fallback</p>
+<p>$handler [callable] the completion handler receiving either the operation result or the fallback result. The parameter is an AsyncResult because if the fallback is not called, the error is passed to the handler.</p>
+<p><b>
+executeCommandWithFallback($command,$fallback,$handler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; <p>a future object completed when the operation or its fallback completes</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.circuitbreaker.CircuitBreaker.html"><div class="path-wrapper">\io\vertx\jphp\circuitbreaker\CircuitBreaker</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_execute" name="method_execute" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">execute()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">execute( <span class="argument">arg0</span>) : \io\vertx\jphp\core\Future</pre>
+                <p><em>Same as {@link #executeWithFallback(Handler, Function)} but using the circuit breaker default fallback.</em></p>
+                <p>$command [callable] the operation</p>
+<p><b>
+execute($command)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\core\Future
+                                            &mdash; <p>a future object completed when the operation or its fallback completes</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.circuitbreaker.CircuitBreaker.html"><div class="path-wrapper">\io\vertx\jphp\circuitbreaker\CircuitBreaker</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_executeCommand" name="method_executeCommand" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">executeCommand()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">executeCommand( <span class="argument">arg0</span>,  <span class="argument">arg1</span>) : </pre>
+                <p><em>Same as {@link #executeWithFallback(Handler, Function)} but using the circuit breaker default fallback.</em></p>
+                <p>$command [callable] the operation</p>
+<p>$handler [callable]</p>
+<p><b>
+executeCommand($command,$handler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; <p>a future object completed when the operation or its fallback completes</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.circuitbreaker.CircuitBreaker.html"><div class="path-wrapper">\io\vertx\jphp\circuitbreaker\CircuitBreaker</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_executeAndReport" name="method_executeAndReport" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">executeAndReport()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">executeAndReport( <span class="argument">arg0</span>,  <span class="argument">arg1</span>) : \io\vertx\jphp\circuitbreaker\CircuitBreaker</pre>
+                <p><em>Same as {@link #executeAndReportWithFallback(Future, Handler, Function)} but using the circuit breaker default
+ fallback.</em></p>
+                <p>$resultFuture [Future] the future on which the operation result is reported</p>
+<p>$command [callable] the operation</p>
+<p><b>
+executeAndReport($resultFuture,$command)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>Future</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\circuitbreaker\CircuitBreaker
+                                            &mdash; <p>the current {@link CircuitBreaker}</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.circuitbreaker.CircuitBreaker.html"><div class="path-wrapper">\io\vertx\jphp\circuitbreaker\CircuitBreaker</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_executeAndReportWithFallback" name="method_executeAndReportWithFallback" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">executeAndReportWithFallback()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">executeAndReportWithFallback( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>) : \io\vertx\jphp\circuitbreaker\CircuitBreaker</pre>
+                <p><em>Executes the given operation with the circuit breaker control. The operation is generally calling an
+ &lt;em&gt;external&lt;/em&gt; system. The operation receives a {@link Future} object as parameter and &lt;strong&gt;must&lt;/strong&gt;
+ call {@link Future#complete(Object)} when the operation has terminated successfully. The operation must also
+ call {@link Future#fail(Throwable)} in case of failure.</em></p>
+                <p>
+ The operation is not invoked if the circuit breaker is open, and the given fallback is called immediately. The
+ circuit breaker also monitor the completion of the operation before a configure timeout. The operation is
+ considered as failed if it does not terminate in time.
+ <p>
+ Unlike #executeWithFallback(Handler,,  this method does return a Future object, but
+ let the caller pass a Future object on which the result is reported. If the fallback is called, the future
+ is successfully completed with the value returned by the fallback function. If the fallback throws an exception,
+ the future is marked as failed.
+
+$resultFuture [Future] the future on which the operation result is reported
+
+$command [callable] the operation
+
+$fallback [callable] the fallback function. It gets an exception as parameter and returns the <em>fallback</em> result
+
+<b>
+executeAndReportWithFallback($resultFuture,$command,$fallback)
+</b>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>Future</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\circuitbreaker\CircuitBreaker
+                                            &mdash; <p>the current {@link CircuitBreaker}</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.circuitbreaker.CircuitBreaker.html"><div class="path-wrapper">\io\vertx\jphp\circuitbreaker\CircuitBreaker</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_fallback" name="method_fallback" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">fallback()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">fallback( <span class="argument">arg0</span>) : \io\vertx\jphp\circuitbreaker\CircuitBreaker</pre>
+                <p><em>Sets a &lt;em&gt;default&lt;/em&gt; {@link Function} invoked when the bridge is open to handle the &quot;request&quot;, or on failure
+ if {@link CircuitBreakerOptions#isFallbackOnFailure()} is enabled.</em></p>
+                <p>
+ The function gets the exception as parameter and returns the <em>fallback</em> result.
+
+$handler [callable] the handler
+
+<b>
+fallback($handler)
+</b>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\circuitbreaker\CircuitBreaker
+                                            &mdash; <p>the current {@link CircuitBreaker}</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.circuitbreaker.CircuitBreaker.html"><div class="path-wrapper">\io\vertx\jphp\circuitbreaker\CircuitBreaker</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_reset" name="method_reset" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">reset()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">reset() : \io\vertx\jphp\circuitbreaker\CircuitBreaker</pre>
+                <p><em>Resets the circuit breaker state (number of failure set to 0 and state set to closed).</em></p>
+                <p><b>
+reset()
+</b></p>
+
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\circuitbreaker\CircuitBreaker
+                                            &mdash; <p>the current {@link CircuitBreaker}</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.circuitbreaker.CircuitBreaker.html"><div class="path-wrapper">\io\vertx\jphp\circuitbreaker\CircuitBreaker</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_open" name="method_open" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">open()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">open() : \io\vertx\jphp\circuitbreaker\CircuitBreaker</pre>
+                <p><em>Explicitly opens the circuit.</em></p>
+                <p><b>
+open()
+</b></p>
+
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\circuitbreaker\CircuitBreaker
+                                            &mdash; <p>the current {@link CircuitBreaker}</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.circuitbreaker.CircuitBreaker.html"><div class="path-wrapper">\io\vertx\jphp\circuitbreaker\CircuitBreaker</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_state" name="method_state" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">state()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">state() : </pre>
+                <p><em>&lt;b&gt;
+state()
+&lt;/b&gt;</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; <p>the current state.</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.circuitbreaker.CircuitBreaker.html"><div class="path-wrapper">\io\vertx\jphp\circuitbreaker\CircuitBreaker</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_failureCount" name="method_failureCount" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">failureCount()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">failureCount() : </pre>
+                <p><em>&lt;b&gt;
+failureCount()
+&lt;/b&gt;</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; <p>the current number of failures.</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.circuitbreaker.CircuitBreaker.html"><div class="path-wrapper">\io\vertx\jphp\circuitbreaker\CircuitBreaker</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_name" name="method_name" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">name()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">name() : </pre>
+                <p><em>&lt;b&gt;
+name()
+&lt;/b&gt;</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; <p>the name of the circuit breaker.</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.circuitbreaker.CircuitBreaker.html"><div class="path-wrapper">\io\vertx\jphp\circuitbreaker\CircuitBreaker</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___construct" name="method___construct" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">__construct()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__construct() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.circuitbreaker.CircuitBreaker.html"><div class="path-wrapper">\io\vertx\jphp\circuitbreaker\CircuitBreaker</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">CircuitBreaker.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/io/vertx/jphp/circuitbreaker/CircuitBreaker.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/io.html">\io</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on April 20th, 2018 at 09:43.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>

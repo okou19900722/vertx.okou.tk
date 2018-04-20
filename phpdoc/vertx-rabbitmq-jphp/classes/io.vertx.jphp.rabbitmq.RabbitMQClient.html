@@ -1,0 +1,1791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src').replace( /\\/g, '/');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/io.html">\io</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-737541359"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-737541359" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1439858340"></a>
+                                <a href="../namespaces/io.html" style="margin-left: 30px; padding-left: 0">io</a>
+            </div>
+            <div id="namespace-1439858340" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-428378028"></a>
+                                <a href="../namespaces/io.vertx.html" style="margin-left: 30px; padding-left: 0">vertx</a>
+            </div>
+            <div id="namespace-428378028" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1382311974"></a>
+                                <a href="../namespaces/io.vertx.jphp.html" style="margin-left: 30px; padding-left: 0">jphp</a>
+            </div>
+            <div id="namespace-1382311974" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-445280837"></a>
+                                <a href="../namespaces/io.vertx.jphp.rabbitmq.html" style="margin-left: 30px; padding-left: 0">rabbitmq</a>
+            </div>
+            <div id="namespace-445280837" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.rabbitmq.BasicProperties.html">BasicProperties</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.rabbitmq.Envelope.html">Envelope</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.rabbitmq.QueueOptions.html">QueueOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQClient.html">RabbitMQClient</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQConsumer.html">RabbitMQConsumer</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQMessage.html">RabbitMQMessage</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQOptions.html">RabbitMQOptions</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/io.vertx.jphp.rabbitmq.html">\io\vertx\jphp\rabbitmq</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\io\vertx\jphp\rabbitmq</small>RabbitMQClient</h1>
+                    <p><em></em></p>
+                    
+                    
+                                        
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQClient.html#method_create" class="">create()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQClient.html#method_basicAck" class="">basicAck()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQClient.html#method_basicNack" class="">basicNack()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQClient.html#method_basicGet" class="">basicGet()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQClient.html#method_basicConsume" class="">basicConsume()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQClient.html#method_basicConsumer" class="">basicConsumer()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQClient.html#method_basicPublish" class="">basicPublish()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQClient.html#method_confirmSelect" class="">confirmSelect()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQClient.html#method_waitForConfirms" class="">waitForConfirms()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQClient.html#method_basicQos" class="">basicQos()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQClient.html#method_exchangeDeclare" class="">exchangeDeclare()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQClient.html#method_exchangeDelete" class="">exchangeDelete()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQClient.html#method_exchangeBind" class="">exchangeBind()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQClient.html#method_exchangeUnbind" class="">exchangeUnbind()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQClient.html#method_queueDeclareAuto" class="">queueDeclareAuto()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQClient.html#method_queueDeclare" class="">queueDeclare()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQClient.html#method_queueDelete" class="">queueDelete()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQClient.html#method_queueDeleteIf" class="">queueDeleteIf()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQClient.html#method_queueBind" class="">queueBind()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQClient.html#method_messageCount" class="">messageCount()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQClient.html#method_start" class="">start()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQClient.html#method_stop" class="">stop()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQClient.html#method_isConnected" class="">isConnected()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQClient.html#method_isOpenChannel" class="">isOpenChannel()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No public properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No constants found</em>
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <em>No protected methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No protected properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQClient.html#method___construct" class="">__construct()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No private properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/io.vertx.jphp.rabbitmq.RabbitMQClient.html"><div class="path-wrapper">io/vertx/jphp/rabbitmq/RabbitMQClient.php</div></a></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                    <div class="namespace-wrapper">\io\vertx\jphp\rabbitmq\RabbitMQClient</div>
+                            </dd>
+
+                        
+                        
+                        
+                                                
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr><td colspan="2"><em>None found</em></td></tr>
+                                        </table>
+                </aside>
+            </div>
+
+                        
+                        
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_create" name="method_create" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">create()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">create( <span class="argument">arg0</span>,  <span class="argument">arg1</span>) : \io\vertx\jphp\rabbitmq\RabbitMQClient</pre>
+                <p><em>Create and return a client.</em></p>
+                <p>$vertx [Vertx] the vertx instance</p>
+<p>$config [RabbitMQOptions | mixed] the client config</p>
+<p><b>
+create($vertx,$config)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>Vertx</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>RabbitMQOptions | mixed</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\rabbitmq\RabbitMQClient
+                                            &mdash; <p>the client</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQClient.html"><div class="path-wrapper">\io\vertx\jphp\rabbitmq\RabbitMQClient</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_basicAck" name="method_basicAck" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">basicAck()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">basicAck( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>) : </pre>
+                <p><em>Acknowledge one or several received messages. Supply the deliveryTag from the AMQP.Basic.GetOk or AMQP.Basic.Deliver
+ method containing the received message being acknowledged.</em></p>
+                <p>$deliveryTag [integer]</p>
+<p>$multiple [bool]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+basicAck($deliveryTag,$multiple,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>integer</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>bool</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQClient.html"><div class="path-wrapper">\io\vertx\jphp\rabbitmq\RabbitMQClient</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_basicNack" name="method_basicNack" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">basicNack()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">basicNack( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>,  <span class="argument">arg3</span>) : </pre>
+                <p><em>Reject one or several received messages.</em></p>
+                <p>$deliveryTag [integer]</p>
+<p>$multiple [bool]</p>
+<p>$requeue [bool]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+basicNack($deliveryTag,$multiple,$requeue,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>integer</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>bool</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>bool</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg3 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQClient.html"><div class="path-wrapper">\io\vertx\jphp\rabbitmq\RabbitMQClient</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_basicGet" name="method_basicGet" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">basicGet()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">basicGet( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>) : </pre>
+                <p><em>Retrieve a message from a queue using AMQP.Basic.Get</em></p>
+                <p>$queue [string]</p>
+<p>$autoAck [bool]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+basicGet($queue,$autoAck,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>bool</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQClient.html"><div class="path-wrapper">\io\vertx\jphp\rabbitmq\RabbitMQClient</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_basicConsume" name="method_basicConsume" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">basicConsume()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">basicConsume( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>,  <span class="argument">arg3 = null</span>,  <span class="argument">arg4 = null</span>) : </pre>
+                <p><em>Use {@link RabbitMQClient#basicConsumer(String, QueueOptions, Handler)} instead
+ &lt;p&gt;
+ Start a non-nolocal, non-exclusive consumer, with auto acknowledgement and a server-generated consumerTag.</em></p>
+                <p>$queue [string]</p>
+<p>$address [string]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+basicConsume($queue,$address,$resultHandler)
+</b></p>
+<p>Use RabbitMQClient#basicConsumer(String, instead</p>
+<p>
+ Start a non-nolocal, non-exclusive consumer, with a server-generated consumerTag.
+
+$queue [string]
+
+$address [string]
+
+$autoAck [bool]
+
+$resultHandler [callable]
+
+<b>
+basicConsume($queue,$address,$autoAck,$resultHandler)
+</b>
+
+Use RabbitMQClient#basicConsumer(String, instead
+ <p>
+ Start a non-nolocal, non-exclusive consumer, with a server-generated consumerTag and error handler
+
+$queue [string]
+
+$address [string]
+
+$autoAck [bool]
+
+$resultHandler [callable]
+
+$errorHandler [callable]
+
+<b>
+basicConsume($queue,$address,$autoAck,$resultHandler,$errorHandler)
+</b>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>callable | bool</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg3 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg4 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQClient.html"><div class="path-wrapper">\io\vertx\jphp\rabbitmq\RabbitMQClient</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_basicConsumer" name="method_basicConsumer" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">basicConsumer()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">basicConsumer( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2 = null</span>) : </pre>
+                <p><em>$queue [string]</em></p>
+                <p>$resultHandler [callable]</p>
+<p><b>
+basicConsumer($queue,$resultHandler)
+</b></p>
+<p>Create a consumer with the given {@code options}.</p>
+<p>$queue [string] the name of a queue</p>
+<p>$options [QueueOptions | mixed] options for queue</p>
+<p>$resultHandler [callable] a handler through which you can find out the operation status; if the operation succeeds you can begin to receive messages through an instance of RabbitMQConsumer</p>
+<p><b>
+basicConsumer($queue,$options,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>callable | mixed | QueueOptions</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQClient.html"><div class="path-wrapper">\io\vertx\jphp\rabbitmq\RabbitMQClient</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_basicPublish" name="method_basicPublish" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">basicPublish()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">basicPublish( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>,  <span class="argument">arg3</span>) : </pre>
+                <p><em>Publish a message. Publishing to a non-existent exchange will result in a channel-level protocol exception,
+ which closes the channel. Invocations of Channel#basicPublish will eventually block if a resource-driven alarm is in effect.</em></p>
+                <p>$exchange [string]</p>
+<p>$routingKey [string]</p>
+<p>$message [mixed]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+basicPublish($exchange,$routingKey,$message,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg3 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQClient.html"><div class="path-wrapper">\io\vertx\jphp\rabbitmq\RabbitMQClient</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_confirmSelect" name="method_confirmSelect" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">confirmSelect()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">confirmSelect( <span class="argument">arg0</span>) : </pre>
+                <p><em>Enables publisher acknowledgements on this channel. Can be called once during client initialisation. Calls to basicPublish()
+ will have to be confirmed.</em></p>
+                <p>$resultHandler [callable]</p>
+<p><b>
+confirmSelect($resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQClient.html"><div class="path-wrapper">\io\vertx\jphp\rabbitmq\RabbitMQClient</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_waitForConfirms" name="method_waitForConfirms" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">waitForConfirms()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">waitForConfirms( <span class="argument">arg0</span>,  <span class="argument">arg1 = null</span>) : </pre>
+                <p><em>Wait until all messages published since the last call have been either ack&#039;d or nack&#039;d by the broker.</em></p>
+                <p>This will incur slight performance loss at the expense of higher write consistency.
+If desired, multiple calls to basicPublish() can be batched before confirming.</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+waitForConfirms($resultHandler)
+</b></p>
+<p>Wait until all messages published since the last call have been either ack'd or nack'd by the broker; or until timeout elapses. If the timeout expires a TimeoutException is thrown.</p>
+<p>$timeout [integer]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+waitForConfirms($timeout,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>callable | integer</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQClient.html"><div class="path-wrapper">\io\vertx\jphp\rabbitmq\RabbitMQClient</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_basicQos" name="method_basicQos" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">basicQos()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">basicQos( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2 = null</span>,  <span class="argument">arg3 = null</span>) : </pre>
+                <p><em>Request a specific prefetchCount &quot;quality of service&quot; settings
+ for this channel.</em></p>
+                <p>$prefetchCount [integer] maximum number of messages that the server will deliver, 0 if unlimited</p>
+<p>$resultHandler [callable] handler called when operation is done with a result of the operation</p>
+<p><b>
+basicQos($prefetchCount,$resultHandler)
+</b></p>
+<p>Request a specific prefetchCount &quot;quality of service&quot; settings
+for this channel.</p>
+<p>$prefetchCount [integer] maximum number of messages that the server will deliver, 0 if unlimited</p>
+<p>$global [bool] true if the settings should be applied to the entire channel rather than each consumer</p>
+<p>$resultHandler [callable] handler called when operation is done with a result of the operation</p>
+<p><b>
+basicQos($prefetchCount,$global,$resultHandler)
+</b></p>
+<p>Request specific &quot;quality of service&quot; settings.</p>
+<p>These settings impose limits on the amount of data the server
+will deliver to consumers before requiring acknowledgements.
+Thus they provide a means of consumer-initiated flow control.</p>
+<p>$prefetchSize [integer] maximum amount of content (measured in octets) that the server will deliver, 0 if unlimited</p>
+<p>$prefetchCount [integer] maximum number of messages that the server will deliver, 0 if unlimited</p>
+<p>$global [bool] true if the settings should be applied to the entire channel rather than each consumer</p>
+<p>$resultHandler [callable] handler called when operation is done with a result of the operation</p>
+<p><b>
+basicQos($prefetchSize,$prefetchCount,$global,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>integer</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>callable | bool | integer</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>callable | bool</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg3 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQClient.html"><div class="path-wrapper">\io\vertx\jphp\rabbitmq\RabbitMQClient</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_exchangeDeclare" name="method_exchangeDeclare" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">exchangeDeclare()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">exchangeDeclare( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>,  <span class="argument">arg3</span>,  <span class="argument">arg4</span>,  <span class="argument">arg5 = null</span>) : </pre>
+                <p><em>Declare an exchange.</em></p>
+                <p>$exchange [string]</p>
+<p>$type [string]</p>
+<p>$durable [bool]</p>
+<p>$autoDelete [bool]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+exchangeDeclare($exchange,$type,$durable,$autoDelete,$resultHandler)
+</b></p>
+<p>Declare an exchange with additional parameters such as dead lettering, an alternate exchange or TTL.</p>
+<p>$exchange [string]</p>
+<p>$type [string]</p>
+<p>$durable [bool]</p>
+<p>$autoDelete [bool]</p>
+<p>$config [mixed]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+exchangeDeclare($exchange,$type,$durable,$autoDelete,$config,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>bool</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg3 </td>
+                                <td><p>bool</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg4 </td>
+                                <td><p>callable | mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg5 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQClient.html"><div class="path-wrapper">\io\vertx\jphp\rabbitmq\RabbitMQClient</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_exchangeDelete" name="method_exchangeDelete" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">exchangeDelete()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">exchangeDelete( <span class="argument">arg0</span>,  <span class="argument">arg1</span>) : </pre>
+                <p><em>Delete an exchange, without regard for whether it is in use or not.</em></p>
+                <p>$exchange [string]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+exchangeDelete($exchange,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQClient.html"><div class="path-wrapper">\io\vertx\jphp\rabbitmq\RabbitMQClient</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_exchangeBind" name="method_exchangeBind" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">exchangeBind()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">exchangeBind( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>,  <span class="argument">arg3</span>) : </pre>
+                <p><em>Bind an exchange to an exchange.</em></p>
+                <p>$destination [string]</p>
+<p>$source [string]</p>
+<p>$routingKey [string]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+exchangeBind($destination,$source,$routingKey,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg3 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQClient.html"><div class="path-wrapper">\io\vertx\jphp\rabbitmq\RabbitMQClient</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_exchangeUnbind" name="method_exchangeUnbind" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">exchangeUnbind()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">exchangeUnbind( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>,  <span class="argument">arg3</span>) : </pre>
+                <p><em>Unbind an exchange from an exchange.</em></p>
+                <p>$destination [string]</p>
+<p>$source [string]</p>
+<p>$routingKey [string]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+exchangeUnbind($destination,$source,$routingKey,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg3 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQClient.html"><div class="path-wrapper">\io\vertx\jphp\rabbitmq\RabbitMQClient</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_queueDeclareAuto" name="method_queueDeclareAuto" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">queueDeclareAuto()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">queueDeclareAuto( <span class="argument">arg0</span>) : </pre>
+                <p><em>Actively declare a server-named exclusive, autodelete, non-durable queue.</em></p>
+                <p>$resultHandler [callable]</p>
+<p><b>
+queueDeclareAuto($resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQClient.html"><div class="path-wrapper">\io\vertx\jphp\rabbitmq\RabbitMQClient</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_queueDeclare" name="method_queueDeclare" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">queueDeclare()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">queueDeclare( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>,  <span class="argument">arg3</span>,  <span class="argument">arg4</span>,  <span class="argument">arg5 = null</span>) : </pre>
+                <p><em>Declare a queue</em></p>
+                <p>$queue [string]</p>
+<p>$durable [bool]</p>
+<p>$exclusive [bool]</p>
+<p>$autoDelete [bool]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+queueDeclare($queue,$durable,$exclusive,$autoDelete,$resultHandler)
+</b></p>
+<p>Declare a queue with config options</p>
+<p>$queue [string]</p>
+<p>$durable [bool]</p>
+<p>$exclusive [bool]</p>
+<p>$autoDelete [bool]</p>
+<p>$config [mixed]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+queueDeclare($queue,$durable,$exclusive,$autoDelete,$config,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>bool</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>bool</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg3 </td>
+                                <td><p>bool</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg4 </td>
+                                <td><p>callable | mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg5 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQClient.html"><div class="path-wrapper">\io\vertx\jphp\rabbitmq\RabbitMQClient</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_queueDelete" name="method_queueDelete" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">queueDelete()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">queueDelete( <span class="argument">arg0</span>,  <span class="argument">arg1</span>) : </pre>
+                <p><em>Delete a queue, without regard for whether it is in use or has messages on it</em></p>
+                <p>$queue [string]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+queueDelete($queue,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQClient.html"><div class="path-wrapper">\io\vertx\jphp\rabbitmq\RabbitMQClient</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_queueDeleteIf" name="method_queueDeleteIf" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">queueDeleteIf()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">queueDeleteIf( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>,  <span class="argument">arg3</span>) : </pre>
+                <p><em>Delete a queue</em></p>
+                <p>$queue [string]</p>
+<p>$ifUnused [bool]</p>
+<p>$ifEmpty [bool]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+queueDeleteIf($queue,$ifUnused,$ifEmpty,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>bool</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>bool</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg3 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQClient.html"><div class="path-wrapper">\io\vertx\jphp\rabbitmq\RabbitMQClient</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_queueBind" name="method_queueBind" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">queueBind()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">queueBind( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2</span>,  <span class="argument">arg3</span>) : </pre>
+                <p><em>Bind a queue to an exchange</em></p>
+                <p>$queue [string]</p>
+<p>$exchange [string]</p>
+<p>$routingKey [string]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+queueBind($queue,$exchange,$routingKey,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg3 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQClient.html"><div class="path-wrapper">\io\vertx\jphp\rabbitmq\RabbitMQClient</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_messageCount" name="method_messageCount" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">messageCount()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">messageCount( <span class="argument">arg0</span>,  <span class="argument">arg1</span>) : </pre>
+                <p><em>Returns the number of messages in a queue ready to be delivered.</em></p>
+                <p>$queue [string]</p>
+<p>$resultHandler [callable]</p>
+<p><b>
+messageCount($queue,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQClient.html"><div class="path-wrapper">\io\vertx\jphp\rabbitmq\RabbitMQClient</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_start" name="method_start" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">start()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">start( <span class="argument">arg0</span>) : </pre>
+                <p><em>Start the rabbitMQ client. Create the connection and the chanel.</em></p>
+                <p>$resultHandler [callable]</p>
+<p><b>
+start($resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQClient.html"><div class="path-wrapper">\io\vertx\jphp\rabbitmq\RabbitMQClient</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_stop" name="method_stop" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">stop()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">stop( <span class="argument">arg0</span>) : </pre>
+                <p><em>Stop the rabbitMQ client. Close the connection and its chanel.</em></p>
+                <p>$resultHandler [callable]</p>
+<p><b>
+stop($resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQClient.html"><div class="path-wrapper">\io\vertx\jphp\rabbitmq\RabbitMQClient</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_isConnected" name="method_isConnected" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">isConnected()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">isConnected() : </pre>
+                <p><em>Check if a connection is open</em></p>
+                <p><b>
+isConnected()
+</b></p>
+
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; <p>true when the connection is open, false otherwise</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQClient.html"><div class="path-wrapper">\io\vertx\jphp\rabbitmq\RabbitMQClient</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_isOpenChannel" name="method_isOpenChannel" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">isOpenChannel()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">isOpenChannel() : </pre>
+                <p><em>Check if a channel is open</em></p>
+                <p><b>
+isOpenChannel()
+</b></p>
+
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; <p>true when the connection is open, false otherwise</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQClient.html"><div class="path-wrapper">\io\vertx\jphp\rabbitmq\RabbitMQClient</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___construct" name="method___construct" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">__construct()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__construct() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.rabbitmq.RabbitMQClient.html"><div class="path-wrapper">\io\vertx\jphp\rabbitmq\RabbitMQClient</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">RabbitMQClient.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/io/vertx/jphp/rabbitmq/RabbitMQClient.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/io.html">\io</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on April 20th, 2018 at 09:43.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src').replace( /\\/g, '/');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/io.html">\io</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-688564737"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-688564737" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-697347416"></a>
+                                <a href="../namespaces/io.html" style="margin-left: 30px; padding-left: 0">io</a>
+            </div>
+            <div id="namespace-697347416" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-987365810"></a>
+                                <a href="../namespaces/io.vertx.html" style="margin-left: 30px; padding-left: 0">vertx</a>
+            </div>
+            <div id="namespace-987365810" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1866246403"></a>
+                                <a href="../namespaces/io.vertx.jphp.html" style="margin-left: 30px; padding-left: 0">jphp</a>
+            </div>
+            <div id="namespace-1866246403" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-771333999"></a>
+                                <a href="../namespaces/io.vertx.jphp.servicediscovery.html" style="margin-left: 30px; padding-left: 0">servicediscovery</a>
+            </div>
+            <div id="namespace-771333999" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1329117711"></a>
+                                <a href="../namespaces/io.vertx.jphp.servicediscovery.spi.html" style="margin-left: 30px; padding-left: 0">spi</a>
+            </div>
+            <div id="namespace-1329117711" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.servicediscovery.spi.ServiceExporter.html">ServiceExporter</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.servicediscovery.spi.ServiceImporter.html">ServiceImporter</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.servicediscovery.spi.ServicePublisher.html">ServicePublisher</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-766929909"></a>
+                                <a href="../namespaces/io.vertx.jphp.servicediscovery.types.html" style="margin-left: 30px; padding-left: 0">types</a>
+            </div>
+            <div id="namespace-766929909" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.servicediscovery.types.EventBusService.html">EventBusService</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.servicediscovery.types.HttpEndpoint.html">HttpEndpoint</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.servicediscovery.types.HttpLocation.html">HttpLocation</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.servicediscovery.types.JDBCDataSource.html">JDBCDataSource</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.servicediscovery.types.MessageSource.html">MessageSource</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.servicediscovery.types.MongoDataSource.html">MongoDataSource</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.servicediscovery.types.RedisDataSource.html">RedisDataSource</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/io.vertx.jphp.servicediscovery.Record.html">Record</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.servicediscovery.ServiceDiscovery.html">ServiceDiscovery</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.servicediscovery.ServiceDiscoveryOptions.html">ServiceDiscoveryOptions</a></li>
+                                                    <li class="class"><a href="../classes/io.vertx.jphp.servicediscovery.ServiceReference.html">ServiceReference</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/io.vertx.jphp.servicediscovery.html">\io\vertx\jphp\servicediscovery</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\io\vertx\jphp\servicediscovery</small>ServiceDiscovery</h1>
+                    <p><em>Service Discovery main entry point.</em></p>
+                    <p>
+The service discovery is an infrastructure that let you publish and find `services`. A `service` is a discoverable
+functionality. It can be qualified by its type, metadata, and location. So a `service` can be a database, a
+service proxy, a HTTP endpoint. It does not have to be a vert.x entity, but can be anything. Each service is
+                    
+                                        
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/io.vertx.jphp.servicediscovery.ServiceDiscovery.html#method_create" class="">create()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.servicediscovery.ServiceDiscovery.html#method_getReference" class="">getReference()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.servicediscovery.ServiceDiscovery.html#method_getReferenceWithConfiguration" class="">getReferenceWithConfiguration()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.servicediscovery.ServiceDiscovery.html#method_release" class="">release()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.servicediscovery.ServiceDiscovery.html#method_registerServiceImporter" class="">registerServiceImporter()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.servicediscovery.ServiceDiscovery.html#method_registerServiceExporter" class="">registerServiceExporter()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.servicediscovery.ServiceDiscovery.html#method_close" class="">close()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.servicediscovery.ServiceDiscovery.html#method_publish" class="">publish()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.servicediscovery.ServiceDiscovery.html#method_unpublish" class="">unpublish()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.servicediscovery.ServiceDiscovery.html#method_getRecord" class="">getRecord()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.servicediscovery.ServiceDiscovery.html#method_getRecords" class="">getRecords()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.servicediscovery.ServiceDiscovery.html#method_update" class="">update()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.servicediscovery.ServiceDiscovery.html#method_bindings" class="">bindings()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.servicediscovery.ServiceDiscovery.html#method_options" class="">options()</a><br />
+                                                                    <a href="../classes/io.vertx.jphp.servicediscovery.ServiceDiscovery.html#method_releaseServiceObject" class="">releaseServiceObject()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No public properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No constants found</em>
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <em>No protected methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No protected properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <a href="../classes/io.vertx.jphp.servicediscovery.ServiceDiscovery.html#method___construct" class="">__construct()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No private properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/io.vertx.jphp.servicediscovery.ServiceDiscovery.html"><div class="path-wrapper">io/vertx/jphp/servicediscovery/ServiceDiscovery.php</div></a></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                    <div class="namespace-wrapper">\io\vertx\jphp\servicediscovery\ServiceDiscovery</div>
+                            </dd>
+
+                        
+                        
+                        
+                                                
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr><td colspan="2"><em>None found</em></td></tr>
+                                        </table>
+                </aside>
+            </div>
+
+                        
+                        
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_create" name="method_create" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">create()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">create( <span class="argument">arg0</span>,  <span class="argument">arg1 = null</span>,  <span class="argument">arg2 = null</span>) : \io\vertx\jphp\servicediscovery\ServiceDiscovery</pre>
+                <p><em>Creates a new instance of {@link ServiceDiscovery} using the default configuration.</em></p>
+                <p>$vertx [Vertx] the vert.x instance</p>
+<p><b>
+create($vertx)
+</b></p>
+<p>Creates an instance of ServiceDiscovery.</p>
+<p>$vertx [Vertx] the vert.x instance</p>
+<p>$options [ServiceDiscoveryOptions | mixed] the discovery options</p>
+<p><b>
+create($vertx,$options)
+</b></p>
+<p>Creates a new instance of ServiceDiscovery using the default configuration.</p>
+<p>$vertx [Vertx] the vert.x instance</p>
+<p>$completionHandler [callable] completion handler called when the service discovery has been initialized. This includes the initialization of the service importer registered from the SPI.</p>
+<p><b>
+create($vertx,$completionHandler)
+</b></p>
+<p>Creates an instance of ServiceDiscovery.</p>
+<p>$vertx [Vertx] the vert.x instance</p>
+<p>$options [ServiceDiscoveryOptions | mixed] the discovery options</p>
+<p>$completionHandler [callable] completion handler called when the service discovery has been initialized. This includes the initialization of the service importer registered from the SPI.</p>
+<p><b>
+create($vertx,$options,$completionHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>Vertx</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>callable | ServiceDiscoveryOptions | mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\servicediscovery\ServiceDiscovery
+                                            &mdash; <p>the created instance</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.servicediscovery.ServiceDiscovery.html"><div class="path-wrapper">\io\vertx\jphp\servicediscovery\ServiceDiscovery</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getReference" name="method_getReference" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getReference()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getReference( <span class="argument">arg0</span>) : \io\vertx\jphp\servicediscovery\ServiceReference</pre>
+                <p><em>Gets a service reference from the given record.</em></p>
+                <p>$record [Record | mixed] the chosen record</p>
+<p><b>
+getReference($record)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>Record | mixed</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\servicediscovery\ServiceReference
+                                            &mdash; <p>the service reference, that allows retrieving the service object. Once called the service reference is cached, and need to be released.</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.servicediscovery.ServiceDiscovery.html"><div class="path-wrapper">\io\vertx\jphp\servicediscovery\ServiceDiscovery</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getReferenceWithConfiguration" name="method_getReferenceWithConfiguration" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getReferenceWithConfiguration()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getReferenceWithConfiguration( <span class="argument">arg0</span>,  <span class="argument">arg1</span>) : \io\vertx\jphp\servicediscovery\ServiceReference</pre>
+                <p><em>Gets a service reference from the given record, the reference is configured with the given json object.</em></p>
+                <p>$record [Record | mixed] the chosen record</p>
+<p>$configuration [mixed] the configuration</p>
+<p><b>
+getReferenceWithConfiguration($record,$configuration)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>Record | mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>mixed</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\servicediscovery\ServiceReference
+                                            &mdash; <p>the service reference, that allows retrieving the service object. Once called the service reference is cached, and need to be released.</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.servicediscovery.ServiceDiscovery.html"><div class="path-wrapper">\io\vertx\jphp\servicediscovery\ServiceDiscovery</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_release" name="method_release" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">release()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">release( <span class="argument">arg0</span>) : </pre>
+                <p><em>Releases the service reference.</em></p>
+                <p>$reference [ServiceReference] the reference to release, must not be {@code null}</p>
+<p><b>
+release($reference)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>ServiceReference</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; <p>whether or not the reference has been released.</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.servicediscovery.ServiceDiscovery.html"><div class="path-wrapper">\io\vertx\jphp\servicediscovery\ServiceDiscovery</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_registerServiceImporter" name="method_registerServiceImporter" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">registerServiceImporter()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">registerServiceImporter( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2 = null</span>) : \io\vertx\jphp\servicediscovery\ServiceDiscovery</pre>
+                <p><em>Registers a discovery service importer. Importers let you integrate other discovery technologies in this service
+ discovery.</em></p>
+                <p>$importer [ServiceImporter] the service importer</p>
+<p>$configuration [mixed] the optional configuration</p>
+<p><b>
+registerServiceImporter($importer,$configuration)
+</b></p>
+<p>Registers a discovery service importer. Importers let you integrate other discovery technologies in this service
+discovery.</p>
+<p>$importer [ServiceImporter] the service importer</p>
+<p>$configuration [mixed] the optional configuration</p>
+<p>$completionHandler [callable] handler call when the importer has finished its initialization and initial imports</p>
+<p><b>
+registerServiceImporter($importer,$configuration,$completionHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>ServiceImporter</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\servicediscovery\ServiceDiscovery
+                                            &mdash; <p>the current {@link ServiceDiscovery}</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.servicediscovery.ServiceDiscovery.html"><div class="path-wrapper">\io\vertx\jphp\servicediscovery\ServiceDiscovery</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_registerServiceExporter" name="method_registerServiceExporter" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">registerServiceExporter()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">registerServiceExporter( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2 = null</span>) : \io\vertx\jphp\servicediscovery\ServiceDiscovery</pre>
+                <p><em>Registers a discovery bridge. Exporters let you integrate other discovery technologies in this service
+ discovery.</em></p>
+                <p>$exporter [ServiceExporter] the service exporter</p>
+<p>$configuration [mixed] the optional configuration</p>
+<p><b>
+registerServiceExporter($exporter,$configuration)
+</b></p>
+<p>Registers a discovery bridge. Exporters let you integrate other discovery technologies in this service
+discovery.</p>
+<p>$exporter [ServiceExporter] the service exporter</p>
+<p>$configuration [mixed] the optional configuration</p>
+<p>$completionHandler [callable] handler notified when the exporter has been correctly initialized.</p>
+<p><b>
+registerServiceExporter($exporter,$configuration,$completionHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>ServiceExporter</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\servicediscovery\ServiceDiscovery
+                                            &mdash; <p>the current {@link ServiceDiscovery}</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.servicediscovery.ServiceDiscovery.html"><div class="path-wrapper">\io\vertx\jphp\servicediscovery\ServiceDiscovery</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_close" name="method_close" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">close()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">close() : </pre>
+                <p><em>Closes the service discovery</em></p>
+                <p><b>
+close()
+</b></p>
+
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.servicediscovery.ServiceDiscovery.html"><div class="path-wrapper">\io\vertx\jphp\servicediscovery\ServiceDiscovery</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_publish" name="method_publish" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">publish()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">publish( <span class="argument">arg0</span>,  <span class="argument">arg1</span>) : </pre>
+                <p><em>Publishes a record.</em></p>
+                <p>$record [Record | mixed] the record</p>
+<p>$resultHandler [callable] handler called when the operation has completed (successfully or not). In case of success, the passed record has a registration id required to modify and un-register the service.</p>
+<p><b>
+publish($record,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>Record | mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.servicediscovery.ServiceDiscovery.html"><div class="path-wrapper">\io\vertx\jphp\servicediscovery\ServiceDiscovery</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_unpublish" name="method_unpublish" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">unpublish()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">unpublish( <span class="argument">arg0</span>,  <span class="argument">arg1</span>) : </pre>
+                <p><em>Un-publishes a record.</em></p>
+                <p>$id [string] the registration id</p>
+<p>$resultHandler [callable] handler called when the operation has completed (successfully or not).</p>
+<p><b>
+unpublish($id,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.servicediscovery.ServiceDiscovery.html"><div class="path-wrapper">\io\vertx\jphp\servicediscovery\ServiceDiscovery</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getRecord" name="method_getRecord" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getRecord()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getRecord( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2 = null</span>) : </pre>
+                <p><em>Lookups for a single record.</em></p>
+                <p>
+ Filters are expressed using a Json object. Each entry of the given filter will be checked against the record.
+ All entry must match exactly the record. The entry can use the special "*" value to denotes a requirement on the
+ key, but not on the value.
+ <p>
+ Let's take some example:
+ <pre>
+   { "name" = "a" } => matches records with name set fo "a"
+   { "color" = "*" } => matches records with "color" set
+   { "color" = "red" } => only matches records with "color" set to "red"
+   { "color" = "red", "name" = "a"} => only matches records with name set to "a", and color set to "red"
+ </pre>
+ <p>
+ If the filter is not set ({@code null} or empty), it accepts all records.
+ <p>
+ This method returns the first matching record.
+
+$filter [mixed] the filter.
+
+$resultHandler [callable] handler called when the lookup has been completed. When there are no matching record, the operation succeeds, but the async result has no result ({@code null}).
+
+<b>
+getRecord($filter,$resultHandler)
+</b>
+
+Lookups for a single record.
+ <p>
+ The filter is a Function taking a Record as argument and returning a boolean. You should see it
+ as an {@code accept} method of a filter. This method return a record passing the filter.
+ <p>
+ This method only looks for records with a {@code UP} status.
+
+$filter [callable] the filter, must not be {@code null}. To return all records, use a function accepting all records
+
+$resultHandler [callable] the result handler called when the lookup has been completed. When there are no matching record, the operation succeed, but the async result has no result.
+
+<b>
+getRecord($filter,$resultHandler)
+</b>
+
+Lookups for a single record.
+ <p>
+ The filter is a Function taking a Record as argument and returning a boolean. You should see it
+ as an {@code accept} method of a filter. This method return a record passing the filter.
+ <p>
+ Unlike #getRecord(Function,, this method may accept records with a {@code OUT OF SERVICE}
+ status, if the {@code includeOutOfService} parameter is set to {@code true}.
+
+$filter [callable] the filter, must not be {@code null}. To return all records, use a function accepting all records
+
+$includeOutOfService [bool] whether or not the filter accepts {@code OUT OF SERVICE} records
+
+$resultHandler [callable] the result handler called when the lookup has been completed. When there are no matching record, the operation succeed, but the async result has no result.
+
+<b>
+getRecord($filter,$includeOutOfService,$resultHandler)
+</b>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>callable | mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>callable | bool</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.servicediscovery.ServiceDiscovery.html"><div class="path-wrapper">\io\vertx\jphp\servicediscovery\ServiceDiscovery</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getRecords" name="method_getRecords" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getRecords()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getRecords( <span class="argument">arg0</span>,  <span class="argument">arg1</span>,  <span class="argument">arg2 = null</span>) : </pre>
+                <p><em>Lookups for a set of records. Unlike {@link #getRecord(JsonObject, Handler)}, this method returns all matching
+ records.</em></p>
+                <p>$filter [mixed] the filter - see #getRecord(JsonObject,</p>
+<p>$resultHandler [callable] handler called when the lookup has been completed. When there are no matching record, the operation succeed, but the async result has an empty list as result.</p>
+<p><b>
+getRecords($filter,$resultHandler)
+</b></p>
+<p>Lookups for a set of records. Unlike #getRecord(Function,, this method returns all matching
+records.</p>
+<p>
+ The filter is a Function taking a Record as argument and returning a boolean. You should see it
+ as an {@code accept} method of a filter. This method return a record passing the filter.
+ <p>
+ This method only looks for records with a {@code UP} status.
+
+$filter [callable] the filter, must not be {@code null}. To return all records, use a function accepting all records
+
+$resultHandler [callable] handler called when the lookup has been completed. When there are no matching record, the operation succeed, but the async result has an empty list as result.
+
+<b>
+getRecords($filter,$resultHandler)
+</b>
+
+Lookups for a set of records. Unlike #getRecord(Function,, this method returns all matching
+ records.
+ <p>
+ The filter is a Function taking a Record as argument and returning a boolean. You should see it
+ as an {@code accept} method of a filter. This method return a record passing the filter.
+ <p>
+ Unlike #getRecords(Function,, this method may accept records with a {@code OUT OF SERVICE}
+ status, if the {@code includeOutOfService} parameter is set to {@code true}.
+
+$filter [callable] the filter, must not be {@code null}. To return all records, use a function accepting all records
+
+$includeOutOfService [bool] whether or not the filter accepts {@code OUT OF SERVICE} records
+
+$resultHandler [callable] handler called when the lookup has been completed. When there are no matching record, the operation succeed, but the async result has an empty list as result.
+
+<b>
+getRecords($filter,$includeOutOfService,$resultHandler)
+</b>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>callable | mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>callable | bool</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg2 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.servicediscovery.ServiceDiscovery.html"><div class="path-wrapper">\io\vertx\jphp\servicediscovery\ServiceDiscovery</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_update" name="method_update" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">update()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">update( <span class="argument">arg0</span>,  <span class="argument">arg1</span>) : </pre>
+                <p><em>Updates the given record. The record must has been published, and has it&#039;s registration id set.</em></p>
+                <p>$record [Record | mixed] the updated record</p>
+<p>$resultHandler [callable] handler called when the lookup has been completed.</p>
+<p><b>
+update($record,$resultHandler)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>Record | mixed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>callable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.servicediscovery.ServiceDiscovery.html"><div class="path-wrapper">\io\vertx\jphp\servicediscovery\ServiceDiscovery</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_bindings" name="method_bindings" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">bindings()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">bindings() : mixed|string|int</pre>
+                <p><em>&lt;b&gt;
+bindings()
+&lt;/b&gt;</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    mixed|string|int
+                                            &mdash; <p>the set of service references retrieved by this service discovery.</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.servicediscovery.ServiceDiscovery.html"><div class="path-wrapper">\io\vertx\jphp\servicediscovery\ServiceDiscovery</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_options" name="method_options" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">options()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">options() : \io\vertx\jphp\servicediscovery\ServiceDiscoveryOptions</pre>
+                <p><em>&lt;b&gt;
+options()
+&lt;/b&gt;</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    \io\vertx\jphp\servicediscovery\ServiceDiscoveryOptions
+                                            &mdash; <p>| mixed the discovery options. Modifying the returned object would not update the discovery service configuration. This object should be considered as read-only.</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.servicediscovery.ServiceDiscovery.html"><div class="path-wrapper">\io\vertx\jphp\servicediscovery\ServiceDiscovery</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_releaseServiceObject" name="method_releaseServiceObject" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">releaseServiceObject()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">releaseServiceObject( <span class="argument">arg0</span>,  <span class="argument">arg1</span>) : </pre>
+                <p><em>Release the service object retrieved using {@code get} methods from the service type interface.</em></p>
+                <p>It searches for the reference associated with the given object and release it.</p>
+<p>$discovery [ServiceDiscovery] the service discovery</p>
+<p>$svcObject [Object] the service object</p>
+<p><b>
+releaseServiceObject($discovery,$svcObject)
+</b></p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>arg0 </td>
+                                <td><p>ServiceDiscovery</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>arg1 </td>
+                                <td><p>Object</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                            &mdash; 
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.servicediscovery.ServiceDiscovery.html"><div class="path-wrapper">\io\vertx\jphp\servicediscovery\ServiceDiscovery</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___construct" name="method___construct" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">__construct()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__construct() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/io.vertx.jphp.servicediscovery.ServiceDiscovery.html"><div class="path-wrapper">\io\vertx\jphp\servicediscovery\ServiceDiscovery</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">ServiceDiscovery.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/io/vertx/jphp/servicediscovery/ServiceDiscovery.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/io.html">\io</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on April 20th, 2018 at 09:43.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>
